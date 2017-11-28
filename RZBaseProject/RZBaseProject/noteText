@@ -1,0 +1,54 @@
+
+// method
+- (<#type#>)<#name#> {
+<#code#>
+}
+
+// pa ps pc
+@property (nonatomic, assign) <#type#> <#name#>;    /**< <#note#> */
+@property (nonatomic, strong) <#type#> *<#name#>;    /**< <#note#> */
+@property (nonatomic, copy) <#type#> *<#name#>;    /**< <#note#> */
+
+// tableview创建
+
+static NSString *const reuseCell_ID = @"cell";
+- (void)setupUI {
+
+[self.TableView registerClass:[UITableViewCell class] forCellReuseIdentifier:reuseCell_ID];
+
+}
+
+#pragma mark - TableView的协议方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseCell_ID];
+if (!cell) {
+cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseCell_ID];
+}
+cell.textLabel.text = self.arrayTitle[indexPath.row];
+
+return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+}
+
+
+#pragma mark - 懒加载
+- (UITableView *)TableView {
+if (!_TableView) {
+//CGRect rect = CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
+_TableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+
+_TableView.delegate = self;
+_TableView.dataSource = self;
+
+[self.view addSubview:self.TableView];
+}
+return _TableView;
+}

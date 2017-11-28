@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="J40-th-MGC" customClass="FoldSectionView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="line" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTb-RB-6cI">
+                    <rect key="frame" x="18" y="10" width="27" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jiantou-down" translatesAutoresizingMaskIntoConstraints="NO" id="tQz-kp-zgR">
+                    <rect key="frame" x="286" y="12" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="TlF-a8-VfV"/>
+                        <constraint firstAttribute="width" constant="16" id="x7U-cI-EeF"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E4-ke-oXi">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+                    <connections>
+                        <action selector="sectionSelectAction:" destination="J40-th-MGC" eventType="touchUpInside" id="dkV-6i-Qtt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="0E4-ke-oXi" secondAttribute="bottom" id="35H-Rv-d0L"/>
+                <constraint firstAttribute="trailing" secondItem="0E4-ke-oXi" secondAttribute="trailing" id="KIY-vv-fht"/>
+                <constraint firstItem="WTb-RB-6cI" firstAttribute="centerY" secondItem="J40-th-MGC" secondAttribute="centerY" id="M4W-aM-vR4"/>
+                <constraint firstItem="0E4-ke-oXi" firstAttribute="top" secondItem="J40-th-MGC" secondAttribute="top" id="RQt-sG-t2f"/>
+                <constraint firstItem="WTb-RB-6cI" firstAttribute="leading" secondItem="J40-th-MGC" secondAttribute="leading" constant="18" id="W4e-mh-1cT"/>
+                <constraint firstItem="0E4-ke-oXi" firstAttribute="leading" secondItem="J40-th-MGC" secondAttribute="leading" id="Z9d-GO-ep7"/>
+                <constraint firstAttribute="trailing" secondItem="tQz-kp-zgR" secondAttribute="trailing" constant="18" id="btZ-OJ-lfw"/>
+                <constraint firstItem="tQz-kp-zgR" firstAttribute="centerY" secondItem="J40-th-MGC" secondAttribute="centerY" id="hzh-qI-TgT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sectionIcon" destination="tQz-kp-zgR" id="ShC-Jq-0aN"/>
+                <outlet property="sectionSelectBtn" destination="0E4-ke-oXi" id="kqR-p5-dG1"/>
+                <outlet property="sectionTitle" destination="WTb-RB-6cI" id="Ghv-Gg-Rvd"/>
+            </connections>
+            <point key="canvasLocation" x="-185" y="227"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="jiantou-down" width="16" height="16"/>
+    </resources>
+</document>
