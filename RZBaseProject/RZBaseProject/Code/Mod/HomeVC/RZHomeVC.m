@@ -18,6 +18,9 @@
 #import "RZAlertController.h"
 #import "UIView+RZAlert.h"
 
+#import "NSString+Size.h"
+#import "NSDate+Extension.h"
+
 @interface RZHomeVC ()<UITableViewDelegate, UITableViewDataSource, RZAlertViewDelegate>
 
 
@@ -106,6 +109,17 @@ static NSString *const reCellID = @"HomeCell";
             RZLog(@"确定");
         } showVC:self];
     }
+    
+    if ([self.titleArr[indexPath.row] isEqualToString:@"NSString+Size"]) {
+        NSString *string = @"这是一个自定义的alertView，欢迎大家使用指导！";
+        CGFloat height = [string heightWithFont:[UIFont systemFontOfSize:15] constrainedToWidth:100.f];
+        RZLog(@"%lf", height);
+    }
+    
+    if ([self.titleArr[indexPath.row] isEqualToString:@"NSDate+Extension"]) {
+        NSDate *date = [NSDate date];
+        [self.view makeRZToast:[NSString stringWithFormat:@"Today is %@ - %@", [date stringWithFormat:[date ymdFormat]], [date dayFromWeekday]]];
+    }
 }
 
 - (void)alertView:(RZAlertView *)alertView ClickedBtnAtIndex:(NSInteger)index {
@@ -116,7 +130,7 @@ static NSString *const reCellID = @"HomeCell";
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert"];
+        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension"];
     }
     return _titleArr;
 }

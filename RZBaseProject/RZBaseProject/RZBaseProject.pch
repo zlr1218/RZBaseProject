@@ -13,8 +13,7 @@
 
 /** 常量与宏等 */
 #import "RZColorHeader.h"
-#import "RZMacro.h"
-#import "RZPathHead.h"
+#import "RZMacros.h"
 #import "RZConstants.h"
 
 /** 全局文件的头文件 */
