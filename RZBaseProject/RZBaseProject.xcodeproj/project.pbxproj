@@ -152,6 +152,11 @@
 		2A6F52881FBD74B90025FC58 /* TYTabButtonPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527D1FBD74B80025FC58 /* TYTabButtonPagerController.m */; };
 		2A6F52891FBD74B90025FC58 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527F1FBD74B80025FC58 /* TYTabPagerController.m */; };
 		2A6F528A1FBD74B90025FC58 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */; };
+		2AE3733A1FD7CD3800FD95B0 /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373391FD7CD3800FD95B0 /* UIImageView+CornerRadius.m */; };
+		2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */; };
+		2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */; };
+		2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373431FD7DB3800FD95B0 /* RZDataSource.m */; };
+		2AE373471FD7DB8E00FD95B0 /* RZMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373461FD7DB8E00FD95B0 /* RZMineModel.m */; };
 		9A8F17DBC507AB8871CCDF8B /* Pods_RZBaseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7626B4693FB80983C26E33 /* Pods_RZBaseProject.framework */; };
 		B31505AF1DBDFC1A00CA4005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B31505AE1DBDFC1A00CA4005 /* main.m */; };
 		B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B31505B11DBDFC1A00CA4005 /* AppDelegate.m */; };
@@ -403,6 +408,16 @@
 		2A6F52801FBD74B80025FC58 /* TYTabTitleCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleCellProtocol.h; sourceTree = "<group>"; };
 		2A6F52811FBD74B80025FC58 /* TYTabTitleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleViewCell.h; sourceTree = "<group>"; };
 		2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabTitleViewCell.m; sourceTree = "<group>"; };
+		2AE373381FD7CD3800FD95B0 /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
+		2AE373391FD7CD3800FD95B0 /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
+		2AE3733C1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JKSafeAccess.h"; sourceTree = "<group>"; };
+		2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JKSafeAccess.m"; sourceTree = "<group>"; };
+		2AE3733F1FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCornerRadius_DemoVC.h; sourceTree = "<group>"; };
+		2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYCornerRadius_DemoVC.m; sourceTree = "<group>"; };
+		2AE373421FD7DB3800FD95B0 /* RZDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZDataSource.h; sourceTree = "<group>"; };
+		2AE373431FD7DB3800FD95B0 /* RZDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZDataSource.m; sourceTree = "<group>"; };
+		2AE373451FD7DB8E00FD95B0 /* RZMineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZMineModel.h; sourceTree = "<group>"; };
+		2AE373461FD7DB8E00FD95B0 /* RZMineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZMineModel.m; sourceTree = "<group>"; };
 		B31505AA1DBDFC1A00CA4005 /* RZBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31505AE1DBDFC1A00CA4005 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B31505B01DBDFC1A00CA4005 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -517,6 +532,8 @@
 				2A389B771EE14007007E78FE /* RZDemoVC.m */,
 				2A389B831EE14D3C007E78FE /* RZDemoVC.xib */,
 				2A6F526F1FBD74B80025FC58 /* Demo3 */,
+				2AE3733F1FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.h */,
+				2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -536,6 +553,8 @@
 		2A41F6D11F29C47A00239472 /* Category(类别) */ = {
 			isa = PBXGroup;
 			children = (
+				2AE3733B1FD7CFBE00FD95B0 /* NSDictionary */,
+				2AE373371FD7CD3800FD95B0 /* CornerRadiusCategory */,
 				2A562C081FD6988E007C0DBA /* UIImage */,
 				2A562BFB1FD6988D007C0DBA /* UIImageView */,
 				2A562BE21FD69878007C0DBA /* UIButton */,
@@ -662,6 +681,10 @@
 				2A41F7BE1F29CBBF00239472 /* RZMineVC.h */,
 				2A41F7BF1F29CBBF00239472 /* RZMineVC.m */,
 				2A41F7C01F29CBBF00239472 /* RZMineVC.xib */,
+				2AE373421FD7DB3800FD95B0 /* RZDataSource.h */,
+				2AE373431FD7DB3800FD95B0 /* RZDataSource.m */,
+				2AE373451FD7DB8E00FD95B0 /* RZMineModel.h */,
+				2AE373461FD7DB8E00FD95B0 /* RZMineModel.m */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -999,6 +1022,24 @@
 			path = FoldTableView;
 			sourceTree = "<group>";
 		};
+		2AE373371FD7CD3800FD95B0 /* CornerRadiusCategory */ = {
+			isa = PBXGroup;
+			children = (
+				2AE373381FD7CD3800FD95B0 /* UIImageView+CornerRadius.h */,
+				2AE373391FD7CD3800FD95B0 /* UIImageView+CornerRadius.m */,
+			);
+			path = CornerRadiusCategory;
+			sourceTree = "<group>";
+		};
+		2AE3733B1FD7CFBE00FD95B0 /* NSDictionary */ = {
+			isa = PBXGroup;
+			children = (
+				2AE3733C1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.h */,
+				2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */,
+			);
+			path = NSDictionary;
+			sourceTree = "<group>";
+		};
 		2FD4A88ED6777B9F2AD11435 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1284,8 +1325,10 @@
 			files = (
 				B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */,
 				2A562BF61FD69878007C0DBA /* UIButton+Indicator.m in Sources */,
+				2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */,
 				2A562BBD1FD68939007C0DBA /* NSString+XHLaunchAd.m in Sources */,
 				2A562BF31FD69878007C0DBA /* UIButton+BackgroundColor.m in Sources */,
+				2AE373471FD7DB8E00FD95B0 /* RZMineModel.m in Sources */,
 				2A562BF71FD69878007C0DBA /* UIButton+JKImagePosition.m in Sources */,
 				2A562BC01FD68939007C0DBA /* XHLaunchAd.m in Sources */,
 				2A562C381FD6988E007C0DBA /* UIImage+Merge.m in Sources */,
@@ -1355,12 +1398,15 @@
 				2A562BFA1FD69878007C0DBA /* UIButton+TouchAreaInsets.m in Sources */,
 				2A389B811EE14D14007E78FE /* RZHomeVC.m in Sources */,
 				2A41F7BC1F29C59600239472 /* RZEncryptionTool.m in Sources */,
+				2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */,
 				2A562C301FD6988E007C0DBA /* UIImage+animatedGIF.m in Sources */,
 				2A562BC31FD68939007C0DBA /* XHLaunchAdConfiguration.m in Sources */,
 				2A562C2B1FD6988E007C0DBA /* UIImageView+FaceAwareFill.m in Sources */,
 				2A562C3B1FD6988E007C0DBA /* UIImage+RemoteSize.m in Sources */,
 				2A562B871FD6885C007C0DBA /* UIView+MTExtension.m in Sources */,
+				2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */,
 				2A562BF41FD69878007C0DBA /* UIButton+Block.m in Sources */,
+				2AE3733A1FD7CD3800FD95B0 /* UIImageView+CornerRadius.m in Sources */,
 				2A562C341FD6988E007C0DBA /* UIImage+Color.m in Sources */,
 				2A562BC21FD68939007C0DBA /* XHLaunchAdCache.m in Sources */,
 				2A562BBF1FD68939007C0DBA /* UIImageView+XHLaunchAdCache.m in Sources */,

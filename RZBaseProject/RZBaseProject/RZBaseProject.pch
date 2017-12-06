@@ -20,6 +20,7 @@
 #import "RZListPickerView.h"
 #import "SVProgressHUD.h"
 #import "Masonry.h"
+#import <MJExtension/MJExtension.h>
 //#import <SDCycleScrollView.h>
 
 #endif /* RZBaseProject_pch */

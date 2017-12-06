@@ -6,12 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RZDemoVC">
             <connections>
+                <outlet property="DemoTableView" destination="E5V-tb-AeG" id="Dgb-yS-Plf"/>
                 <outlet property="view" destination="wHn-c5-Llu" id="UIg-xl-jvM"/>
             </connections>
         </placeholder>
@@ -20,18 +20,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0y-tZ-Ssf">
-                    <rect key="frame" x="106.5" y="118.5" width="161" height="30"/>
-                    <state key="normal" title="Push To PageController"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="E5V-tb-AeG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <action selector="PushToPageControllerAction:" destination="-1" eventType="touchUpInside" id="FJS-07-Og9"/>
+                        <outlet property="dataSource" destination="-1" id="Oxz-Yu-PrV"/>
+                        <outlet property="delegate" destination="-1" id="Uo0-Uh-SeP"/>
                     </connections>
-                </button>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Y0y-tZ-Ssf" firstAttribute="centerY" secondItem="wHn-c5-Llu" secondAttribute="centerY" multiplier="0.4" id="PJy-ze-b7y"/>
-                <constraint firstItem="Y0y-tZ-Ssf" firstAttribute="centerX" secondItem="wHn-c5-Llu" secondAttribute="centerX" id="hqb-Qw-fEZ"/>
+                <constraint firstItem="E5V-tb-AeG" firstAttribute="top" secondItem="wHn-c5-Llu" secondAttribute="top" id="B3Q-k1-X4e"/>
+                <constraint firstItem="E5V-tb-AeG" firstAttribute="leading" secondItem="wHn-c5-Llu" secondAttribute="leading" id="Ec0-aV-fYK"/>
+                <constraint firstAttribute="bottom" secondItem="E5V-tb-AeG" secondAttribute="bottom" id="KSN-t7-qDZ"/>
+                <constraint firstAttribute="trailing" secondItem="E5V-tb-AeG" secondAttribute="trailing" id="WZY-nk-YTz"/>
             </constraints>
             <point key="canvasLocation" x="-268" y="-143"/>
         </view>

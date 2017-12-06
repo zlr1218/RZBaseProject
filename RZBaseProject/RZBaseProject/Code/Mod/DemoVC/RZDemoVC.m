@@ -9,10 +9,14 @@
 #import "RZDemoVC.h"
 #import "RZDemo3VC.h"
 
+#import "NSDictionary+JKSafeAccess.h"
 #import "UIView+RoundedCorner.h"
 
-@interface RZDemoVC ()
 
+@interface RZDemoVC ()<UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *DemoTableView;
+/** 存储 DemoTitle 的数组 */
+@property (nonatomic, strong) NSMutableDictionary *DictStoreDemoTitle;
 @end
 
 @implementation RZDemoVC
@@ -21,13 +25,51 @@
     [super viewDidLoad];
     
     
-    UIView *view01 = [[UIView alloc] initWithFrame:CGRectMake(20, 200, 40, 40)];
-    [view01 jm_setCornerRadius:13 withBorderColor:[UIColor orangeColor] borderWidth:2];
-    [self.view addSubview:view01];
+    [self setupTableView];
 }
 
-- (IBAction)PushToPageControllerAction:(id)sender {
-    [self.navigationController pushViewController:[RZDemo3VC new] animated:YES];
+#pragma mark - 设置TableView
+
+- (void)setupTableView {
+    [self.DemoTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"demoCell"];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
+    return arr_Key.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *demoCell = [tableView dequeueReusableCellWithIdentifier:@"demoCell"];
+    
+    if (!demoCell) {
+        demoCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"demoCell"];
+    }
+    
+    NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
+    demoCell.textLabel.text = arr_Key[indexPath.row];
+    
+    return demoCell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
+    NSString *aClassName = [self.DictStoreDemoTitle jk_stringForKey:arr_Key[indexPath.row]];
+    Class ViewController = NSClassFromString(aClassName);
+    
+    [self.navigationController pushViewController:[ViewController new] animated:YES];
+}
+
+#pragma mark - 懒加载
+
+- (NSMutableDictionary *)DictStoreDemoTitle {
+    if (!_DictStoreDemoTitle) {
+        _DictStoreDemoTitle = [NSMutableDictionary dictionary];
+        
+        [_DictStoreDemoTitle jk_setString:@"ZYCornerRadius_DemoVC" forKey:@"一句代码，圆角风雨无阻_ZYCornerRadius"];
+        [_DictStoreDemoTitle jk_setString:@"RZDemo3VC" forKey:@"PageControl_RZDemo3VC"];
+    }
+    return _DictStoreDemoTitle;
 }
 
 @end

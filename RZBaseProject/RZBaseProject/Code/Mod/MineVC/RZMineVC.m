@@ -7,9 +7,13 @@
 //
 
 #import "RZMineVC.h"
+#import "RZDataSource.h"
+#import "RZMineModel.h"
 
 @interface RZMineVC ()
 
+/** tableView */
+@property (nonatomic, strong) UITableView *mineTableView;
 
 @end
 
@@ -19,8 +23,6 @@
     [super viewDidLoad];
     self.navigationItem.title = @"我的";
     
-    
 }
-
 
 @end
