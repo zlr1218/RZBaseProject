@@ -152,10 +152,10 @@
 		2A6F52881FBD74B90025FC58 /* TYTabButtonPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527D1FBD74B80025FC58 /* TYTabButtonPagerController.m */; };
 		2A6F52891FBD74B90025FC58 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527F1FBD74B80025FC58 /* TYTabPagerController.m */; };
 		2A6F528A1FBD74B90025FC58 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */; };
+		2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */; };
 		2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */; };
 		2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */; };
 		2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373431FD7DB3800FD95B0 /* RZDataSource.m */; };
-		2AE373471FD7DB8E00FD95B0 /* RZMineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373461FD7DB8E00FD95B0 /* RZMineModel.m */; };
 		2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */; };
 		9A8F17DBC507AB8871CCDF8B /* Pods_RZBaseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7626B4693FB80983C26E33 /* Pods_RZBaseProject.framework */; };
 		B31505AF1DBDFC1A00CA4005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B31505AE1DBDFC1A00CA4005 /* main.m */; };
@@ -408,14 +408,14 @@
 		2A6F52801FBD74B80025FC58 /* TYTabTitleCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleCellProtocol.h; sourceTree = "<group>"; };
 		2A6F52811FBD74B80025FC58 /* TYTabTitleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleViewCell.h; sourceTree = "<group>"; };
 		2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabTitleViewCell.m; sourceTree = "<group>"; };
+		2ACD0B871FDA694A00A6F0E7 /* RZDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZDelegate.h; sourceTree = "<group>"; };
+		2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZDelegate.m; sourceTree = "<group>"; };
 		2AE3733C1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JKSafeAccess.h"; sourceTree = "<group>"; };
 		2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JKSafeAccess.m"; sourceTree = "<group>"; };
 		2AE3733F1FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZYCornerRadius_DemoVC.h; sourceTree = "<group>"; };
 		2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZYCornerRadius_DemoVC.m; sourceTree = "<group>"; };
 		2AE373421FD7DB3800FD95B0 /* RZDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZDataSource.h; sourceTree = "<group>"; };
 		2AE373431FD7DB3800FD95B0 /* RZDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZDataSource.m; sourceTree = "<group>"; };
-		2AE373451FD7DB8E00FD95B0 /* RZMineModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZMineModel.h; sourceTree = "<group>"; };
-		2AE373461FD7DB8E00FD95B0 /* RZMineModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZMineModel.m; sourceTree = "<group>"; };
 		2AF5BA331FD8E50F0004968C /* YYText_DemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYText_DemoVC.h; sourceTree = "<group>"; };
 		2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYText_DemoVC.m; sourceTree = "<group>"; };
 		B31505AA1DBDFC1A00CA4005 /* RZBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -684,8 +684,8 @@
 				2A41F7C01F29CBBF00239472 /* RZMineVC.xib */,
 				2AE373421FD7DB3800FD95B0 /* RZDataSource.h */,
 				2AE373431FD7DB3800FD95B0 /* RZDataSource.m */,
-				2AE373451FD7DB8E00FD95B0 /* RZMineModel.h */,
-				2AE373461FD7DB8E00FD95B0 /* RZMineModel.m */,
+				2ACD0B871FDA694A00A6F0E7 /* RZDelegate.h */,
+				2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -1320,7 +1320,6 @@
 				2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */,
 				2A562BBD1FD68939007C0DBA /* NSString+XHLaunchAd.m in Sources */,
 				2A562BF31FD69878007C0DBA /* UIButton+BackgroundColor.m in Sources */,
-				2AE373471FD7DB8E00FD95B0 /* RZMineModel.m in Sources */,
 				2A562BF71FD69878007C0DBA /* UIButton+JKImagePosition.m in Sources */,
 				2A562BC01FD68939007C0DBA /* XHLaunchAd.m in Sources */,
 				2A562C381FD6988E007C0DBA /* UIImage+Merge.m in Sources */,
@@ -1347,6 +1346,7 @@
 				2A389B711EE13E4B007E78FE /* RZTabBarVC.m in Sources */,
 				2A562BBC1FD68939007C0DBA /* UIView+Toast.m in Sources */,
 				2A562BDD1FD68E1B007C0DBA /* UIView+RZAlert.m in Sources */,
+				2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */,
 				2A5444FB1F2836F5006BC937 /* RZListPickerView.m in Sources */,
 				2A562BC51FD68939007C0DBA /* XHLaunchAdDownloader.m in Sources */,
 				2A562C2E1FD6988E007C0DBA /* UIImageView+Reflect.m in Sources */,

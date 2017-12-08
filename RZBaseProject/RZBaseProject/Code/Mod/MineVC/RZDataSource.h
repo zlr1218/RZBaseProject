@@ -8,24 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "RZMineModel.h"
 
 
 
-typedef void(^configureCell)(UITableViewCell *, NSString *);
+typedef void(^configureCell)(UITableViewCell *cell, NSString *title);
 
 @interface RZDataSource : NSObject<UITableViewDataSource>
 
-/** arrStoreModel */
-@property (nonatomic, strong) NSArray *arrStoreModel;
-
-/** reuseID */
-@property (nonatomic, copy) NSString *cellID;
-
-/** configureCell */
-@property (nonatomic, copy) configureCell configureCellBlock;
-
-- (id)initWithItems:(NSArray *)arrStoreModel
+- (instancetype)initWithItems:(NSArray *)arrStoreModel
           CellReuseIdentifier:(NSString *)identifier
            configureCellBlock:(configureCell)block;
 

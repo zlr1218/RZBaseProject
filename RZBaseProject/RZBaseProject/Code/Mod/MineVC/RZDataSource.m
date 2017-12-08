@@ -8,9 +8,24 @@
 
 #import "RZDataSource.h"
 
+
+
+@interface RZDataSource ()
+
+/** arrStoreModel */
+@property (nonatomic, strong) NSArray *arrStoreModel;
+
+/** reuseID */
+@property (nonatomic, copy) NSString *cellID;
+
+/** configureCell */
+@property (nonatomic, copy) configureCell configureCellBlock;
+
+@end
+
 @implementation RZDataSource
 
-- (id)initWithItems:(NSArray *)arrStoreModel
+- (instancetype)initWithItems:(NSArray *)arrStoreModel
           CellReuseIdentifier:(NSString *)identifier
            configureCellBlock:(configureCell)block {
     self = [super init];
@@ -32,9 +47,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellID];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.cellID];
+    }
     
-    id item = [self itemAtIndexPath:indexPath];
-    self.configureCellBlock(cell, item);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    NSString *title = [self itemAtIndexPath:indexPath];
+    cell.textLabel.text = title;
+    
+    if (self.configureCellBlock) {
+        self.configureCellBlock(cell, title);
+    }
     
     return cell;
 }
