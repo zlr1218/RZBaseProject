@@ -9,6 +9,7 @@
 #ifndef RZBaseProject_pch
 #define RZBaseProject_pch
 
+/** 分类 */
 #import "UIView+MTExtension.h"
 
 /** 常量与宏等 */
@@ -21,6 +22,5 @@
 #import "SVProgressHUD.h"
 #import "Masonry.h"
 #import <MJExtension/MJExtension.h>
-//#import <SDCycleScrollView.h>
 
 #endif /* RZBaseProject_pch */

@@ -25,6 +25,10 @@ PODS:
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
   - SVProgressHUD (2.0.3)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+  - ZYCornerRadius (1.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
@@ -36,6 +40,8 @@ DEPENDENCIES:
   - SDCycleScrollView (~> 1.64)
   - SDWebImage (~> 3.7.5)
   - SVProgressHUD
+  - YYKit
+  - ZYCornerRadius (~> 1.0.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -47,7 +53,9 @@ SPEC CHECKSUMS:
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+  ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 2466ebb59dc109df5fdf3151b0f1a33fd40089f8
+PODFILE CHECKSUM: 94062a646f239269288ef85876f44818c957500f
 
 COCOAPODS: 1.2.1

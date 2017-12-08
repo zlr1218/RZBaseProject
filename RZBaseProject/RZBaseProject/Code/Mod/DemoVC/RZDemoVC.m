@@ -68,6 +68,7 @@
         
         [_DictStoreDemoTitle jk_setString:@"ZYCornerRadius_DemoVC" forKey:@"一句代码，圆角风雨无阻_ZYCornerRadius"];
         [_DictStoreDemoTitle jk_setString:@"RZDemo3VC" forKey:@"PageControl_RZDemo3VC"];
+        [_DictStoreDemoTitle jk_setString:@"YYText_DemoVC" forKey:@"YYText"];
     }
     return _DictStoreDemoTitle;
 }

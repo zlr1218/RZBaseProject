@@ -17,6 +17,7 @@ pod 'SVProgressHUD'
 pod 'SDCycleScrollView','~> 1.64'
 pod 'ReactiveObjC', '~> 3.0.0'
 pod 'ZYCornerRadius', '~> 1.0.2'
+pod 'YYKit'
 
 
 
