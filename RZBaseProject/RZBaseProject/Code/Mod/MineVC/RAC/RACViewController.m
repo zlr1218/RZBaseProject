@@ -22,6 +22,9 @@
 /** disposable */
 @property (nonatomic, strong) RACDisposable *disposable;
 
+/** btnView */
+@property (nonatomic, strong) RACBtn *btnView;
+
 @end
 
 @implementation RACViewController
@@ -37,11 +40,25 @@
     
 //    [self makeSignal03];
     
-    [self makeSignal04];
+//    [self makeSignal04];
+    
+    [self RAC_Replace_Delegate];
+}
+
+
+#pragma mark - RAC 替换 代理
+- (void)RAC_Replace_Delegate {
+    RACBtn *BtnView = [[RACBtn alloc] initWithFrame:CGRectMake(50, 200, 100, 100)];
+    [self.view addSubview:BtnView];
+    [BtnView.btnSignal subscribeNext:^(id  _Nullable x) {
+        [self.view makeRZToast:x];
+    }];
 }
 
 #pragma mark - RACReplaySubject
 - (void)makeSignal04 {
+    // 可以先发送信号，在订阅信号
+    // 创建信号
     RACReplaySubject *replaySubject = [RACReplaySubject subject];
     
     // 订阅信号
@@ -49,6 +66,7 @@
         [self.view makeRZToast:x];
     }];
     
+    // 发送信号
     [replaySubject sendNext:@"data"];
 }
 

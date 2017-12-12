@@ -20,6 +20,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:self.btn];
     }
     return self;
