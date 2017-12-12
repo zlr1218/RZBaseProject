@@ -77,6 +77,9 @@
 		2A41F7BC1F29C59600239472 /* RZEncryptionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A41F7B31F29C59600239472 /* RZEncryptionTool.m */; };
 		2A41F7C11F29CBBF00239472 /* RZMineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A41F7BF1F29CBBF00239472 /* RZMineVC.m */; };
 		2A41F7C21F29CBBF00239472 /* RZMineVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A41F7C01F29CBBF00239472 /* RZMineVC.xib */; };
+		2A52DFCD1FDF83930057D64B /* RZMVVMController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A52DFCB1FDF83930057D64B /* RZMVVMController.m */; };
+		2A52DFCE1FDF83930057D64B /* RZMVVMController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A52DFCC1FDF83930057D64B /* RZMVVMController.xib */; };
+		2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A52DFD01FDFADD80057D64B /* RZLoginViewModel.m */; };
 		2A5444F91F2836F5006BC937 /* cityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A5444F41F2836F5006BC937 /* cityList.plist */; };
 		2A5444FA1F2836F5006BC937 /* RZCityList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5444F61F2836F5006BC937 /* RZCityList.m */; };
 		2A5444FB1F2836F5006BC937 /* RZListPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5444F81F2836F5006BC937 /* RZListPickerView.m */; };
@@ -152,6 +155,8 @@
 		2A6F52881FBD74B90025FC58 /* TYTabButtonPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527D1FBD74B80025FC58 /* TYTabButtonPagerController.m */; };
 		2A6F52891FBD74B90025FC58 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527F1FBD74B80025FC58 /* TYTabPagerController.m */; };
 		2A6F528A1FBD74B90025FC58 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */; };
+		2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB896301FDE297C00A4D6E4 /* RACViewController.m */; };
+		2AB896341FDE5AE200A4D6E4 /* RACBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB896331FDE5AE200A4D6E4 /* RACBtn.m */; };
 		2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */; };
 		2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */; };
 		2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */; };
@@ -259,6 +264,11 @@
 		2A41F7BE1F29CBBF00239472 /* RZMineVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZMineVC.h; sourceTree = "<group>"; };
 		2A41F7BF1F29CBBF00239472 /* RZMineVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZMineVC.m; sourceTree = "<group>"; };
 		2A41F7C01F29CBBF00239472 /* RZMineVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RZMineVC.xib; sourceTree = "<group>"; };
+		2A52DFCA1FDF83930057D64B /* RZMVVMController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZMVVMController.h; sourceTree = "<group>"; };
+		2A52DFCB1FDF83930057D64B /* RZMVVMController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZMVVMController.m; sourceTree = "<group>"; };
+		2A52DFCC1FDF83930057D64B /* RZMVVMController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZMVVMController.xib; sourceTree = "<group>"; };
+		2A52DFCF1FDFADD80057D64B /* RZLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZLoginViewModel.h; sourceTree = "<group>"; };
+		2A52DFD01FDFADD80057D64B /* RZLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZLoginViewModel.m; sourceTree = "<group>"; };
 		2A5444F41F2836F5006BC937 /* cityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityList.plist; sourceTree = "<group>"; };
 		2A5444F51F2836F5006BC937 /* RZCityList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZCityList.h; sourceTree = "<group>"; };
 		2A5444F61F2836F5006BC937 /* RZCityList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZCityList.m; sourceTree = "<group>"; };
@@ -408,6 +418,10 @@
 		2A6F52801FBD74B80025FC58 /* TYTabTitleCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleCellProtocol.h; sourceTree = "<group>"; };
 		2A6F52811FBD74B80025FC58 /* TYTabTitleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleViewCell.h; sourceTree = "<group>"; };
 		2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabTitleViewCell.m; sourceTree = "<group>"; };
+		2AB8962F1FDE297C00A4D6E4 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
+		2AB896301FDE297C00A4D6E4 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
+		2AB896321FDE5AE200A4D6E4 /* RACBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBtn.h; sourceTree = "<group>"; };
+		2AB896331FDE5AE200A4D6E4 /* RACBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBtn.m; sourceTree = "<group>"; };
 		2ACD0B871FDA694A00A6F0E7 /* RZDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZDelegate.h; sourceTree = "<group>"; };
 		2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZDelegate.m; sourceTree = "<group>"; };
 		2AE3733C1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JKSafeAccess.h"; sourceTree = "<group>"; };
@@ -679,6 +693,7 @@
 		2A41F7BD1F29CB9B00239472 /* MineVC */ = {
 			isa = PBXGroup;
 			children = (
+				2AB8962E1FDE295D00A4D6E4 /* RAC */,
 				2A41F7BE1F29CBBF00239472 /* RZMineVC.h */,
 				2A41F7BF1F29CBBF00239472 /* RZMineVC.m */,
 				2A41F7C01F29CBBF00239472 /* RZMineVC.xib */,
@@ -688,6 +703,18 @@
 				2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */,
 			);
 			path = MineVC;
+			sourceTree = "<group>";
+		};
+		2A52DFC91FDF83540057D64B /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				2A52DFCA1FDF83930057D64B /* RZMVVMController.h */,
+				2A52DFCB1FDF83930057D64B /* RZMVVMController.m */,
+				2A52DFCC1FDF83930057D64B /* RZMVVMController.xib */,
+				2A52DFCF1FDFADD80057D64B /* RZLoginViewModel.h */,
+				2A52DFD01FDFADD80057D64B /* RZLoginViewModel.m */,
+			);
+			path = MVVM;
 			sourceTree = "<group>";
 		};
 		2A5444F31F2836F5006BC937 /* RZPickerView */ = {
@@ -1023,6 +1050,18 @@
 			path = FoldTableView;
 			sourceTree = "<group>";
 		};
+		2AB8962E1FDE295D00A4D6E4 /* RAC */ = {
+			isa = PBXGroup;
+			children = (
+				2A52DFC91FDF83540057D64B /* MVVM */,
+				2AB8962F1FDE297C00A4D6E4 /* RACViewController.h */,
+				2AB896301FDE297C00A4D6E4 /* RACViewController.m */,
+				2AB896321FDE5AE200A4D6E4 /* RACBtn.h */,
+				2AB896331FDE5AE200A4D6E4 /* RACBtn.m */,
+			);
+			path = RAC;
+			sourceTree = "<group>";
+		};
 		2AE3733B1FD7CFBE00FD95B0 /* NSDictionary */ = {
 			isa = PBXGroup;
 			children = (
@@ -1197,6 +1236,7 @@
 				2A41F7571F29C52F00239472 /* 9.jpg in Resources */,
 				2A41F7431F29C52F00239472 /* 11.jpg in Resources */,
 				2A5445001F285EF5006BC937 /* RZFoldTableViewController.xib in Resources */,
+				2A52DFCE1FDF83930057D64B /* RZMVVMController.xib in Resources */,
 				2A41F7501F29C52F00239472 /* 23.jpg in Resources */,
 				2A389B821EE14D14007E78FE /* RZHomeVC.xib in Resources */,
 				2A41F76B1F29C52F00239472 /* test2.jpg in Resources */,
@@ -1328,6 +1368,7 @@
 				2A562C2D1FD6988E007C0DBA /* UIImageView+Letters.m in Sources */,
 				2A389B6E1EE13E21007E78FE /* RZRootVC.m in Sources */,
 				2A54450E1F28840C006BC937 /* RZBase64ViewController.m in Sources */,
+				2A52DFCD1FDF83930057D64B /* RZMVVMController.m in Sources */,
 				2A562BF51FD69878007C0DBA /* UIButton+CountDown.m in Sources */,
 				2A562BB81FD68939007C0DBA /* FDKeychain.m in Sources */,
 				2A562B7F1FD6880E007C0DBA /* NSString+Size.m in Sources */,
@@ -1336,6 +1377,7 @@
 				2A389B741EE13E6F007E78FE /* RZNavigationVC.m in Sources */,
 				2A562C3A1FD6988E007C0DBA /* UIImage+PDF.m in Sources */,
 				2A5444FF1F285EF5006BC937 /* RZFoldTableViewController.m in Sources */,
+				2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */,
 				2A562BB91FD68939007C0DBA /* Reachability.m in Sources */,
 				2A562C3E1FD6988E007C0DBA /* UIImage+Vector.m in Sources */,
 				2A562C361FD6988E007C0DBA /* UIImage+FX.m in Sources */,
@@ -1349,6 +1391,7 @@
 				2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */,
 				2A5444FB1F2836F5006BC937 /* RZListPickerView.m in Sources */,
 				2A562BC51FD68939007C0DBA /* XHLaunchAdDownloader.m in Sources */,
+				2AB896341FDE5AE200A4D6E4 /* RACBtn.m in Sources */,
 				2A562C2E1FD6988E007C0DBA /* UIImageView+Reflect.m in Sources */,
 				2A562C411FD69945007C0DBA /* UIView+RoundedCorner.m in Sources */,
 				2A562B7E1FD6880E007C0DBA /* NSString+RegexCategory.m in Sources */,
@@ -1366,6 +1409,7 @@
 				2A562B7D1FD6880E007C0DBA /* NSString+Contains.m in Sources */,
 				B31505AF1DBDFC1A00CA4005 /* main.m in Sources */,
 				2A562BDC1FD68E1B007C0DBA /* RZAlertView.m in Sources */,
+				2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */,
 				2A6F52831FBD74B90025FC58 /* RZDemo3VC.m in Sources */,
 				2A6F52851FBD74B90025FC58 /* RZPageTwoController.m in Sources */,
 				2A562C2C1FD6988E007C0DBA /* UIImageView+GeometryConversion.m in Sources */,
@@ -1542,6 +1586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject5s;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
 		};
@@ -1560,6 +1605,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject5s;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;
 		};

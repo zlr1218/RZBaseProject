@@ -11,6 +11,9 @@
 #import "RZDelegate.h"
 #import "UIView+Toast.h"
 
+#import "RACViewController.h"
+#import "RZMVVMController.h"
+
 @interface RZMineVC ()
 {
     UITableView *_tableView;
@@ -29,12 +32,20 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, kScreeHeight-64) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     
-    NSArray *arr = @[@"海贼王，我当定了！", @"我是路飞，要成为海贼王的男人"];
+    NSArray *arr = @[@"RAC 中的常用的类", @"MVVM + RAC"];
     _dataSource = [[RZDataSource alloc] initWithItems:arr CellReuseIdentifier:@"cell" configureCellBlock:^(UITableViewCell *cell, NSString *title) {
-        RZLog(@"%@", title);
+        //RZLog(@"%@", title);
     }];
     _delegate = [[RZDelegate alloc] initWithData:arr SelectBlock:^(NSInteger row) {
-        [self.view makeRZToast:arr[row]];
+        //[self.view makeRZToast:arr[row]];
+        
+        if (row == 0) {
+            [self.navigationController pushViewController:[RACViewController new] animated:YES];
+        }
+        
+        if (row == 1) {
+            [self.navigationController pushViewController:[RZMVVMController new] animated:YES];
+        }
     }];
     _tableView.dataSource = _dataSource;
     _tableView.delegate = _delegate;
