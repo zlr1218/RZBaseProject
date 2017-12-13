@@ -1,5 +1,5 @@
 //
-//  IQKeyboardReturnKeyHandler.m
+// IQKeyboardReturnKeyHandler.m
 // https://github.com/hackiftekhar/IQKeyboardManager
 // Copyright (c) 2013-16 Iftekhar Qurashi.
 //
@@ -25,8 +25,6 @@
 #import "IQKeyboardManager.h"
 #import "IQUIView+Hierarchy.h"
 #import "IQNSArray+Sort.h"
-
-#import <Foundation/NSSet.h>
 
 #import <UIKit/UITextField.h>
 #import <UIKit/UITextView.h>
@@ -106,7 +104,7 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]])
         {
             UITextField *textField = (UITextField*)view;
-            textField.returnKeyType = [dict[kIQTextFieldReturnKeyType] integerValue];
+            textField.returnKeyType = (UIReturnKeyType)[dict[kIQTextFieldReturnKeyType] integerValue];
             textField.delegate = dict[kIQTextFieldDelegate];
         }
         [textFieldInfoCache removeObject:dict];
@@ -301,10 +299,7 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         [delegate textFieldDidEndEditing:textField];
 }
 
-//Xcode8, compile validation
-#ifdef NSFoundationVersionNumber_iOS_9_x_Max
-
-- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason
+- (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason NS_AVAILABLE_IOS(10_0);
 {
     id<UITextFieldDelegate> delegate = self.delegate;
     
@@ -314,12 +309,15 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         delegate = dict[kIQTextFieldDelegate];
     }
     
-    if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:reason:)])
-        [delegate textFieldDidEndEditing:textField reason:reason];
-}
-
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *)) {
 #endif
-
+        if ([delegate respondsToSelector:@selector(textFieldDidEndEditing:reason:)])
+            [delegate textFieldDidEndEditing:textField reason:reason];
+#ifdef __IPHONE_11_0
+    }
+#endif
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
@@ -495,10 +493,7 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         [delegate textViewDidChangeSelection:textView];
 }
 
-//Xcode8, compile validation
-#ifdef NSFoundationVersionNumber_iOS_9_x_Max
-
-- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0);
 {
     id<UITextViewDelegate> delegate = self.delegate;
     
@@ -508,13 +503,19 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         delegate = dict[kIQTextFieldDelegate];
     }
     
-    if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:interaction:)])
-        return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange interaction:interaction];
-    else
-        return YES;
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *)) {
+#endif
+        if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:interaction:)])
+            return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange interaction:interaction];
+#ifdef __IPHONE_11_0
+    }
+#endif
+
+    return YES;
 }
 
-- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction
+- (BOOL)textView:(UITextView *)textView shouldInteractWithTextAttachment:(NSTextAttachment *)textAttachment inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction NS_AVAILABLE_IOS(10_0);
 {
     id<UITextViewDelegate> delegate = self.delegate;
     
@@ -524,13 +525,17 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         delegate = dict[kIQTextFieldDelegate];
     }
     
+#ifdef __IPHONE_11_0
+    if (@available(iOS 10.0, *)) {
+#endif
     if ([delegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:interaction:)])
         return [delegate textView:textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange interaction:interaction];
-    else
-        return YES;
-}
-
+#ifdef __IPHONE_11_0
+    }
 #endif
+
+    return YES;
+}
 
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange
 {
@@ -542,8 +547,11 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         delegate = dict[kIQTextFieldDelegate];
     }
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if ([delegate respondsToSelector:@selector(textView:shouldInteractWithURL:inRange:)])
         return [delegate textView:textView shouldInteractWithURL:URL inRange:characterRange];
+#pragma clang diagnostic pop
     else
         return YES;
 }
@@ -558,8 +566,11 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         delegate = dict[kIQTextFieldDelegate];
     }
     
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     if ([delegate respondsToSelector:@selector(textView:shouldInteractWithTextAttachment:inRange:)])
         return [delegate textView:textView shouldInteractWithTextAttachment:textAttachment inRange:characterRange];
+#pragma clang diagnostic pop
     else
         return YES;
 }
@@ -573,7 +584,7 @@ NSString *const kIQTextFieldReturnKeyType   =   @"kIQTextFieldReturnKeyType";
         if ([view isKindOfClass:[UITextField class]] || [view isKindOfClass:[UITextView class]])
         {
             UITextField *textField = (UITextField*)view;
-            textField.returnKeyType  = [dict[kIQTextFieldReturnKeyType] integerValue];
+            textField.returnKeyType  = (UIReturnKeyType)[dict[kIQTextFieldReturnKeyType] integerValue];
             textField.delegate      = dict[kIQTextFieldDelegate];
         }
     }

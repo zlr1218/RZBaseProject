@@ -157,6 +157,7 @@
 		2A6F528A1FBD74B90025FC58 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */; };
 		2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB896301FDE297C00A4D6E4 /* RACViewController.m */; };
 		2AB896341FDE5AE200A4D6E4 /* RACBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB896331FDE5AE200A4D6E4 /* RACBtn.m */; };
+		2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA4B5D1FE0CDBA00C49BAF /* RACObject.m */; };
 		2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */; };
 		2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */; };
 		2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */; };
@@ -422,6 +423,8 @@
 		2AB896301FDE297C00A4D6E4 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		2AB896321FDE5AE200A4D6E4 /* RACBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBtn.h; sourceTree = "<group>"; };
 		2AB896331FDE5AE200A4D6E4 /* RACBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACBtn.m; sourceTree = "<group>"; };
+		2ABA4B5C1FE0CDBA00C49BAF /* RACObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACObject.h; sourceTree = "<group>"; };
+		2ABA4B5D1FE0CDBA00C49BAF /* RACObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACObject.m; sourceTree = "<group>"; };
 		2ACD0B871FDA694A00A6F0E7 /* RZDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZDelegate.h; sourceTree = "<group>"; };
 		2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZDelegate.m; sourceTree = "<group>"; };
 		2AE3733C1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JKSafeAccess.h"; sourceTree = "<group>"; };
@@ -693,7 +696,6 @@
 		2A41F7BD1F29CB9B00239472 /* MineVC */ = {
 			isa = PBXGroup;
 			children = (
-				2AB8962E1FDE295D00A4D6E4 /* RAC */,
 				2A41F7BE1F29CBBF00239472 /* RZMineVC.h */,
 				2A41F7BF1F29CBBF00239472 /* RZMineVC.m */,
 				2A41F7C01F29CBBF00239472 /* RZMineVC.xib */,
@@ -701,6 +703,7 @@
 				2AE373431FD7DB3800FD95B0 /* RZDataSource.m */,
 				2ACD0B871FDA694A00A6F0E7 /* RZDelegate.h */,
 				2ACD0B881FDA694A00A6F0E7 /* RZDelegate.m */,
+				2AB8962E1FDE295D00A4D6E4 /* RAC */,
 			);
 			path = MineVC;
 			sourceTree = "<group>";
@@ -1058,6 +1061,8 @@
 				2AB896301FDE297C00A4D6E4 /* RACViewController.m */,
 				2AB896321FDE5AE200A4D6E4 /* RACBtn.h */,
 				2AB896331FDE5AE200A4D6E4 /* RACBtn.m */,
+				2ABA4B5C1FE0CDBA00C49BAF /* RACObject.h */,
+				2ABA4B5D1FE0CDBA00C49BAF /* RACObject.m */,
 			);
 			path = RAC;
 			sourceTree = "<group>";
@@ -1410,6 +1415,7 @@
 				B31505AF1DBDFC1A00CA4005 /* main.m in Sources */,
 				2A562BDC1FD68E1B007C0DBA /* RZAlertView.m in Sources */,
 				2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */,
+				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
 				2A6F52831FBD74B90025FC58 /* RZDemo3VC.m in Sources */,
 				2A6F52851FBD74B90025FC58 /* RZPageTwoController.m in Sources */,
 				2A562C2C1FD6988E007C0DBA /* UIImageView+GeometryConversion.m in Sources */,

@@ -27,7 +27,8 @@
 }
 
 - (void)btnAction {
-    [_btnSignal sendNext:@"click the btn"];
+    RZLog(@"clicked the button");
+//    [_btnSignal sendNext:@"click the btn"];
 }
 
 - (RACSubject *)btnSignal {
