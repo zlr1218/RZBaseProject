@@ -155,6 +155,10 @@
 		2A6F52881FBD74B90025FC58 /* TYTabButtonPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527D1FBD74B80025FC58 /* TYTabButtonPagerController.m */; };
 		2A6F52891FBD74B90025FC58 /* TYTabPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F527F1FBD74B80025FC58 /* TYTabPagerController.m */; };
 		2A6F528A1FBD74B90025FC58 /* TYTabTitleViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */; };
+		2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A980D801FE26D6D005B177F /* RZNetManager.m */; };
+		2A980D851FE26F10005B177F /* UIImage+CompressImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A980D831FE26F10005B177F /* UIImage+CompressImage.m */; };
+		2A980D881FE26F68005B177F /* RZCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A980D871FE26F68005B177F /* RZCustom.m */; };
+		2A980D8B1FE27349005B177F /* RZRequestViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A980D8A1FE27349005B177F /* RZRequestViewModel.m */; };
 		2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB896301FDE297C00A4D6E4 /* RACViewController.m */; };
 		2AB896341FDE5AE200A4D6E4 /* RACBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB896331FDE5AE200A4D6E4 /* RACBtn.m */; };
 		2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABA4B5D1FE0CDBA00C49BAF /* RACObject.m */; };
@@ -419,6 +423,14 @@
 		2A6F52801FBD74B80025FC58 /* TYTabTitleCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleCellProtocol.h; sourceTree = "<group>"; };
 		2A6F52811FBD74B80025FC58 /* TYTabTitleViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTabTitleViewCell.h; sourceTree = "<group>"; };
 		2A6F52821FBD74B80025FC58 /* TYTabTitleViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTabTitleViewCell.m; sourceTree = "<group>"; };
+		2A980D801FE26D6D005B177F /* RZNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZNetManager.m; sourceTree = "<group>"; };
+		2A980D811FE26D6D005B177F /* RZNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZNetManager.h; sourceTree = "<group>"; };
+		2A980D831FE26F10005B177F /* UIImage+CompressImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CompressImage.m"; sourceTree = "<group>"; };
+		2A980D841FE26F10005B177F /* UIImage+CompressImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CompressImage.h"; sourceTree = "<group>"; };
+		2A980D861FE26F68005B177F /* RZCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZCustom.h; sourceTree = "<group>"; };
+		2A980D871FE26F68005B177F /* RZCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZCustom.m; sourceTree = "<group>"; };
+		2A980D891FE27349005B177F /* RZRequestViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZRequestViewModel.h; sourceTree = "<group>"; };
+		2A980D8A1FE27349005B177F /* RZRequestViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZRequestViewModel.m; sourceTree = "<group>"; };
 		2AB8962F1FDE297C00A4D6E4 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
 		2AB896301FDE297C00A4D6E4 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		2AB896321FDE5AE200A4D6E4 /* RACBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACBtn.h; sourceTree = "<group>"; };
@@ -676,8 +688,14 @@
 		2A41F7A61F29C59600239472 /* NetTool */ = {
 			isa = PBXGroup;
 			children = (
+				2A980D811FE26D6D005B177F /* RZNetManager.h */,
+				2A980D801FE26D6D005B177F /* RZNetManager.m */,
+				2A980D841FE26F10005B177F /* UIImage+CompressImage.h */,
+				2A980D831FE26F10005B177F /* UIImage+CompressImage.m */,
 				2A41F7AB1F29C59600239472 /* RZResponse.h */,
 				2A41F7AC1F29C59600239472 /* RZResponse.m */,
+				2A980D891FE27349005B177F /* RZRequestViewModel.h */,
+				2A980D8A1FE27349005B177F /* RZRequestViewModel.m */,
 			);
 			path = NetTool;
 			sourceTree = "<group>";
@@ -885,6 +903,8 @@
 		2A562BCA1FD68B2E007C0DBA /* Macro */ = {
 			isa = PBXGroup;
 			children = (
+				2A980D861FE26F68005B177F /* RZCustom.h */,
+				2A980D871FE26F68005B177F /* RZCustom.m */,
 				2A562BCF1FD68C86007C0DBA /* RZColorHeader.h */,
 				2A562BCE1FD68C0A007C0DBA /* RZMacros.h */,
 			);
@@ -1385,6 +1405,7 @@
 				2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */,
 				2A562BB91FD68939007C0DBA /* Reachability.m in Sources */,
 				2A562C3E1FD6988E007C0DBA /* UIImage+Vector.m in Sources */,
+				2A980D881FE26F68005B177F /* RZCustom.m in Sources */,
 				2A562C361FD6988E007C0DBA /* UIImage+FX.m in Sources */,
 				2A6F52871FBD74B90025FC58 /* TYPagerController.m in Sources */,
 				2A41F7C11F29CBBF00239472 /* RZMineVC.m in Sources */,
@@ -1409,6 +1430,7 @@
 				2A562C391FD6988E007C0DBA /* UIImage+Orientation.m in Sources */,
 				2A562BF91FD69878007C0DBA /* UIButton+Submitting.m in Sources */,
 				2A5444FA1F2836F5006BC937 /* RZCityList.m in Sources */,
+				2A980D851FE26F10005B177F /* UIImage+CompressImage.m in Sources */,
 				2A562C351FD6988E007C0DBA /* UIImage+FileName.m in Sources */,
 				2A562BF81FD69878007C0DBA /* UIButton+MiddleAligning.m in Sources */,
 				2A562B7D1FD6880E007C0DBA /* NSString+Contains.m in Sources */,
@@ -1418,6 +1440,7 @@
 				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
 				2A6F52831FBD74B90025FC58 /* RZDemo3VC.m in Sources */,
 				2A6F52851FBD74B90025FC58 /* RZPageTwoController.m in Sources */,
+				2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */,
 				2A562C2C1FD6988E007C0DBA /* UIImageView+GeometryConversion.m in Sources */,
 				2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */,
 				2A6F528A1FBD74B90025FC58 /* TYTabTitleViewCell.m in Sources */,
@@ -1437,6 +1460,7 @@
 				2A562BBA1FD68939007C0DBA /* JRSwizzle.m in Sources */,
 				2A41F7BA1F29C59600239472 /* RZResponse.m in Sources */,
 				2A562C311FD6988E007C0DBA /* UIImage+BetterFace.m in Sources */,
+				2A980D8B1FE27349005B177F /* RZRequestViewModel.m in Sources */,
 				2A562C371FD6988E007C0DBA /* UIImage+GIF.m in Sources */,
 				2A562BFA1FD69878007C0DBA /* UIButton+TouchAreaInsets.m in Sources */,
 				2A389B811EE14D14007E78FE /* RZHomeVC.m in Sources */,

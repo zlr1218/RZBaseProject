@@ -11,7 +11,16 @@
 
 @interface RZLoginViewModel : NSObject
 
+/** account */
+@property (nonatomic, copy) NSString *account;
+
+/** pwd */
+@property (nonatomic, copy) NSString *pwd;
+
 /** 处理登录按钮是否可以点击 */
-@property (nonatomic, assign) RACSignal *loginEnableSignal;
+@property (nonatomic, assign, readonly) RACSignal *loginEnableSignal;
+
+/** 登录按钮Command */
+@property (nonatomic, strong, readonly) RACCommand *loginCommand;
 
 @end

@@ -9,7 +9,6 @@
 #import "RACViewController.h"
 
 #import "ReactiveObjC.h"
-#import "NSObject+RACKVOWrapper.h"
 
 #import "RACBtn.h"
 #import "UIView+Toast.h"
@@ -32,6 +31,9 @@
 
 /** field */
 @property (nonatomic, strong) UITextField *field;
+/** field */
+@property (nonatomic, strong) UITextField *field02;
+
 
 /** signal */
 @property (nonatomic, strong) RACSignal *signal;
@@ -71,14 +73,354 @@
     
 //    [self RACCommandEvent];
     
-    [self bindMethod];
+//    [self bindMethod];
+    
+//    [self bindMethod02];
+    
+//    [self concatSignal];
+    
+//    [self thenEvent];
+    
+//    [self mergeEvent];
+    
+//    [self zipWithEvent];
+    
+//    [self combineLatestEvent];
+    
+//    [self filterEvent];
+    
+//    [self ignoreEvent];
+    
+//    [self takeEvent];
+    
+//    [self distinctUntilChangedEvent];
+    
+    [self skipEvent];
+}
+
+#pragma mark - skip
+- (void)skipEvent {
+    RACSubject *subject = [RACSubject subject];
+    
+    // 跳过几个信号不接受
+    [[subject skip:1] subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [subject sendNext:@"12"];
+    [subject sendNext:@"45"];
+    [subject sendNext:@"45"];
+}
+
+#pragma mark - distinctUntilChanged
+- (void)distinctUntilChangedEvent {
+    RACSubject *subject = [RACSubject subject];
+    
+    [[subject distinctUntilChanged] subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [subject sendNext:@"12"];
+    [subject sendNext:@"45"];
+    [subject sendNext:@"45"];
+}
+
+#pragma mark - take
+- (void)takeEvent {
+    // 从开始一共获取N次的信号
+    RACSubject *subject = [RACSubject subject];
+    RACSubject *subject02 = [RACSubject subject];
+    
+    // take: 取前面的几个值
+    RACSignal *takeSignal = [subject take:1];
+    // takeLast: 取后面几个值
+    RACSignal *takeLastSignal = [subject takeLast:1];
+    // takeUntil: 获取信号直到执行完这个信号，或者发送任意数值
+    RACSignal *takeUntilSignal = [subject takeUntil:subject02];
+    
+    
+    [takeSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [takeLastSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [takeUntilSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [subject sendNext:@"12"];
+    [subject sendNext:@"45"];
+    
+    [subject02 sendCompleted];
+//    [subject02 sendNext:@"690"];
+    
+    [subject sendNext:@"5"];
+    [subject sendNext:@"6"];
+    [subject sendNext:@"7"];
+}
+
+#pragma mark - ignore
+- (void)ignoreEvent {
+    RACSubject *subject = [RACSubject subject];
+    
+    /**
+     ignoreValues: 忽略所有的值
+     */
+    RACSignal *ignoreSignal = [subject ignore:@"2"];
+    
+    [ignoreSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [subject sendNext:@"1234"];
+    [subject sendNext:@"234"];
+    [subject sendNext:@"2"];
+}
+
+#pragma mark - filter (过滤)
+
+/**
+ 只有当文本框的内容长度大于5时， 才会获取文本框的内容
+ */
+- (void)filterEvent {
+    [[_field.rac_textSignal filter:^BOOL(NSString * value) {
+        return value.length > 5;
+    }] subscribeNext:^(NSString * _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+}
+
+#pragma mark - combinelatest
+- (void)combineLatestEvent {
+    // 组合 (当 两个输入框都有值时，才会返回 yes)
+    RACSignal *signal = [RACSignal combineLatest:@[_field.rac_textSignal, _field02.rac_textSignal] reduce:^id(NSString *accout, NSString *pwd) {
+        return @(accout.length && pwd.length);
+    }];
+    
+    [signal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+}
+
+#pragma mark - zipWith
+
+- (void)zipWithEvent {
+    // 创建信号
+    RACSubject *signalA = [RACSubject subject];
+    
+    RACSubject *signalB = [RACSubject subject];
+    
+    // 压缩信号
+    // 等所有信号都发送内容的时候才会调用
+    RACSignal *zipWithSignal = [signalA zipWith:signalB];
+    
+    // 订阅信号
+    [zipWithSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    // 发送数据
+    [signalA sendNext:@"data_A"];
+    [signalB sendNext:@"data_B"];
+}
+
+#pragma mark - merge
+// 任意一个信号请求完成都会订阅到
+- (void)mergeEvent {
+    // 创建信号
+    RACSubject *signalA = [RACSubject subject];
+    
+    RACSubject *signalB = [RACSubject subject];
+    
+    // 组合信号
+    RACSignal *mergeSignal = [signalA merge:signalB];
+    
+    // 订阅信号
+    [mergeSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    // 发送信号
+    [signalA sendNext:@"data_A"];
+    [signalB sendNext:@"data_B"];
+}
+
+#pragma mark - then
+
+- (void)thenEvent {
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        
+        // 发送请求
+        NSLog(@"发送上部分请求");
+        [subscriber sendNext:@"上部分数据"];
+        [subscriber sendCompleted];
+        
+        return nil;
+    }];
+    
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        // 发送请求
+        NSLog(@"发送下部分请求");
+        [subscriber sendNext:@"下部分数据"];
+        [subscriber sendCompleted];
+        
+        return nil;
+    }];
+    
+    RACSignal *thenSignal = [signalA then:^RACSignal * _Nonnull{
+        // 返回的信号就是要组合的信号
+        return signalB;
+    }];
+    
+    [thenSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+}
+
+#pragma mark - concat
+
+- (void)concatSignal {
+    // 组合
+    
+    RACSignal *signalA = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        
+        // 发送请求
+        NSLog(@"发送上部分请求");
+        [subscriber sendNext:@"上部分数据"];
+        [subscriber sendCompleted];
+        
+        return nil;
+    }];
+    
+    RACSignal *signalB = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        // 发送请求
+        NSLog(@"发送下部分请求");
+        [subscriber sendNext:@"下部分数据"];
+        [subscriber sendCompleted];
+        
+        return nil;
+    }];
+    
+    // concat: 按顺序去连接，先执行A，再执行B
+    // concat注意点：第一个信号必须要调用sendCompleted
+    RACSignal *concatSignal = [signalA concat:signalB];
+    
+    [concatSignal subscribeNext:^(id  _Nullable x) {
+        // 这里既能拿到A的数据，也可以拿到B的数据
+        RZLog(@"%@", x);
+    }];
+    
+}
+
+#pragma mark - 映射
+- (void)bindMethod02 {
+    /**
+     
+     */
+    RACSubject *signalOfSignals = [RACSubject subject];
+    
+    RACSubject *signal = [RACSubject subject];
+    
+    // 订阅信号
+//    [signalOfSignals subscribeNext:^(RACSignal * x) {
+//
+//        [x subscribeNext:^(id  _Nullable x) {
+//            NSLog(@"%@", x);
+//        }];
+//
+//    }];
+    
+    // 上面的 x 就相当于 flattenMap 返回的signal
+    [[signalOfSignals flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+        return value;
+    }] subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    [signalOfSignals sendNext:signal];
+    [signal sendNext:@"data"];
+    
+    
+    /**
+     **** map ****
+     
+     RACSubject *subject = [RACSubject subject];
+     
+     RACSignal *bindSignal = [subject map:^id _Nullable(id  _Nullable value) {
+     
+     return [NSString stringWithFormat:@"rzol: %@", value];
+     }];
+     
+     [bindSignal subscribeNext:^(id  _Nullable x) {
+     RZLog(@"%@", x);
+     }];
+     
+     [subject sendNext:@"222"];
+     
+     */
+    
+    
+    /**
+     **** flattenMap ****
+     
+     // 创建信号
+     RACSubject *subject = [RACSubject subject];
+     
+     // 绑定信号
+     // flattenMap中返回的是信号，订阅的就是什么信号
+     RACSignal *bindSignal = [subject flattenMap:^__kindof RACSignal * _Nullable(id  _Nullable value) {
+     
+     // value: 源信号发送的数据
+     RZLog(@"%@", value);
+     
+     value = [NSString stringWithFormat:@"处理后的数据：%@", value];
+     
+     return [RACReturnSignal return:value];
+     }];
+     
+     // 订阅信号
+     [bindSignal subscribeNext:^(id  _Nullable x) {
+     RZLog(@"%@", x);
+     }];
+     
+     // 发送信号
+     [subject sendNext:@"源数据：data"];
+     
+     */
+    
 }
 
 #pragma mark - bind signal
 
 - (void)bindMethod {
+    // 创建源信号
     RACSubject *subject = [RACSubject subject];
     
+    // 绑定信号
+    RACSignal *bindSignal = [subject bind:^RACSignalBindBlock _Nonnull{
+        return ^RACSignal *(id value, BOOL *stop){
+            // block调用：只要源信号subject发送数据，就会调用block
+            // bind作用：处理源信号内容
+            RZLog(@"%@", value);
+            
+            // 处理源信号数据
+            value = [NSString stringWithFormat:@"rzl：%@", value];
+            // 返回信号，不能传nil,返回空信号[RACSignal empty]
+            // [RACReturnSignal return:value] 处理绑定信号
+            return [RACReturnSignal return:value];
+        };
+    }];
+    
+    // 3.订阅绑定信号
+    [bindSignal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x);
+    }];
+    
+    // 4.发送数据
+    [subject sendNext:@"data"];
 }
 
 #pragma mark - RACCommand
@@ -506,6 +848,12 @@
     field.borderStyle = UITextBorderStyleLine;
     field.placeholder = @"请输入";
     _field = field;
+    
+    UITextField *field02 = [[UITextField alloc] initWithFrame:CGRectMake(200, 110, 100, 45)];
+    [self.view addSubview:field02];
+    field02.borderStyle = UITextBorderStyleLine;
+    field02.placeholder = @"请输入";
+    _field02 = field02;
 }
 - (void)touchEvent {
     // 手动取消订阅

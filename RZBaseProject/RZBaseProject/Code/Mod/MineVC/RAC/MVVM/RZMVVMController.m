@@ -10,6 +10,7 @@
 #import "ReactiveObjC.h"
 
 #import "RZLoginViewModel.h"
+#import "RZRequestViewModel.h"
 
 @interface RZMVVMController ()
 
@@ -19,6 +20,9 @@
 
 /** viewModel */
 @property (nonatomic, strong) RZLoginViewModel *loginVM;
+
+/** requestVM */
+@property (nonatomic, strong) RZRequestViewModel *requestVM;
 
 @end
 
@@ -34,26 +38,73 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /**
-     MVVM 模型
-     */
+    [self MVVM_Request];
     
-    [self signalAction];
+    // MVVM 模型
+//    [self MVVM];
+    
+    // RAC + 登录的处理
+//    [self signalAction];
 }
 
+#pragma mark - MVVM 网络请求
+
+- (void)MVVM_Request {
+    self.requestVM = [[RZRequestViewModel alloc] init];
+    RACSignal *signal = [self.requestVM.requestCommand execute:nil];
+    [signal subscribeNext:^(id  _Nullable x) {
+        RZLog(@"%@", x[@"books"][0]);
+    }];
+}
+
+#pragma mark - MVVM 模型
+
+- (void)MVVM {
+    // 每一个控制器 都对应 一个VM模型
+    // VM模型 最好不要包含 视图
+    
+    [self bindViewModel];
+    [self loginEvent];
+}
+
+- (void)bindViewModel {
+    // 绑定信号
+    RAC(self.loginVM, account)  = _accountFiled.rac_textSignal;
+    RAC(self.loginVM, pwd) = _pwdField.rac_textSignal;
+}
+
+- (void)loginEvent {
+    RAC(_loginBtn, enabled) = self.loginVM.loginEnableSignal;
+    
+    // 监听登录按钮点击
+    [[_loginBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        RZLog(@"点击了登录按钮");
+        
+        // 处理登录事件
+        [self.loginVM.loginCommand execute:nil];
+    }];
+}
+
+#pragma mark - RAC + 登录的处理
+
 - (void)signalAction {
-    RACSignal *loginEnableSignal = [RACSignal combineLatest:@[_accountFiled.rac_textSignal, _pwdField.rac_textSignal] reduce:^id(NSString *account, NSString *pwd) {
+    // combineLatest 将多个信号合并起来，并且拿到每个信号的最新值，才会出发合并的信号
+    RACSignal *loginEnableSignal = [RACSignal combineLatest:@[_accountFiled.rac_textSignal, _pwdField.rac_textSignal] reduce:^id (NSString *account, NSString *pwd){
         return @(account.length && pwd.length);
     }];
     
     // 设置登录按钮是否可用
     RAC(_loginBtn, enabled) = loginEnableSignal;
     
+    
+    // 监听按钮的点击
+    
+    
     RACCommand *command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
             // 发送数据
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [subscriber sendNext:@"请求登录的数据"];
+                [subscriber sendNext:[NSString stringWithFormat:@"%@ +++ %@", _accountFiled.text, _pwdField.text]];
                 [subscriber sendCompleted];
             });
             
@@ -67,12 +118,13 @@
     }];
     
     // 监听命令执行过程
-    [command.executing subscribeNext:^(NSNumber * _Nullable x) {
+    // 一开始就执行了一次，需要跳过一次
+    [[command.executing skip:1] subscribeNext:^(NSNumber * _Nullable x) {
         if ([x boolValue] == YES) {
             // 正在执行
             RZLog(@"正在执行");
         }else{
-            // 执行完成
+            // 没有执行/执行完成
             RZLog(@"执行完成");
         }
     }];
