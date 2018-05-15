@@ -48,6 +48,7 @@
     
     NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
     demoCell.textLabel.text = arr_Key[indexPath.row];
+    demoCell.textLabel.textColor = [UIColor infoBlueColor];
     
     return demoCell;
 }

@@ -61,6 +61,7 @@ static NSString *const reCellID = @"HomeCell";
     
     NSString *str = [NSString stringWithFormat:@"%li、%@", indexPath.row + 1, self.titleArr[indexPath.row]];
     cell.textLabel.text = str;
+    cell.textLabel.textColor = [UIColor mandarinColor];
     return cell;
 }
 

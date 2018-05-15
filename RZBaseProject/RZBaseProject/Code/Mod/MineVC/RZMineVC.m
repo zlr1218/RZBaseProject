@@ -32,7 +32,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, kScreeHeight-64) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     
-    NSArray *arr = @[@"RAC 中的常用的类", @"MVVM + RAC"];
+    NSArray *arr = @[@"RAC 中的常用的类", @"MVVM + RAC", @"测试网络请求"];
     _dataSource = [[RZDataSource alloc] initWithItems:arr CellReuseIdentifier:@"cell" configureCellBlock:^(UITableViewCell *cell, NSString *title) {
         //RZLog(@"%@", title);
     }];
@@ -45,6 +45,10 @@
         
         if (row == 1) {
             [self.navigationController pushViewController:[RZMVVMController new] animated:YES];
+        }
+        
+        if (row == 2) {
+            
         }
     }];
     _tableView.dataSource = _dataSource;

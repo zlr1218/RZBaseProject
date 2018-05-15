@@ -10,7 +10,7 @@
 #define RZMacros_h
 
 
-
+#define LMJWeak(type)  __weak typeof(type) weak##type = type
 
 
 

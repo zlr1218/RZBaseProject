@@ -19,6 +19,9 @@ pod 'ReactiveObjC', '~> 3.0.0'
 pod 'ZYCornerRadius', '~> 1.0.2'
 pod 'YYKit'
 
+pod 'Colours'
+pod 'ChameleonFramework'
+
 
 
 end

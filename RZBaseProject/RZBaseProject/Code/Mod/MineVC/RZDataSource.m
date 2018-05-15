@@ -54,6 +54,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *title = [self itemAtIndexPath:indexPath];
     cell.textLabel.text = title;
+    cell.textLabel.textColor = [UIColor black25PercentColor];
     
     if (self.configureCellBlock) {
         self.configureCellBlock(cell, title);
