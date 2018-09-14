@@ -167,6 +167,12 @@
 		2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */; };
 		2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373431FD7DB3800FD95B0 /* RZDataSource.m */; };
 		2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */; };
+		4C1A3205212D4157009FB868 /* RZSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A3204212D4157009FB868 /* RZSort.m */; };
+		4C22C332212419360095E005 /* RZGCDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C22C330212419360095E005 /* RZGCDVC.m */; };
+		4C22C333212419360095E005 /* RZGCDVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C22C331212419360095E005 /* RZGCDVC.xib */; };
+		4C639C6821142A9100084571 /* RZThreadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C639C6721142A9100084571 /* RZThreadVC.m */; };
+		4CE5AF482137D97800F11C6F /* RZListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF472137D97800F11C6F /* RZListVC.m */; };
+		4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */; };
 		9A8F17DBC507AB8871CCDF8B /* Pods_RZBaseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7626B4693FB80983C26E33 /* Pods_RZBaseProject.framework */; };
 		B31505AF1DBDFC1A00CA4005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B31505AE1DBDFC1A00CA4005 /* main.m */; };
 		B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B31505B11DBDFC1A00CA4005 /* AppDelegate.m */; };
@@ -447,6 +453,17 @@
 		2AE373431FD7DB3800FD95B0 /* RZDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZDataSource.m; sourceTree = "<group>"; };
 		2AF5BA331FD8E50F0004968C /* YYText_DemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYText_DemoVC.h; sourceTree = "<group>"; };
 		2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYText_DemoVC.m; sourceTree = "<group>"; };
+		4C1A3203212D4157009FB868 /* RZSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZSort.h; sourceTree = "<group>"; };
+		4C1A3204212D4157009FB868 /* RZSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZSort.m; sourceTree = "<group>"; };
+		4C22C32F212419360095E005 /* RZGCDVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZGCDVC.h; sourceTree = "<group>"; };
+		4C22C330212419360095E005 /* RZGCDVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZGCDVC.m; sourceTree = "<group>"; };
+		4C22C331212419360095E005 /* RZGCDVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZGCDVC.xib; sourceTree = "<group>"; };
+		4C639C6621142A9100084571 /* RZThreadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZThreadVC.h; sourceTree = "<group>"; };
+		4C639C6721142A9100084571 /* RZThreadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZThreadVC.m; sourceTree = "<group>"; };
+		4CE5AF462137D97800F11C6F /* RZListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZListVC.h; sourceTree = "<group>"; };
+		4CE5AF472137D97800F11C6F /* RZListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZListVC.m; sourceTree = "<group>"; };
+		4CE5AF492137DBE400F11C6F /* RZPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPageVC.h; sourceTree = "<group>"; };
+		4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZPageVC.m; sourceTree = "<group>"; };
 		B31505AA1DBDFC1A00CA4005 /* RZBaseProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RZBaseProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31505AE1DBDFC1A00CA4005 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B31505B01DBDFC1A00CA4005 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -575,6 +592,9 @@
 				2A389B7E1EE14D14007E78FE /* RZHomeVC.h */,
 				2A389B7F1EE14D14007E78FE /* RZHomeVC.m */,
 				2A389B801EE14D14007E78FE /* RZHomeVC.xib */,
+				4CE5AF422137D2D900F11C6F /* RZPageController */,
+				4C1A3202212D4142009FB868 /* RZSort */,
+				4C639C6521142A0A00084571 /* 多线程 */,
 				2A936A321F00D76C005E578D /* FoldTableView */,
 				2A54450A1F28840C006BC937 /* ios加密方式 */,
 			);
@@ -1105,6 +1125,38 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4C1A3202212D4142009FB868 /* RZSort */ = {
+			isa = PBXGroup;
+			children = (
+				4C1A3203212D4157009FB868 /* RZSort.h */,
+				4C1A3204212D4157009FB868 /* RZSort.m */,
+			);
+			path = RZSort;
+			sourceTree = "<group>";
+		};
+		4C639C6521142A0A00084571 /* 多线程 */ = {
+			isa = PBXGroup;
+			children = (
+				4C639C6621142A9100084571 /* RZThreadVC.h */,
+				4C639C6721142A9100084571 /* RZThreadVC.m */,
+				4C22C32F212419360095E005 /* RZGCDVC.h */,
+				4C22C330212419360095E005 /* RZGCDVC.m */,
+				4C22C331212419360095E005 /* RZGCDVC.xib */,
+			);
+			path = "多线程";
+			sourceTree = "<group>";
+		};
+		4CE5AF422137D2D900F11C6F /* RZPageController */ = {
+			isa = PBXGroup;
+			children = (
+				4CE5AF492137DBE400F11C6F /* RZPageVC.h */,
+				4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */,
+				4CE5AF462137D97800F11C6F /* RZListVC.h */,
+				4CE5AF472137D97800F11C6F /* RZListVC.m */,
+			);
+			path = RZPageController;
+			sourceTree = "<group>";
+		};
 		B31505A11DBDFC1A00CA4005 = {
 			isa = PBXGroup;
 			children = (
@@ -1170,7 +1222,6 @@
 				B31505A71DBDFC1A00CA4005 /* Frameworks */,
 				B31505A81DBDFC1A00CA4005 /* Resources */,
 				6B361A43B5BB8752B7F747FD /* [CP] Embed Pods Frameworks */,
-				6BD45A941BC59447418785D6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1211,7 +1262,7 @@
 				TargetAttributes = {
 					B31505A91DBDFC1A00CA4005 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ME39WR735C;
+						DevelopmentTeam = D44DCBG9DC;
 						ProvisioningStyle = Automatic;
 					};
 					B31B2F2B1DEC1E53009634C1 = {
@@ -1257,6 +1308,7 @@
 				2A41F73A1F29C52F00239472 /* 樱花树3.jpg in Resources */,
 				2A41F7631F29C52F00239472 /* pic4.jpg in Resources */,
 				B33D68111DD1736B0049F3D6 /* noteText in Resources */,
+				4C22C333212419360095E005 /* RZGCDVC.xib in Resources */,
 				2A41F7C21F29CBBF00239472 /* RZMineVC.xib in Resources */,
 				2A41F7571F29C52F00239472 /* 9.jpg in Resources */,
 				2A41F7431F29C52F00239472 /* 11.jpg in Resources */,
@@ -1334,28 +1386,42 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Colours/Colours.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ZYCornerRadius/ZYCornerRadius.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Colours.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JXCategoryView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZYCornerRadius.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6BD45A941BC59447418785D6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E5ECBB43EB949FD935A9CBA0 /* [CP] Check Pods Manifest.lock */ = {
@@ -1364,13 +1430,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RZBaseProject-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1423,6 +1492,7 @@
 				2A562B7E1FD6880E007C0DBA /* NSString+RegexCategory.m in Sources */,
 				2A562BC61FD68939007C0DBA /* XHLaunchAdImageManager.m in Sources */,
 				2A6F52841FBD74B90025FC58 /* RZPageController.m in Sources */,
+				4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */,
 				2A562BE11FD692A5007C0DBA /* NSDate+Extension.m in Sources */,
 				2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */,
 				2A5445051F286186006BC937 /* FoldSectionView.m in Sources */,
@@ -1431,15 +1501,18 @@
 				2A562BF91FD69878007C0DBA /* UIButton+Submitting.m in Sources */,
 				2A5444FA1F2836F5006BC937 /* RZCityList.m in Sources */,
 				2A980D851FE26F10005B177F /* UIImage+CompressImage.m in Sources */,
+				4CE5AF482137D97800F11C6F /* RZListVC.m in Sources */,
 				2A562C351FD6988E007C0DBA /* UIImage+FileName.m in Sources */,
 				2A562BF81FD69878007C0DBA /* UIButton+MiddleAligning.m in Sources */,
 				2A562B7D1FD6880E007C0DBA /* NSString+Contains.m in Sources */,
 				B31505AF1DBDFC1A00CA4005 /* main.m in Sources */,
+				4C639C6821142A9100084571 /* RZThreadVC.m in Sources */,
 				2A562BDC1FD68E1B007C0DBA /* RZAlertView.m in Sources */,
 				2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */,
 				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
 				2A6F52831FBD74B90025FC58 /* RZDemo3VC.m in Sources */,
 				2A6F52851FBD74B90025FC58 /* RZPageTwoController.m in Sources */,
+				4C1A3205212D4157009FB868 /* RZSort.m in Sources */,
 				2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */,
 				2A562C2C1FD6988E007C0DBA /* UIImageView+GeometryConversion.m in Sources */,
 				2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */,
@@ -1447,6 +1520,7 @@
 				2A6F52881FBD74B90025FC58 /* TYTabButtonPagerController.m in Sources */,
 				2A562B8A1FD68875007C0DBA /* Foundation+Log.m in Sources */,
 				2A562BC41FD68939007C0DBA /* XHLaunchAdDownload.m in Sources */,
+				4C22C332212419360095E005 /* RZGCDVC.m in Sources */,
 				2A562C291FD6988E007C0DBA /* UIImageView+Addition.m in Sources */,
 				2A562C2A1FD6988E007C0DBA /* UIImageView+BetterFace.m in Sources */,
 				2A562BC11FD68939007C0DBA /* XHLaunchAdButton.m in Sources */,
@@ -1607,14 +1681,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ME39WR735C;
+				DEVELOPMENT_TEAM = D44DCBG9DC;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
 				INFOPLIST_FILE = RZBaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject5s;
+				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -1626,14 +1700,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = ME39WR735C;
+				DEVELOPMENT_TEAM = D44DCBG9DC;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
 				INFOPLIST_FILE = RZBaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject5s;
+				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};

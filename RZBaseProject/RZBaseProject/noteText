@@ -52,3 +52,101 @@ _TableView.dataSource = self;
 }
 return _TableView;
 }
+
+
+
+
+
+
+- (void)start {
+if (_centralManager.state & CBCentralManagerStatePoweredOn) {
+CENTRAL_MANAGER_INIT_WAIT_TIMES = 0;
+if (!self.connectedPeripheral) {
+[self scanForPeripheral];
+}
+return;
+}
+CENTRAL_MANAGER_INIT_WAIT_TIMES++;
+if (CENTRAL_MANAGER_INIT_WAIT_TIMES >= 5) {
+RZLog(@">>> 第%d次等待CBCentralManager 打开任然失败，请检查你蓝牙使用权限或检查设备问题。",CENTRAL_MANAGER_INIT_WAIT_TIMES);
+return;
+}
+dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW , CENTRALMANAGER_INIT_WAIT_SECOND * NSEC_PER_SEC);
+dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+[self start];
+});
+RZLog(@">>> 第%d次等待CBCentralManager打开",CENTRAL_MANAGER_INIT_WAIT_TIMES);
+}
+
+
+
+/*
+[<7d080000 00000000 00323100 00000000 0000007d>,
+<7d080000 00000000 00323200 00000000 0000007d>,
+<7d080000 00000000 00323300 00000000 0000007d>,
+<7d080000 00000000 00323400 00000000 0000007d>,
+<7d080000 00000000 00323500 00000000 0000007d>,
+<7d080000 00000000 00323600 00000000 0000007d>,
+<7d080000 00000000 00323700 00000000 0000007d>]
+*/
+
+
+
+
+- (void)createBle {
+_ble = [RZBLE shareInstance];
+[_ble setIsNotify:YES];
+[_ble settingPeripheralMacAdress:@"0c61cf297409" Name:@"BLE#0x0C61CF297409"];
+[_ble start];
+__weak typeof(self) weakSelf = self;
+[_ble setBlockOnDiscoverPeripherals02:^(NSMutableArray *dataArr) {
+weakSelf.dataArr = dataArr;
+NSMutableArray *indexPathArr = [NSMutableArray array];
+NSIndexPath *indexPath = [NSIndexPath indexPathForRow:(dataArr.count-1) inSection:0];
+[indexPathArr addObject:indexPath];
+[weakSelf.bleTableView insertRowsAtIndexPaths:indexPathArr withRowAnimation:UITableViewRowAnimationAutomatic];
+}];
+[_ble setBlockOnUpdateCharacteristic:^(CBPeripheral *peripheral, CBCharacteristic *characteristic, NSError *error) {
+NSData *data = characteristic.value;
+NSString *dataString = [NSString stringWithFormat:@"%@", data];
+if ([dataString hasPrefix:@"<7d"] && [dataString hasSuffix:@"7d>"]) {
+RZLog(@"characteristic.UUID = %@\ncharacteristic.value = %@", characteristic.UUID, characteristic.value);
+NSArray *strArr = [dataString componentsSeparatedByString:@" "];
+NSString *string01 = [strArr[2] substringWithRange:NSMakeRange(4, 2)];
+NSString *string02 = [strArr[2] substringWithRange:NSMakeRange(6, 2)];
+RZLog(@"%@ - %@", string01, string02);
+weakSelf.textView.text = [NSString stringWithFormat:@"%@\n%@%@", dataString,weakSelf.cmdDict[string01], weakSelf.backDict[string02]];
+}
+}];
+}
+
+
+
+
+switch (central.state) {
+case 0:
+NSLog(@"CBCentralManagerStateUnknown");
+break;
+case 1:
+NSLog(@"CBCentralManagerStateResetting");
+break;
+case 2:
+NSLog(@"CBCentralManagerStateUnsupported");//不支持蓝牙
+break;
+case 3:
+NSLog(@"CBCentralManagerStateUnauthorized");
+break;
+case 4:
+NSLog(@"CBCentralManagerStatePoweredOff");//蓝牙未开启
+break;
+case 5:{
+NSLog(@"CBCentralManagerStatePoweredOn");//蓝牙已开启
+if (_macAdress && _peripheralName && _connectedPeripheral==nil) {
+[_centralManager scanForPeripheralsWithServices:nil options:nil];
+}
+}
+break;
+default:
+break;
+}
+

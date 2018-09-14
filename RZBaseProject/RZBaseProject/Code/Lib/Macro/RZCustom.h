@@ -20,21 +20,6 @@
  */
 + (UIViewController *)getCurrentVC;
 
-
-/**
- 判断密码设置是否合规
-
- @param str 密码
- @return YES Or NO
- */
-+ (BOOL)judgeNumber:(NSString*)str;
-
-
-/**
- 对数组中的字符串元素进行自然排序
- */
-+ (NSArray*)sortArray:(NSArray *)array;
-
 /**
  判断手机号码格式是否正确
 
@@ -51,7 +36,5 @@
  @return 判断是否正确
  */
 + (BOOL)verifyIDCardNumber:(NSString *)identityString;
-
-+ (NSString *)strUTF8Encoding:(NSString *)str;
 
 @end

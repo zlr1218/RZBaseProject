@@ -497,7 +497,7 @@
 }
 
 + (NSString *)hmsFormat {
-    return @"HH:mm:ss";
+    return @"HH:mm:ss:SSS";
 }
 
 + (NSString *)ymdHmsFormat {

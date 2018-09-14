@@ -21,6 +21,13 @@
 #import "NSString+Size.h"
 #import "NSDate+Extension.h"
 
+#import "RZThreadVC.h"
+#import "RZGCDVC.h"
+
+#import "RZSort.h"
+
+#import "RZPageVC.h"
+
 @interface RZHomeVC ()<UITableViewDelegate, UITableViewDataSource, RZAlertViewDelegate>
 
 
@@ -121,6 +128,37 @@ static NSString *const reCellID = @"HomeCell";
         NSDate *date = [NSDate date];
         [self.view makeRZToast:[NSString stringWithFormat:@"Today is %@ - %@", [date stringWithFormat:[date ymdFormat]], [date dayFromWeekday]]];
     }
+    
+    if ([self.titleArr[indexPath.row] isEqualToString:@"多线程"]) {
+        [self.navigationController pushViewController:[RZThreadVC new] animated:YES];
+    }
+    
+    if ([self.titleArr[indexPath.row] isEqualToString:@"GCD 多线程"]) {
+        [self.navigationController pushViewController:[RZGCDVC new] animated:YES];
+    }
+    
+    if ([self.titleArr[indexPath.row] isEqualToString:@"pageVC"]) {
+        [self.navigationController pushViewController:[RZPageVC new] animated:YES];
+    }
+    
+    if ([self.titleArr[indexPath.row] isEqualToString:@"排序1"]) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 1000; i++) {
+            NSInteger n = arc4random() % 10000;
+            [array addObject:@(n)];
+        }
+        [RZSort quickSork:array];
+//        RZLog(@"%@", [RZSort quickSork:array]);// 快排
+    }
+    if ([self.titleArr[indexPath.row] isEqualToString:@"排序2"]) {
+        NSMutableArray *array = [NSMutableArray array];
+        for (int i = 0; i < 1000; i++) {
+            NSInteger n = arc4random() % 10000;
+            [array addObject:@(n)];
+        }
+        [RZSort selectionSort:array];
+//        RZLog(@"%@", [RZSort bubbleSort:array]);// 冒泡
+    }
 }
 
 - (void)alertView:(RZAlertView *)alertView ClickedBtnAtIndex:(NSInteger)index {
@@ -131,7 +169,7 @@ static NSString *const reCellID = @"HomeCell";
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension"];
+        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"排序1", @"排序2", @"pageVC", @"------"];
     }
     return _titleArr;
 }

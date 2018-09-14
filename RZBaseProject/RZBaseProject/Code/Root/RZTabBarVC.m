@@ -46,7 +46,7 @@
     [self addViewController:mineVC title:@"我的" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
     
     // 默认显示第几个界面
-    self.selectedViewController = [self.viewControllers objectAtIndex:2];
+    self.selectedViewController = [self.viewControllers objectAtIndex:0];
     
     
     //去除 TabBar 自带的顶部阴影
