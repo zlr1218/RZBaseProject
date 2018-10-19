@@ -29,7 +29,6 @@ static NSMutableArray *tasks;
 
 @implementation RZNetManager
 
-
 + (instancetype)sharedNetManager {
     static RZNetManager *manager = nil;
     static dispatch_once_t onceToken;

@@ -9,27 +9,50 @@
 #ifndef RZMacros_h
 #define RZMacros_h
 
+//弱引用/强引用
+#define kWeakSelf(type)   __weak typeof(type) weak##type = type;
+#define kStrongSelf(type) __strong typeof(type) type = weak##type;
 
-#define LMJWeak(type)  __weak typeof(type) weak##type = type
+// 适配iOS11
+#define kAdjustmentBehavior(VC, view) if (@available(iOS 11.0, *)) {                \
+    view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;  \
+} else {                                                                            \
+    VC.automaticallyAdjustsScrollViewInsets = NO;                                   \
+}                                                                                   \
 
+// 判断iPhoneX系列
+#define kRZ_iPhoneX_Series ({\
+BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+    isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);\
+})\
 
+// 状态栏高度
+#define kRZStatusBarHeight (kRZ_iPhoneX_Series ? 44 : 20)
+// 导航栏高度+状态栏高度
+#define kRZTopHeight (kRZ_iPhoneX_Series ? 88 : 64)
+// 底部安全距离
+#define kRZBottomHeight (kRZ_iPhoneX_Series ? 34 : 0)
+// Tab高度
+#define kRZTabHeight (kRZ_iPhoneX_Series ? (49+34) : 34)
 
+// 屏幕宽度
 #define kScreeWith [UIScreen mainScreen].bounds.size.width
+// 屏幕高度
 #define kScreeHeight [UIScreen mainScreen].bounds.size.height
-
-#define SCREEN_SCALE  (kScreeWith/320.f)
-#define FontNum(x)   x*SCREEN_SCALE
-
-#define LAB_FONT(x) [UIFont systemFontOfSize:x*SCREEN_SCALE]
 
 //重写NSLog,Debug模式下打印日志和当前行数
 #if DEBUG
 
-#define RZLog(FORMAT, ...) do {                                     \
-fprintf(stderr,"\nfunction:%s \nline:%d content: -> %s\n",          \
-__FUNCTION__,                                                       \
-__LINE__,                                                           \
-[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);    \
+#define RZLog(FORMAT, ...) do {                                             \
+fprintf(stderr,"\n♨ Time:%s File:%s line:%d Func:%s ♨\n☞ %s ☜\n",         \
+__TIME__,                                                                   \
+[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
+__LINE__,                                                                   \
+__func__,                                                                   \
+[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);            \
 } while (0)
 
 #else
@@ -47,12 +70,5 @@ __LINE__,                                                           \
 || [_object isKindOfClass:[NSNull class]] \
 || ([_object respondsToSelector:@selector(length)] && [(NSData *)_object length] == 0) \
 || ([_object respondsToSelector:@selector(count)] && [(NSArray *)_object count] == 0))
-
-
-
-
-
-
-
 
 #endif /* RZMacros_h */

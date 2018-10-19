@@ -150,3 +150,65 @@ default:
 break;
 }
 
+
+
+#pragma mark - 懒加载-企业数据
+
+- (NSMutableArray *)cellTypeArray {
+if (!_cellTypeArray) {
+_cellTypeArray = [NSMutableArray array];
+[_cellTypeArray addObject:@[@"TF",@"TF",@"Lab",@"DLab"]];
+[_cellTypeArray addObject:@[@"TF",@"TF",@"TF",@"TF"]];
+[_cellTypeArray addObject:@[@"Lab"]];
+}
+return _cellTypeArray;
+}
+- (NSMutableArray *)nameArray {
+if (!_nameArray) {
+_nameArray = [NSMutableArray array];
+[_nameArray addObject:@[@"发票抬头",@"税号",@"发票内容",@"发票金额"]];
+[_nameArray addObject:@[@"收件人",@"联系电话",@"详细地址",@"备注"]];
+[_nameArray addObject:@[@"发票邮费"]];
+}
+return _nameArray;
+}
+- (NSMutableArray *)placeholderArray {
+if (!_placeholderArray) {
+_placeholderArray = [NSMutableArray array];
+[_placeholderArray addObject:@[@"请填写发票抬头名称",@"填写纳税人识别号",@"租赁费",@"¥00.00"]];
+[_placeholderArray addObject:@[@"填写收件人",@"填写联系电话",@"填写详细收货地址",@"特殊说明"]];
+[_placeholderArray addObject:@[@"货到付款"]];
+}
+return _placeholderArray;
+}
+
+#pragma mark - 懒加载-个人数据
+
+- (NSMutableArray *)cellTypeArray_02 {
+if (!_cellTypeArray_02) {
+_cellTypeArray_02 = [NSMutableArray array];
+[_cellTypeArray_02 addObject:@[@"TF",@"Lab",@"DLab"]];
+[_cellTypeArray_02 addObject:@[@"TF",@"TF",@"TF",@"TF"]];
+[_cellTypeArray_02 addObject:@[@"Lab"]];
+}
+return _cellTypeArray_02;
+}
+- (NSMutableArray *)nameArray_02 {
+if (!_nameArray_02) {
+_nameArray_02 = [NSMutableArray array];
+[_nameArray_02 addObject:@[@"发票抬头",@"发票内容",@"发票金额"]];
+[_nameArray_02 addObject:@[@"收件人",@"联系电话",@"详细地址",@"备注"]];
+[_nameArray_02 addObject:@[@"发票邮费"]];
+}
+return _nameArray_02;
+}
+- (NSMutableArray *)placeholderArray_02 {
+if (!_placeholderArray_02) {
+_placeholderArray_02 = [NSMutableArray array];
+[_placeholderArray_02 addObject:@[@"请填写发票抬头名称",@"租赁费",@"¥00.00"]];
+[_placeholderArray_02 addObject:@[@"填写收件人",@"填写联系电话",@"填写详细收货地址",@"特殊说明"]];
+[_placeholderArray_02 addObject:@[@"货到付款"]];
+}
+return _placeholderArray_02;
+}
+

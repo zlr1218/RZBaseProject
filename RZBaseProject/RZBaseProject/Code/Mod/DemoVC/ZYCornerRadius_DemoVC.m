@@ -18,20 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIScrollView *view = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, kScreeHeight-kRZTopHeight-kRZBottomHeight)];
+    view.backgroundColor = RZ_LightGray_Color;
+    view.contentSize = CGSizeMake(kScreeWith, kScreeHeight*10);
+    [self.view addSubview:view];
+    
     UIImageView *imageView = [[UIImageView alloc] initWithRoundingRectImageView];
     [imageView setFrame:CGRectMake(130, 80, 150, 150)];
-    [self.view addSubview:imageView];
+    [view addSubview:imageView];
     
     
     UIImageView *imageViewSecond = [[UIImageView alloc] initWithCornerRadiusAdvance:20.f rectCornerType:UIRectCornerBottomLeft | UIRectCornerTopRight];
     [imageViewSecond setFrame:CGRectMake(130, 280, 150, 150)];
-    [self.view addSubview:imageViewSecond];
+    [view addSubview:imageViewSecond];
     
     
     UIImageView *imageViewThird = [[UIImageView alloc] initWithFrame:CGRectMake(130, 480, 150, 150)];
     [imageViewThird zy_cornerRadiusAdvance:20.f rectCornerType:UIRectCornerBottomRight | UIRectCornerTopLeft];
     [imageViewThird zy_attachBorderWidth:5.f color:[UIColor blackColor]];
-    [self.view addSubview:imageViewThird];
+    [view addSubview:imageViewThird];
     
     imageView.image = [UIImage imageNamed:@"mac_dog"];
     imageViewSecond.image = [UIImage imageNamed:@"mac_dog"];

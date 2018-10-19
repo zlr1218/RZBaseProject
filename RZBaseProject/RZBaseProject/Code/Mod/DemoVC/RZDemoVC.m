@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    RZLog(@"%d", kRZ_iPhoneX_Series);
     
     [self setupTableView];
 }
