@@ -7,33 +7,29 @@
 //
 
 #import "RZDemoVC.h"
-#import "RZDemo3VC.h"
-
 #import "NSDictionary+JKSafeAccess.h"
-#import "UIView+RoundedCorner.h"
+#import "RZPageVC.h"
+
+
+static NSString *const recellID = @"demoCell";
 
 
 @interface RZDemoVC ()<UITableViewDelegate, UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *DemoTableView;
-/** 存储 DemoTitle 的数组 */
 @property (nonatomic, strong) NSMutableDictionary *DictStoreDemoTitle;
+
 @end
 
 @implementation RZDemoVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    RZLog(@"%d", kRZ_iPhoneX_Series);
-    
-    [self setupTableView];
+    self.view.backgroundColor = RZ_White_Color;
+    _DemoTableView.tableFooterView = [UIView new];
 }
 
 #pragma mark - 设置TableView
-
-- (void)setupTableView {
-    [self.DemoTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"demoCell"];
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
@@ -41,10 +37,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *demoCell = [tableView dequeueReusableCellWithIdentifier:@"demoCell"];
-    
+    UITableViewCell *demoCell = [tableView dequeueReusableCellWithIdentifier:recellID];
     if (!demoCell) {
-        demoCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"demoCell"];
+        demoCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:recellID];
     }
     
     NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
@@ -69,7 +64,7 @@
         _DictStoreDemoTitle = [NSMutableDictionary dictionary];
         
         [_DictStoreDemoTitle jk_setString:@"ZYCornerRadius_DemoVC" forKey:@"一句代码，圆角风雨无阻_ZYCornerRadius"];
-        [_DictStoreDemoTitle jk_setString:@"RZDemo3VC" forKey:@"PageControl_RZDemo3VC"];
+        [_DictStoreDemoTitle jk_setString:@"RZPageVC" forKey:@"PageControl"];
         [_DictStoreDemoTitle jk_setString:@"YYText_DemoVC" forKey:@"YYText"];
     }
     return _DictStoreDemoTitle;

@@ -10,6 +10,10 @@
 #import "JXCategoryView.h"
 #import "RZListVC.h"
 
+
+#define kTitleHeight 50.f
+#define kContentHeight kScreeHeight-kRZBottomHeight-kRZTopHeight-50
+
 @interface RZPageVC ()<UIScrollViewDelegate, JXCategoryViewDelegate>
 {
     NSInteger _count;
@@ -41,27 +45,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CGFloat titleViewHeight = 50;
-    
-    JXCategoryTitleView *titleView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, titleViewHeight)];
+    // 初始化titleView
+    JXCategoryTitleView *titleView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, kTitleHeight)];
     titleView.delegate = self;
     titleView.titleColorGradientEnabled = YES;
     titleView.titles = self.titles;
-    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorLineWidth = JXCategoryViewAutomaticDimension;
-    titleView.indicators = @[lineView];
     [self.view addSubview:titleView];
     _titleView = titleView;
     
+    // lineView
+    JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
+    lineView.indicatorLineWidth = JXCategoryViewAutomaticDimension;
+    titleView.indicators = @[lineView];
+    
     _count = self.titles.count;
     
-    CGFloat scrollWidth = kScreeWith;
-    CGFloat scrollHeight = 300;
-    
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, titleViewHeight, scrollWidth, scrollHeight)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kTitleHeight, kScreeWith, kContentHeight)];
     self.scrollView.delegate = self;
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(scrollWidth*_count, scrollHeight);
+    self.scrollView.contentSize = CGSizeMake(kScreeWith*_count, kContentHeight);
     [self.view addSubview:self.scrollView];
     
     _titleView.contentScrollView = self.scrollView;
@@ -73,7 +75,7 @@
     for (int i = 0; i < _count; i++) {
         RZListVC *listVC = [RZListVC new];
         [self addChildViewController:listVC];
-        listVC.view.frame = CGRectMake(i*scrollWidth, 0, scrollWidth, scrollHeight);
+        listVC.view.frame = CGRectMake(i*kScreeWith, 0, kScreeWith, kContentHeight);
         [self.scrollView addSubview:listVC.view];
     }
 }
@@ -82,11 +84,14 @@
     CGFloat index = scrollView.contentOffset.x/kScreeWith;
     CGFloat absIndex = fabs(index - self.currentIndex);
     if (absIndex >= 1) {
-        //嵌套使用的时候，最外层的VC持有的scrollView在翻页之后，就断掉一次手势。解决快速滑动的时候，只响应最外层VC持有的scrollView。子VC持有的scrollView却没有响应
+        /*
+         嵌套使用的时候，最外层的VC持有的scrollView在翻页之后，就断掉一次手势。
+         解决快速滑动的时候，只响应最外层VC持有的scrollView。
+         子VC持有的scrollView却没有响应
+         */
         self.scrollView.panGestureRecognizer.enabled = NO;
         self.scrollView.panGestureRecognizer.enabled = YES;
         self.currentIndex = floor(index);
-//        [self.titleView selectItemWithIndex:self.currentIndex];
     }
 }
 
