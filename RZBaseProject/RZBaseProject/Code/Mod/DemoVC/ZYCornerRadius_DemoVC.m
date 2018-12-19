@@ -9,6 +9,7 @@
 #import "ZYCornerRadius_DemoVC.h"
 #import "UIImageView+CornerRadius.h"
 #import "UIView+RoundedCorner.h"
+#import "UIControl+RZLimitClick.h"
 
 @interface ZYCornerRadius_DemoVC ()
 
@@ -29,6 +30,7 @@
     btn.top = 15;
     btn.width = 70;
     btn.height = 70;
+    btn.clickLimitInterval = 2;
     [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:btn];
     

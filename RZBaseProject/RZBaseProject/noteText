@@ -212,3 +212,117 @@ _placeholderArray_02 = [NSMutableArray array];
 return _placeholderArray_02;
 }
 
+
+
+
+
+
+
+
+
+
+
+mark - 轻享个人信息-cell
+
+/*
+UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+if (!cell) {
+cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+}
+if (indexPath.section == 0) {
+PersonTableViewCell *Pcell = [[PersonTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Pcell"];
+Pcell.titleLabel.text = self.TitleArr[indexPath.row];
+Pcell.SubtitleLabel.text = self.SubtitArr[indexPath.row];
+if (indexPath.row == 0) {
+[Pcell.contentView addSubview:self.HeadImage];
+[Pcell.contentView addSubview:self.AccImage];
+}else if (indexPath.row == 1 )
+{
+UIImageView *accimage = [[UIImageView alloc]init];
+accimage.image = [UIImage imageNamed:@"acciamge"];
+accimage.frame = CGRectMake(SCREEN_WIDTH - 20 - 6, 20, 6, 12);
+[Pcell.contentView addSubview:accimage];
+}
+
+Pcell.selectionStyle = UITableViewCellSelectionStyleNone;
+return Pcell;
+}else if (indexPath.section == 1)
+{
+PerCertificationTableViewCell *Tcell = [[PerCertificationTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Tcell"];
+Tcell.titLabel.text = self.RenzhenArr[indexPath.row];
+//        Tcell.titLabel.textColor = UIColorRGBA(180, 180, 180, 1);
+//        Tcell.titLabel.font = [UIFont systemFontOfSize:14];
+
+
+//        if (indexPath.row == 2) {
+//            //芝麻信用认证
+//            self.zhimaButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//            if ([self.zhimaStatus isEqualToString:@"1"]) {
+//                self.zhimaButton.enabled = NO;
+//            }else
+//            {
+//                self.zhimaButton.enabled = YES;
+//            }
+//
+//            [self.zhimaButton setBackgroundImage:[UIImage imageNamed:@"NextButtonPic"] forState:UIControlStateNormal];
+//            [self.zhimaButton setBackgroundImage:[UIImage imageNamed:@"whiteDaohang"] forState:UIControlStateDisabled];
+//            [self.zhimaButton setTitleColor:UIColorRGBA(180, 180, 180, 1) forState:UIControlStateDisabled];
+//            [self.zhimaButton setTitle:@"认证" forState:UIControlStateNormal];
+//            self.zhimaButton.titleLabel.font = [UIFont systemFontOfSize:14];
+//            self.zhimaButton.frame = CGRectMake(SCREEN_WIDTH - 60 - 20, 14, 60, 28);
+//
+//            [Tcell.contentView addSubview:self.zhimaButton];
+//            [self.zhimaButton addTarget:self action:@selector(ClickZhimaButton) forControlEvents:UIControlEventTouchUpInside];
+//            Tcell.LineLable.backgroundColor = [UIColor clearColor];
+//
+//        }else
+if(indexPath.row == 0)
+{
+//身份认证
+self.ShenfenButton = [UIButton buttonWithType:UIButtonTypeCustom];
+NSLog(@"%@",self.IdCardStr);
+if ([self.JiashiState isEqualToString:@"1"]) {
+self.ShenfenButton.enabled = NO;
+}else
+{
+self.ShenfenButton.enabled = YES;
+}
+//
+[self.ShenfenButton setBackgroundImage:[UIImage imageNamed:@"NextButtonPic"] forState:UIControlStateNormal];
+[self.ShenfenButton setBackgroundImage:[UIImage imageNamed:@"whiteDaohang"] forState:UIControlStateDisabled];
+[self.ShenfenButton setTitleColor:UIColorRGBA(180, 180, 180, 1) forState:UIControlStateDisabled];
+[self.ShenfenButton setTitle:@"认证" forState:UIControlStateNormal];
+self.ShenfenButton.titleLabel.font = [UIFont systemFontOfSize:14];
+self.ShenfenButton.frame = CGRectMake(SCREEN_WIDTH - 60 - 20, 14, 60, 28);
+[Tcell.contentView addSubview:self.ShenfenButton];
+[self.ShenfenButton addTarget:self action:@selector(ClickREnzhng) forControlEvents:UIControlEventTouchUpInside];
+
+}
+else if(indexPath.row == 1)
+{
+//驾驶认证
+self.RenzhengBUtton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+if ([self.IdCardStr isEqualToString:@"1"]) {
+self.RenzhengBUtton.enabled = NO;
+}else
+{
+self.RenzhengBUtton.enabled = YES;
+}
+
+[self.RenzhengBUtton setBackgroundImage:[UIImage imageNamed:@"NextButtonPic"] forState:UIControlStateNormal];
+[self.RenzhengBUtton setBackgroundImage:[UIImage imageNamed:@"whiteDaohang"] forState:UIControlStateDisabled];
+[self.RenzhengBUtton setTitleColor:UIColorRGBA(180, 180, 180, 1) forState:UIControlStateDisabled];
+[self.RenzhengBUtton setTitle:@"认证" forState:UIControlStateNormal];
+self.RenzhengBUtton.titleLabel.font = [UIFont systemFontOfSize:14];
+self.RenzhengBUtton.frame = CGRectMake(SCREEN_WIDTH - 60 - 20, 14, 60, 28);
+[Tcell.contentView addSubview:self.RenzhengBUtton];
+[self.RenzhengBUtton addTarget:self action:@selector(ClickSHenfen) forControlEvents:UIControlEventTouchUpInside];
+}
+
+Tcell.selectionStyle = UITableViewCellSelectionStyleNone;
+return Tcell;
+}
+cell.selectionStyle = UITableViewCellSelectionStyleNone;
+return cell;
+*/

@@ -159,10 +159,13 @@
 		2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE373431FD7DB3800FD95B0 /* RZDataSource.m */; };
 		2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */; };
 		4C1A3205212D4157009FB868 /* RZSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1A3204212D4157009FB868 /* RZSort.m */; };
+		4C1D766821952B1A005B6D5E /* NSDictionary+RZSafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D766721952B1A005B6D5E /* NSDictionary+RZSafeAccess.m */; };
+		4C1D7688219D466A005B6D5E /* UIControl+RZLimitClick.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1D7687219D4669005B6D5E /* UIControl+RZLimitClick.m */; };
 		4C22C332212419360095E005 /* RZGCDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C22C330212419360095E005 /* RZGCDVC.m */; };
 		4C22C333212419360095E005 /* RZGCDVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C22C331212419360095E005 /* RZGCDVC.xib */; };
 		4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C42CA3A218AD1E9001FDC12 /* UIView+RZFrame.m */; };
 		4C639C6821142A9100084571 /* RZThreadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C639C6721142A9100084571 /* RZThreadVC.m */; };
+		4C83920C21CA1D3F00FAC7A7 /* RZWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C83920B21CA1D3F00FAC7A7 /* RZWebView.m */; };
 		4CE5AF482137D97800F11C6F /* RZListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF472137D97800F11C6F /* RZListVC.m */; };
 		4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */; };
 		9A8F17DBC507AB8871CCDF8B /* Pods_RZBaseProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D7626B4693FB80983C26E33 /* Pods_RZBaseProject.framework */; };
@@ -428,6 +431,10 @@
 		2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYText_DemoVC.m; sourceTree = "<group>"; };
 		4C1A3203212D4157009FB868 /* RZSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZSort.h; sourceTree = "<group>"; };
 		4C1A3204212D4157009FB868 /* RZSort.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZSort.m; sourceTree = "<group>"; };
+		4C1D766621952B1A005B6D5E /* NSDictionary+RZSafeAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+RZSafeAccess.h"; sourceTree = "<group>"; };
+		4C1D766721952B1A005B6D5E /* NSDictionary+RZSafeAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+RZSafeAccess.m"; sourceTree = "<group>"; };
+		4C1D7686219D4669005B6D5E /* UIControl+RZLimitClick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+RZLimitClick.h"; sourceTree = "<group>"; };
+		4C1D7687219D4669005B6D5E /* UIControl+RZLimitClick.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+RZLimitClick.m"; sourceTree = "<group>"; };
 		4C22C32F212419360095E005 /* RZGCDVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZGCDVC.h; sourceTree = "<group>"; };
 		4C22C330212419360095E005 /* RZGCDVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZGCDVC.m; sourceTree = "<group>"; };
 		4C22C331212419360095E005 /* RZGCDVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZGCDVC.xib; sourceTree = "<group>"; };
@@ -435,6 +442,8 @@
 		4C42CA3A218AD1E9001FDC12 /* UIView+RZFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RZFrame.m"; sourceTree = "<group>"; };
 		4C639C6621142A9100084571 /* RZThreadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZThreadVC.h; sourceTree = "<group>"; };
 		4C639C6721142A9100084571 /* RZThreadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZThreadVC.m; sourceTree = "<group>"; };
+		4C83920A21CA1D3F00FAC7A7 /* RZWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZWebView.h; sourceTree = "<group>"; };
+		4C83920B21CA1D3F00FAC7A7 /* RZWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZWebView.m; sourceTree = "<group>"; };
 		4CE5AF462137D97800F11C6F /* RZListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZListVC.h; sourceTree = "<group>"; };
 		4CE5AF472137D97800F11C6F /* RZListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZListVC.m; sourceTree = "<group>"; };
 		4CE5AF492137DBE400F11C6F /* RZPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPageVC.h; sourceTree = "<group>"; };
@@ -529,6 +538,7 @@
 		2A389B6A1EE13B06007E78FE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				4C83920921CA1D3F00FAC7A7 /* RZWebView */,
 				2A41F7A61F29C59600239472 /* NetTool */,
 				2A41F7AF1F29C59600239472 /* RZEncryptionTool */,
 				2A5444F31F2836F5006BC937 /* RZPickerView */,
@@ -954,6 +964,8 @@
 				2A562BF01FD69878007C0DBA /* UIButton+Submitting.m */,
 				2A562BF11FD69878007C0DBA /* UIButton+TouchAreaInsets.h */,
 				2A562BF21FD69878007C0DBA /* UIButton+TouchAreaInsets.m */,
+				4C1D7686219D4669005B6D5E /* UIControl+RZLimitClick.h */,
+				4C1D7687219D4669005B6D5E /* UIControl+RZLimitClick.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -1046,6 +1058,8 @@
 			children = (
 				2AE3733C1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.h */,
 				2AE3733D1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m */,
+				4C1D766621952B1A005B6D5E /* NSDictionary+RZSafeAccess.h */,
+				4C1D766721952B1A005B6D5E /* NSDictionary+RZSafeAccess.m */,
 			);
 			path = NSDictionary;
 			sourceTree = "<group>";
@@ -1078,6 +1092,15 @@
 				4C22C331212419360095E005 /* RZGCDVC.xib */,
 			);
 			path = "多线程";
+			sourceTree = "<group>";
+		};
+		4C83920921CA1D3F00FAC7A7 /* RZWebView */ = {
+			isa = PBXGroup;
+			children = (
+				4C83920A21CA1D3F00FAC7A7 /* RZWebView.h */,
+				4C83920B21CA1D3F00FAC7A7 /* RZWebView.m */,
+			);
+			path = RZWebView;
 			sourceTree = "<group>";
 		};
 		4CE5AF422137D2D900F11C6F /* RZPageController */ = {
@@ -1388,11 +1411,13 @@
 				2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */,
 				2A562BBD1FD68939007C0DBA /* NSString+XHLaunchAd.m in Sources */,
 				2A562BF31FD69878007C0DBA /* UIButton+BackgroundColor.m in Sources */,
+				4C1D766821952B1A005B6D5E /* NSDictionary+RZSafeAccess.m in Sources */,
 				2A562BF71FD69878007C0DBA /* UIButton+JKImagePosition.m in Sources */,
 				2A562BC01FD68939007C0DBA /* XHLaunchAd.m in Sources */,
 				2A562C381FD6988E007C0DBA /* UIImage+Merge.m in Sources */,
 				2A562C2F1FD6988E007C0DBA /* UIImage+Alpha.m in Sources */,
 				2A562B831FD68843007C0DBA /* NSObject+RZDog.m in Sources */,
+				4C83920C21CA1D3F00FAC7A7 /* RZWebView.m in Sources */,
 				2A562C2D1FD6988E007C0DBA /* UIImageView+Letters.m in Sources */,
 				2A389B6E1EE13E21007E78FE /* RZRootVC.m in Sources */,
 				2A54450E1F28840C006BC937 /* RZBase64ViewController.m in Sources */,
@@ -1448,6 +1473,7 @@
 				2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */,
 				2A562B8A1FD68875007C0DBA /* Foundation+Log.m in Sources */,
 				2A562BC41FD68939007C0DBA /* XHLaunchAdDownload.m in Sources */,
+				4C1D7688219D466A005B6D5E /* UIControl+RZLimitClick.m in Sources */,
 				4C22C332212419360095E005 /* RZGCDVC.m in Sources */,
 				2A562C291FD6988E007C0DBA /* UIImageView+Addition.m in Sources */,
 				2A562C2A1FD6988E007C0DBA /* UIImageView+BetterFace.m in Sources */,

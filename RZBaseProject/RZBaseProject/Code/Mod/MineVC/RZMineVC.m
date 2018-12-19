@@ -32,19 +32,21 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, kScreeHeight-64) style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     
-    NSArray *arr = @[@"RAC 中的常用的类", @"MVVM + RAC"];
+    NSArray *arr = @[@"RAC 中的常用的类", @"MVVM + RAC", @"webView的深度应用"];
     _dataSource = [[RZDataSource alloc] initWithItems:arr CellReuseIdentifier:@"cell" configureCellBlock:^(UITableViewCell *cell, NSString *title) {
         //RZLog(@"%@", title);
     }];
     _delegate = [[RZDelegate alloc] initWithData:arr SelectBlock:^(NSInteger row) {
-        //[self.view makeRZToast:arr[row]];
-        
         if (row == 0) {
             [self.navigationController pushViewController:[RACViewController new] animated:YES];
         }
         
         if (row == 1) {
             [self.navigationController pushViewController:[RZMVVMController new] animated:YES];
+        }
+        
+        if (row == 2) {
+            
         }
     }];
     _tableView.dataSource = _dataSource;

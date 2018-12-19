@@ -28,6 +28,8 @@
 
 #import "RZPageVC.h"
 
+#import "NSDictionary+RZSafeAccess.h"
+
 @interface RZHomeVC ()<UITableViewDelegate, UITableViewDataSource, RZAlertViewDelegate>
 
 
@@ -46,6 +48,10 @@ static NSString *const reCellID = @"HomeCell";
     [super viewDidLoad];
     
     [self setupTableView];
+    
+//    NSString *str = nil;
+//    NSDictionary *dict = @{@"one": @"1", @"two": str};
+//    RZLog(@"%@", dict);
 }
 
 - (void)setupTableView {

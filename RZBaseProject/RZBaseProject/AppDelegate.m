@@ -32,7 +32,6 @@
     RZTabBarVC *tabVC = [[RZTabBarVC alloc] init];
     self.window.rootViewController = tabVC;
     [self.window makeKeyAndVisible];
-    
 }
 
 
