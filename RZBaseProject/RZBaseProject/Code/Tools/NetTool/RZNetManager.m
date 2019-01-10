@@ -165,7 +165,7 @@ static NSMutableArray *tasks;
     
     NSString *urlString = [NSURL URLWithString:url] ? url : [self strUTF8Encoding:url];
     
-    //RZLog(@"请求参数\n请求头: %@\n请求方式: %@\n请求URL: %@\n请求param: %@\n\n",[self sharedAFManager].requestSerializer.HTTPRequestHeaders, (type == RZHttpRequestTypeGet) ? @"GET":@"POST",urlString, parameterDic);
+//    RZLog(@"请求参数\n请求头: %@\n请求方式: %@\n请求URL: %@\n请求param: %@\n\n",[self sharedAFManager].requestSerializer.HTTPRequestHeaders, (type == RZHttpRequestTypeGet) ? @"GET":@"POST",urlString, parameterDic);
     
     RZURLSessionTask *sessionTask = nil;
     

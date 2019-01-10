@@ -53,7 +53,11 @@
     self.requestVM = [[RZRequestViewModel alloc] init];
     RACSignal *signal = [self.requestVM.requestCommand execute:nil];
     [signal subscribeNext:^(id  _Nullable x) {
-        RZLog(@"%@", x[@"books"][0]);
+        NSMutableArray *dataSource = [NSMutableArray array];
+        for (NSDictionary *obj in x[@"subjects"]) {
+            [dataSource addObject:obj[@"title"]];
+        }
+        RZLog(@"%@", dataSource);
     }];
 }
 
