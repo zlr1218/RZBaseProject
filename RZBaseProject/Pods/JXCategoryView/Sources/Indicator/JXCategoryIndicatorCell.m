@@ -35,15 +35,15 @@
     self.separatorLine.frame = CGRectMake(self.bounds.size.width - lineWidth + self.cellModel.cellSpacing/2, (self.bounds.size.height - lineHeight)/2.0, lineWidth, lineHeight);
 }
 
-- (void)reloadDatas:(JXCategoryBaseCellModel *)cellModel {
-    [super reloadDatas:cellModel];
+- (void)reloadData:(JXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
 
     JXCategoryIndicatorCellModel *model = (JXCategoryIndicatorCellModel *)cellModel;
     self.separatorLine.backgroundColor = model.separatorLineColor;
-    self.separatorLine.hidden = !model.sepratorLineShowEnabled;
+    self.separatorLine.hidden = !model.isSepratorLineShowEnabled;
 
-    if (model.cellBackgroundColorGradientEnabled) {
-        if (model.selected) {
+    if (model.isCellBackgroundColorGradientEnabled) {
+        if (model.isSelected) {
             self.contentView.backgroundColor = model.cellBackgroundSelectedColor;
         }else {
             self.contentView.backgroundColor = model.cellBackgroundUnselectedColor;

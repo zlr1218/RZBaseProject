@@ -15,19 +15,30 @@
 
 @implementation JXCategoryTitleView
 
-- (void)initializeDatas
+- (void)initializeData
 {
-    [super initializeDatas];
+    [super initializeData];
 
+    _titleNumberOfLines = 1;
     _titleLabelZoomEnabled = NO;
     _titleLabelZoomScale = 1.2;
-    _titleLabelZoomScale = YES;
     _titleColor = [UIColor blackColor];
     _titleSelectedColor = [UIColor redColor];
     _titleFont = [UIFont systemFontOfSize:15];
     _titleColorGradientEnabled = NO;
     _titleLabelMaskEnabled = NO;
     _titleLabelZoomScrollGradientEnabled = YES;
+    _titleLabelStrokeWidthEnabled = NO;
+    _titleLabelSelectedStrokeWidth = -3;
+    _titleLabelVerticalOffset = 0;
+    _titleLabelAnchorPointStyle = JXCategoryTitleLabelAnchorPointStyleCenter;
+}
+
+- (UIFont *)titleSelectedFont {
+    if (_titleSelectedFont != nil) {
+        return _titleSelectedFont;
+    }
+    return self.titleFont;
 }
 
 #pragma mark - Override
@@ -49,14 +60,14 @@
     [super refreshSelectedCellModel:selectedCellModel unselectedCellModel:unselectedCellModel];
 
     JXCategoryTitleCellModel *myUnselectedCellModel = (JXCategoryTitleCellModel *)unselectedCellModel;
-    myUnselectedCellModel.titleColor = self.titleColor;
-    myUnselectedCellModel.titleSelectedColor = self.titleSelectedColor;
-    myUnselectedCellModel.titleLabelZoomScale = 1.0;
+    myUnselectedCellModel.titleCurrentColor = myUnselectedCellModel.titleNormalColor;
+    myUnselectedCellModel.titleLabelCurrentZoomScale = myUnselectedCellModel.titleLabelNormalZoomScale;
+    myUnselectedCellModel.titleLabelCurrentStrokeWidth = myUnselectedCellModel.titleLabelNormalStrokeWidth;
 
     JXCategoryTitleCellModel *myselectedCellModel = (JXCategoryTitleCellModel *)selectedCellModel;
-    myselectedCellModel.titleColor = self.titleColor;
-    myselectedCellModel.titleSelectedColor = self.titleSelectedColor;
-    myselectedCellModel.titleLabelZoomScale = self.titleLabelZoomScale;
+    myselectedCellModel.titleCurrentColor = myUnselectedCellModel.titleSelectedColor;
+    myselectedCellModel.titleLabelCurrentZoomScale = myUnselectedCellModel.titleLabelSelectedZoomScale;
+    myselectedCellModel.titleLabelCurrentStrokeWidth = myUnselectedCellModel.titleLabelSelectedStrokeWidth;
 }
 
 - (void)refreshLeftCellModel:(JXCategoryBaseCellModel *)leftCellModel rightCellModel:(JXCategoryBaseCellModel *)rightCellModel ratio:(CGFloat)ratio {
@@ -65,31 +76,23 @@
     JXCategoryTitleCellModel *leftModel = (JXCategoryTitleCellModel *)leftCellModel;
     JXCategoryTitleCellModel *rightModel = (JXCategoryTitleCellModel *)rightCellModel;
 
-    if (self.titleLabelZoomEnabled && self.titleLabelZoomScrollGradientEnabled) {
-        leftModel.titleLabelZoomScale = [JXCategoryFactory interpolationFrom:self.titleLabelZoomScale to:1.0 percent:ratio];
-        rightModel.titleLabelZoomScale = [JXCategoryFactory interpolationFrom:1.0 to:self.titleLabelZoomScale percent:ratio];
+    if (self.isTitleLabelZoomEnabled && self.isTitleLabelZoomScrollGradientEnabled) {
+        leftModel.titleLabelCurrentZoomScale = [JXCategoryFactory interpolationFrom:self.titleLabelZoomScale to:1.0 percent:ratio];
+        rightModel.titleLabelCurrentZoomScale = [JXCategoryFactory interpolationFrom:1.0 to:self.titleLabelZoomScale percent:ratio];
     }
 
-    if (self.titleColorGradientEnabled) {
-        //处理颜色渐变
-        if (leftModel.selected) {
-            leftModel.titleSelectedColor = [JXCategoryFactory interpolationColorFrom:self.titleSelectedColor to:self.titleColor percent:ratio];
-            leftModel.titleColor = self.titleColor;
-        }else {
-            leftModel.titleColor = [JXCategoryFactory interpolationColorFrom:self.titleSelectedColor to:self.titleColor percent:ratio];
-            leftModel.titleSelectedColor = self.titleSelectedColor;
-        }
-        if (rightModel.selected) {
-            rightModel.titleSelectedColor = [JXCategoryFactory interpolationColorFrom:self.titleColor to:self.titleSelectedColor percent:ratio];
-            rightModel.titleColor = self.titleColor;
-        }else {
-            rightModel.titleColor = [JXCategoryFactory interpolationColorFrom:self.titleColor to:self.titleSelectedColor percent:ratio];
-            rightModel.titleSelectedColor = self.titleSelectedColor;
-        }
+    if (self.isTitleLabelStrokeWidthEnabled) {
+        leftModel.titleLabelCurrentStrokeWidth = [JXCategoryFactory interpolationFrom:leftModel.titleLabelSelectedStrokeWidth to:leftModel.titleLabelNormalStrokeWidth percent:ratio];
+        rightModel.titleLabelCurrentStrokeWidth = [JXCategoryFactory interpolationFrom:rightModel.titleLabelNormalStrokeWidth to:rightModel.titleLabelSelectedStrokeWidth percent:ratio];
+    }
+
+    if (self.isTitleColorGradientEnabled) {
+        leftModel.titleCurrentColor = [JXCategoryFactory interpolationColorFrom:self.titleSelectedColor to:self.titleColor percent:ratio];
+        rightModel.titleCurrentColor = [JXCategoryFactory interpolationColorFrom:self.titleColor to:self.titleSelectedColor percent:ratio];
     }
 }
 
-- (CGFloat)preferredCellWidthWithIndex:(NSInteger)index {
+- (CGFloat)preferredCellWidthAtIndex:(NSInteger)index {
     if (self.cellWidth == JXCategoryViewAutomaticDimension) {
         return ceilf([self.titles[index] boundingRectWithSize:CGSizeMake(MAXFLOAT, self.bounds.size.height) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName : self.titleFont} context:nil].size.width);
     }else {
@@ -101,15 +104,29 @@
     [super refreshCellModel:cellModel index:index];
 
     JXCategoryTitleCellModel *model = (JXCategoryTitleCellModel *)cellModel;
-    model.titleFont = self.titleFont;
-    model.titleColor = self.titleColor;
-    model.titleSelectedColor = self.titleSelectedColor;
     model.title = self.titles[index];
-    model.titleLabelMaskEnabled = self.titleLabelMaskEnabled;
-    model.titleLabelZoomEnabled = self.titleLabelZoomEnabled;
-    model.titleLabelZoomScale = 1.0;
+    model.titleNumberOfLines = self.titleNumberOfLines;
+    model.titleFont = self.titleFont;
+    model.titleSelectedFont = self.titleSelectedFont;
+    model.titleNormalColor = self.titleColor;
+    model.titleSelectedColor = self.titleSelectedColor;
+    model.titleLabelMaskEnabled = self.isTitleLabelMaskEnabled;
+    model.titleLabelZoomEnabled = self.isTitleLabelZoomEnabled;
+    model.titleLabelNormalZoomScale = 1;
+    model.titleLabelSelectedZoomScale = self.titleLabelZoomScale;
+    model.titleLabelStrokeWidthEnabled = self.isTitleLabelStrokeWidthEnabled;
+    model.titleLabelNormalStrokeWidth = 0;
+    model.titleLabelSelectedStrokeWidth = self.titleLabelSelectedStrokeWidth;
+    model.titleLabelVerticalOffset = self.titleLabelVerticalOffset;
+    model.titleLabelAnchorPointStyle = self.titleLabelAnchorPointStyle;
     if (index == self.selectedIndex) {
-        model.titleLabelZoomScale = self.titleLabelZoomScale;
+        model.titleCurrentColor = model.titleSelectedColor;
+        model.titleLabelCurrentZoomScale = model.titleLabelSelectedZoomScale;
+        model.titleLabelCurrentStrokeWidth= model.titleLabelSelectedStrokeWidth;
+    }else {
+        model.titleCurrentColor = model.titleNormalColor;
+        model.titleLabelCurrentZoomScale = model.titleLabelNormalZoomScale;
+        model.titleLabelCurrentStrokeWidth = model.titleLabelNormalStrokeWidth;
     }
 }
 

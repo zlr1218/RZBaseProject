@@ -23,10 +23,6 @@
 #import "Masonry.h"
 #import <MJExtension/MJExtension.h>
 
-/**
- 颜色管理 
- */
-#import "Colours.h"
-#import <ChameleonFramework/Chameleon.h>
+
 
 #endif /* RZBaseProject_pch */

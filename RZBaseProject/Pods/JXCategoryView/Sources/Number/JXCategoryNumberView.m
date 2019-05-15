@@ -10,10 +10,20 @@
 
 @implementation JXCategoryNumberView
 
-- (void)initializeDatas {
-    [super initializeDatas];
+- (void)dealloc
+{
+    self.numberStringFormatterBlock = nil;
+}
+
+- (void)initializeData {
+    [super initializeData];
 
     self.cellSpacing = 25;
+    _numberTitleColor = [UIColor whiteColor];
+    _numberBackgroundColor = [UIColor colorWithRed:241/255.0 green:147/255.0 blue:95/255.0 alpha:1];
+    _numberLabelHeight = 14;
+    _numberLabelWidthIncrement = 10;
+    _numberLabelFont = [UIFont systemFontOfSize:11];
 }
 
 - (Class)preferredCellClass {
@@ -34,6 +44,17 @@
 
     JXCategoryNumberCellModel *myCellModel = (JXCategoryNumberCellModel *)cellModel;
     myCellModel.count = [self.counts[index] integerValue];
+    if (self.numberStringFormatterBlock != nil) {
+        myCellModel.numberString = self.numberStringFormatterBlock(myCellModel.count);
+    }else {
+        myCellModel.numberString = [NSString stringWithFormat:@"%ld", (long)myCellModel.count];
+    }
+    myCellModel.numberBackgroundColor = self.numberBackgroundColor;
+    myCellModel.numberTitleColor = self.numberTitleColor;
+    myCellModel.numberLabelHeight = self.numberLabelHeight;
+    myCellModel.numberLabelOffset = self.numberLabelOffset;
+    myCellModel.numberLabelWidthIncrement = self.numberLabelWidthIncrement;
+    myCellModel.numberLabelFont = self.numberLabelFont;
 }
 
 @end

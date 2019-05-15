@@ -32,10 +32,10 @@
     self.indicatorImageView.frame = CGRectMake(0, 0, self.indicatorImageViewSize.width, self.indicatorImageViewSize.height);
 }
 
-#pragma mark - JXCategoryComponentProtocol
+#pragma mark - JXCategoryIndicatorProtocol
 
-- (void)jx_refreshState:(CGRect)selectedCellFrame {
-    CGFloat x = selectedCellFrame.origin.x + (selectedCellFrame.size.width - self.indicatorImageViewSize.width)/2;
+- (void)jx_refreshState:(JXCategoryIndicatorParamsModel *)model {
+    CGFloat x = model.selectedCellFrame.origin.x + (model.selectedCellFrame.size.width - self.indicatorImageViewSize.width)/2;
     CGFloat y = self.superview.bounds.size.height - self.indicatorImageViewSize.height - self.verticalMargin;
     if (self.componentPosition == JXCategoryComponentPosition_Top) {
         y = self.verticalMargin;
@@ -43,10 +43,12 @@
     self.frame = CGRectMake(x, y, self.indicatorImageViewSize.width, self.indicatorImageViewSize.height);
 }
 
-- (void)jx_contentScrollViewDidScrollWithLeftCellFrame:(CGRect)leftCellFrame rightCellFrame:(CGRect)rightCellFrame selectedPosition:(JXCategoryCellClickedPosition)selectedPosition percent:(CGFloat)percent {
-
+- (void)jx_contentScrollViewDidScroll:(JXCategoryIndicatorParamsModel *)model {
+    CGRect rightCellFrame = model.rightCellFrame;
+    CGRect leftCellFrame = model.leftCellFrame;
+    CGFloat percent = model.percent;
     CGFloat targetWidth = self.indicatorImageViewSize.width;
-    CGFloat targetX = leftCellFrame.origin.x + (leftCellFrame.size.width - targetWidth)/2.0;
+    CGFloat targetX = 0;
 
     if (percent == 0) {
         targetX = leftCellFrame.origin.x + (leftCellFrame.size.width - targetWidth)/2.0;
@@ -57,7 +59,7 @@
     }
 
     //允许变动frame的情况：1、允许滚动；2、不允许滚动，但是已经通过手势滚动切换一页内容了；
-    if (self.scrollEnabled == YES || (self.scrollEnabled == NO && percent == 0)) {
+    if (self.isScrollEnabled == YES || (self.isScrollEnabled == NO && percent == 0)) {
         CGRect frame = self.frame;
         frame.origin.x = targetX;
         self.frame = frame;
@@ -68,17 +70,26 @@
     }
 }
 
-- (void)jx_selectedCell:(CGRect)cellFrame clickedRelativePosition:(JXCategoryCellClickedPosition)clickedRelativePosition {
+- (void)jx_selectedCell:(JXCategoryIndicatorParamsModel *)model {
     CGRect toFrame = self.frame;
-    toFrame.origin.x = cellFrame.origin.x + (cellFrame.size.width - self.indicatorImageViewSize.width)/2;
-    if (self.scrollEnabled) {
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    toFrame.origin.x = model.selectedCellFrame.origin.x + (model.selectedCellFrame.size.width - self.indicatorImageViewSize.width)/2;
+    if (self.isScrollEnabled) {
+        [UIView animateWithDuration:self.scrollAnimationDuration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.frame = toFrame;
         } completion:^(BOOL finished) {
         }];
-        if (self.indicatorImageViewRollEnabled) {
+        if (self.indicatorImageViewRollEnabled && (model.selectedType == JXCategoryCellSelectedTypeCode || model.selectedType == JXCategoryCellSelectedTypeClick)) {
+            [self.indicatorImageView.layer removeAnimationForKey:@"rotate"];
             CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-            rotateAnimation.toValue = @(M_PI*2*((clickedRelativePosition == JXCategoryCellClickedPosition_Left) ? -1 : 1));
+            if (model.selectedIndex > model.lastSelectedIndex) {
+                rotateAnimation.fromValue = @(0);
+                rotateAnimation.toValue = @(M_PI*2);
+            }else {
+                rotateAnimation.fromValue = @(M_PI*2);
+                rotateAnimation.toValue = @(0);
+            }
+            rotateAnimation.fillMode = kCAFillModeBackwards;
+            rotateAnimation.removedOnCompletion = YES;
             rotateAnimation.duration = 0.25;
             [self.indicatorImageView.layer addAnimation:rotateAnimation forKey:@"rotate"];
         }

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F1C830AFE4296A49A8098BAE9ED88CF0"
+               BlueprintIdentifier = "5C1C3922A6627DC881BF4E266674B5BF"
                BlueprintName = "JXCategoryView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "JXCategoryView.framework">
+               BuildableName = "libJXCategoryView.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -60,8 +60,8 @@
     [CATransaction commit];
 }
 
-- (void)reloadDatas:(JXCategoryBaseCellModel *)cellModel {
-    [super reloadDatas:cellModel];
+- (void)reloadData:(JXCategoryBaseCellModel *)cellModel {
+    [super reloadData:cellModel];
 
     JXCategoryDotCellModel *myCellModel = (JXCategoryDotCellModel *)cellModel;
     [CATransaction begin];
@@ -72,7 +72,6 @@
     [CATransaction commit];
 
     [self setNeedsLayout];
-    [self layoutIfNeeded];
 }
 
 @end

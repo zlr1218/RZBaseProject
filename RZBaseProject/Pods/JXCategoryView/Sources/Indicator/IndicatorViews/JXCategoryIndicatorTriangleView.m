@@ -19,8 +19,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _triangleViewSize = CGSizeMake(14, 10);
-        _triangleViewColor = [UIColor redColor];
+        self.indicatorWidth = 14;
+        self.indicatorHeight = 10;
 
         _triangleLayer = [CAShapeLayer layer];
         [self.layer addSublayer:self.triangleLayer];
@@ -28,19 +28,19 @@
     return self;
 }
 
-#pragma mark - JXCategoryComponentProtocol
+#pragma mark - JXCategoryIndicatorProtocol
 
-- (void)jx_refreshState:(CGRect)selectedCellFrame {
-    CGFloat x = selectedCellFrame.origin.x + (selectedCellFrame.size.width - self.triangleViewSize.width)/2;
-    CGFloat y = self.superview.bounds.size.height - self.triangleViewSize.height - self.verticalMargin;
+- (void)jx_refreshState:(JXCategoryIndicatorParamsModel *)model {
+    CGFloat x = model.selectedCellFrame.origin.x + (model.selectedCellFrame.size.width - [self indicatorWidthValue:model.selectedCellFrame])/2;
+    CGFloat y = self.superview.bounds.size.height - [self indicatorHeightValue:model.selectedCellFrame] - self.verticalMargin;
     if (self.componentPosition == JXCategoryComponentPosition_Top) {
         y = self.verticalMargin;
     }
-    self.frame = CGRectMake(x, y, self.triangleViewSize.width, self.triangleViewSize.height);
+    self.frame = CGRectMake(x, y, [self indicatorWidthValue:model.selectedCellFrame], [self indicatorHeightValue:model.selectedCellFrame]);
 
     [CATransaction begin];
     [CATransaction setDisableActions:NO];
-    self.triangleLayer.fillColor = self.triangleViewColor.CGColor;
+    self.triangleLayer.fillColor = self.indicatorColor.CGColor;
     self.triangleLayer.frame = self.bounds;
     UIBezierPath *path = [UIBezierPath bezierPath];
     if (self.componentPosition == JXCategoryComponentPosition_Bottom) {
@@ -57,10 +57,12 @@
     [CATransaction commit];
 }
 
-- (void)jx_contentScrollViewDidScrollWithLeftCellFrame:(CGRect)leftCellFrame rightCellFrame:(CGRect)rightCellFrame selectedPosition:(JXCategoryCellClickedPosition)selectedPosition percent:(CGFloat)percent {
-
-    CGFloat targetWidth = self.triangleViewSize.width;
-    CGFloat targetX = leftCellFrame.origin.x + (leftCellFrame.size.width - targetWidth)/2.0;
+- (void)jx_contentScrollViewDidScroll:(JXCategoryIndicatorParamsModel *)model {
+    CGRect rightCellFrame = model.rightCellFrame;
+    CGRect leftCellFrame = model.leftCellFrame;
+    CGFloat percent = model.percent;
+    CGFloat targetWidth = [self indicatorWidthValue:model.leftCellFrame];
+    CGFloat targetX = 0;
 
     if (percent == 0) {
         targetX = leftCellFrame.origin.x + (leftCellFrame.size.width - targetWidth)/2.0;
@@ -71,24 +73,48 @@
     }
 
     //允许变动frame的情况：1、允许滚动；2、不允许滚动，但是已经通过手势滚动切换一页内容了；
-    if (self.scrollEnabled == YES || (self.scrollEnabled == NO && percent == 0)) {
+    if (self.isScrollEnabled == YES || (self.isScrollEnabled == NO && percent == 0)) {
         CGRect frame = self.frame;
         frame.origin.x = targetX;
         self.frame = frame;
     }
 }
 
-- (void)jx_selectedCell:(CGRect)cellFrame clickedRelativePosition:(JXCategoryCellClickedPosition)clickedRelativePosition {
+- (void)jx_selectedCell:(JXCategoryIndicatorParamsModel *)model {
     CGRect toFrame = self.frame;
-    toFrame.origin.x = cellFrame.origin.x + (cellFrame.size.width - self.triangleViewSize.width)/2;
-    if (self.scrollEnabled) {
-        [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+    toFrame.origin.x = model.selectedCellFrame.origin.x + (model.selectedCellFrame.size.width - [self indicatorWidthValue:model.selectedCellFrame])/2;
+    if (self.isScrollEnabled) {
+        [UIView animateWithDuration:self.scrollAnimationDuration delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.frame = toFrame;
         } completion:^(BOOL finished) {
         }];
     }else {
         self.frame = toFrame;
     }
+}
+
+@end
+
+@implementation JXCategoryIndicatorTriangleView (JXDeprecated)
+
+@dynamic triangleViewSize;
+@dynamic triangleViewColor;
+
+- (void)setTriangleViewSize:(CGSize)triangleViewSize {
+    self.indicatorWidth = triangleViewSize.width;
+    self.indicatorHeight = triangleViewSize.height;
+}
+
+- (CGSize)triangleViewSize {
+    return CGSizeMake(self.indicatorWidth, self.indicatorHeight);
+}
+
+- (void)setTriangleViewColor:(UIColor *)triangleViewColor {
+    self.indicatorColor = triangleViewColor;
+}
+
+- (UIColor *)triangleViewColor {
+    return self.indicatorColor;
 }
 
 @end

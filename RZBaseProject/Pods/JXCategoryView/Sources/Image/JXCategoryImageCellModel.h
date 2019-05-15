@@ -10,7 +10,7 @@
 
 @interface JXCategoryImageCellModel : JXCategoryIndicatorCellModel
 
-@property (nonatomic, copy) void(^loadImageCallback)(UIImageView *imageView);
+@property (nonatomic, copy) void(^loadImageCallback)(UIImageView *imageView, NSURL *imageURL);
 
 @property (nonatomic, copy) NSString *imageName;    //加载bundle内的图片
 
@@ -22,7 +22,9 @@
 
 @property (nonatomic, assign) CGSize imageSize;
 
-@property (nonatomic, assign) BOOL imageZoomEnabled;    
+@property (nonatomic, assign) CGFloat imageCornerRadius;
+
+@property (nonatomic, assign, getter=isImageZoomEnabled) BOOL imageZoomEnabled;
 
 @property (nonatomic, assign) CGFloat imageZoomScale;
 

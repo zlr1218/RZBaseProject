@@ -16,7 +16,11 @@
 #import "JXCategoryBaseView.h"
 #import "JXCategoryCollectionView.h"
 #import "JXCategoryFactory.h"
+#import "JXCategoryIndicatorParamsModel.h"
 #import "JXCategoryIndicatorProtocol.h"
+#import "JXCategoryListCollectionContainerView.h"
+#import "JXCategoryListContainerView.h"
+#import "JXCategoryViewAnimator.h"
 #import "JXCategoryViewDefines.h"
 #import "UIColor+JXAdd.h"
 #import "JXCategoryDotCell.h"
@@ -28,8 +32,10 @@
 #import "JXCategoryIndicatorBackgroundView.h"
 #import "JXCategoryIndicatorBallView.h"
 #import "JXCategoryIndicatorComponentView.h"
+#import "JXCategoryIndicatorDotLineView.h"
 #import "JXCategoryIndicatorImageView.h"
 #import "JXCategoryIndicatorLineView.h"
+#import "JXCategoryIndicatorRainbowLineView.h"
 #import "JXCategoryIndicatorTriangleView.h"
 #import "JXCategoryIndicatorCell.h"
 #import "JXCategoryIndicatorCellModel.h"
@@ -43,6 +49,9 @@
 #import "JXCategoryTitleImageCell.h"
 #import "JXCategoryTitleImageCellModel.h"
 #import "JXCategoryTitleImageView.h"
+#import "JXCategoryTitleVerticalZoomCell.h"
+#import "JXCategoryTitleVerticalZoomCellModel.h"
+#import "JXCategoryTitleVerticalZoomView.h"
 
 FOUNDATION_EXPORT double JXCategoryViewVersionNumber;
 FOUNDATION_EXPORT const unsigned char JXCategoryViewVersionString[];

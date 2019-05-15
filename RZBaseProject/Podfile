@@ -1,31 +1,98 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '8.0'
 # Uncomment this line if you're using Swift
- use_frameworks!
+# use_frameworks!
 
+platform :ios, '8.0'
 target 'RZBaseProject' do
 
-
-
+# 网络请求
 pod 'AFNetworking', '~> 3.0'
+
+# 网络监控
+pod 'Reachability'
+
+#字典转模型
 pod 'MJExtension'
+# 下拉刷新
+pod 'MJRefresh'
+
+# 图片加载
+pod 'SDWebImage', '~> 5.0'
+
+# 进度
+pod 'M13ProgressSuite'
+
+#用于适配
 pod 'Masonry', '~> 0.6.4'
-pod 'SDWebImage', '~> 3.7.5'
-pod 'MJRefresh', '~> 3.1.0'
-pod 'IQKeyboardManager'
+
+# YYKit
+#pod 'YYKit'
+pod 'YYImage'
+pod 'YYText'
+pod 'YYAsyncLayer'
+pod 'YYCategories'
+pod 'YYWebImage'
+
+# 数据库
+pod 'FMDB'
+pod 'BGFMDB', '~> 2.0.9'
+
+# 蒙版
+pod 'MBProgressHUD'
 pod 'SVProgressHUD'
-pod 'SDCycleScrollView','~> 1.64'
-pod 'ReactiveObjC', '~> 3.0.0'
-pod 'ZYCornerRadius', '~> 1.0.2'
-pod 'YYKit'
+
+# 键盘管理
+pod 'IQKeyboardManager'
+
+# 无限轮播
+pod 'SDCycleScrollView','>= 1.80'
 
 # 切换滚动视图
 pod 'JXCategoryView'
+pod 'ZJScrollPageView'
 
-pod 'Colours'
-pod 'ChameleonFramework'
+# 唯一设备标识
+pod 'FCUUID'
+
+# 全局滑动
+pod 'FDFullscreenPopGesture'
+
+# RAC
+pod 'ReactiveObjC', '~> 3.0.0'
+
+# 圆角
+pod 'ZYCornerRadius', '~> 1.0.2'
 
 
+# 照片
+pod 'TZImagePickerController'
+
+
+# 分类https://github.com/shaojiankui/JKCategories
+pod 'JKCategories'
+#pod 'JKCategories/Foundation'
+#pod 'JKCategories/Foundation/NSDictionary'
+#pod 'JKCategories/Foundation/NSArray'
+#pod 'JKCategories/Foundation/NSString'
+#pod 'JKCategories/Foundation/NSNumber'
+#pod 'JKCategories/UIKit/UIView'
+#pod 'JKCategories/UIKit/UIWindow'
+
+
+# 列表视频
+pod 'ZFPlayer', '~> 3.0'
+
+# 日志框架
+pod 'CocoaLumberjack'
+
+# 动态创建模块化UI页面
+pod 'LazyScroll'
+
+# 二维码扫描
+pod 'LBXScan', '~> 2.3'
+
+# 照片和视频浏览器
+#pod 'MWPhotoBrowser'
 
 end
 
