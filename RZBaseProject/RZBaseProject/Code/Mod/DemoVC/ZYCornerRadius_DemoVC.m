@@ -25,6 +25,8 @@
     view.contentSize = CGSizeMake(kScreeWith, kScreeHeight*10);
     [self.view addSubview:view];
     
+    [view jm_setJMRadius:JMRadiusMake(7, 7, 7, 7) withBackgroundColor:nil];
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.left = 50;
     btn.top = 15;
@@ -39,7 +41,7 @@
     
     
     UIImageView *imageView = [[UIImageView alloc] initWithRoundingRectImageView];
-    [imageView setFrame:CGRectMake(130, 80, 150, 150)];
+    [imageView setFrame:CGRectMake(50, 110, 150, 150)];
     [view addSubview:imageView];
     
     
@@ -57,6 +59,17 @@
     imageView.image = [UIImage imageNamed:@"mac_dog"];
     imageViewSecond.image = [UIImage imageNamed:@"mac_dog"];
     imageViewThird.image = [UIImage imageNamed:@"mac_dog"];
+}
+
+- (void)addShadowToView:(UIView *)theView color:(UIColor *)theColor radius:(CGFloat)rad {
+    // 阴影颜色
+    theView.layer.shadowColor = theColor.CGColor;
+    // 阴影偏移，默认(0, -3)
+    theView.layer.shadowOffset = CGSizeMake(0,0);
+    // 阴影透明度，默认0
+    theView.layer.shadowOpacity = 0.5;
+    // 阴影半径，默认3
+    theView.layer.shadowRadius = rad;
 }
 
 - (void)click {

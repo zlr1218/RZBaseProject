@@ -26,8 +26,7 @@
 }
 
 - (void)setupRootViewController {
-    self.window = [[UIWindow alloc] init];
-    self.window.frame = [[UIScreen mainScreen] bounds];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = RZ_White_Color;
     RZTabBarVC *tabVC = [[RZTabBarVC alloc] init];
     self.window.rootViewController = tabVC;

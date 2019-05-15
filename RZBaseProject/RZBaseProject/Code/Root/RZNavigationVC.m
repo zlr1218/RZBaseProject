@@ -16,23 +16,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
-+ (void)initialize
-{
++ (void)initialize {
     UINavigationBar *bar = [UINavigationBar appearance];
+    
+    // 设置导航栏背景
     [bar setBackgroundImage:[RZNavigationVC createImageWithColor:[UIColor orangeColor]] forBarMetrics:UIBarMetricsDefault];
     
     // 设置阴影
     [bar setShadowImage:[UIImage imageNamed:@"touying"]];
     
     // title 字体大小，颜色
-    NSDictionary *dic = @{
-                          NSFontAttributeName: [UIFont boldSystemFontOfSize:16],
-                          NSForegroundColorAttributeName: [UIColor whiteColor]
-                          };
-    bar.titleTextAttributes =dic;
+    bar.titleTextAttributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:16],
+                                NSForegroundColorAttributeName: [UIColor whiteColor]};
     
 }
 
@@ -40,7 +37,7 @@
     if (self.viewControllers.count > 0) {
         // 第二级修改返回按钮样式
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        [button setImage:[[UIImage imageNamed:@"fanhuiicon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+        [button setImage:[[UIImage imageNamed:@"icon_fanhui"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
         [button setTitle:@"返回" forState:UIControlStateNormal];
         [button setTitleColor:RZ_White_Color forState:UIControlStateNormal];
         button.frame = CGRectMake(0, 0, 70, 30);

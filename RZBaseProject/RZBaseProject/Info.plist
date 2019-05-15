@@ -30,7 +30,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>应用程序始终使用定位服务</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>使用应用程序期间，可以使用定位服务</string>
+	<string>使用应用程序期间使用定位服务</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>

@@ -165,6 +165,12 @@
 		4C22C333212419360095E005 /* RZGCDVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C22C331212419360095E005 /* RZGCDVC.xib */; };
 		4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C42CA3A218AD1E9001FDC12 /* UIView+RZFrame.m */; };
 		4C639C6821142A9100084571 /* RZThreadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C639C6721142A9100084571 /* RZThreadVC.m */; };
+		4C6590DC222684CC001971C8 /* RZLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6590DB222684CC001971C8 /* RZLocation.m */; };
+		4C65910E224218CC001971C8 /* RZUpdateLocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C65910C224218CC001971C8 /* RZUpdateLocationVC.m */; };
+		4C65910F224218CC001971C8 /* RZUpdateLocationVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C65910D224218CC001971C8 /* RZUpdateLocationVC.xib */; };
+		4C6591112243652D001971C8 /* TableView_API in Resources */ = {isa = PBXBuildFile; fileRef = 4C6591102243652D001971C8 /* TableView_API */; };
+		4C6591142244CA05001971C8 /* UIView+RZActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6591132244CA05001971C8 /* UIView+RZActivityView.m */; };
+		4C6591172248A0EC001971C8 /* RZTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6591162248A0EC001971C8 /* RZTool.m */; };
 		4C83920C21CA1D3F00FAC7A7 /* RZWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C83920B21CA1D3F00FAC7A7 /* RZWebView.m */; };
 		4CE5AF482137D97800F11C6F /* RZListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF472137D97800F11C6F /* RZListVC.m */; };
 		4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */; };
@@ -442,6 +448,16 @@
 		4C42CA3A218AD1E9001FDC12 /* UIView+RZFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RZFrame.m"; sourceTree = "<group>"; };
 		4C639C6621142A9100084571 /* RZThreadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZThreadVC.h; sourceTree = "<group>"; };
 		4C639C6721142A9100084571 /* RZThreadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZThreadVC.m; sourceTree = "<group>"; };
+		4C6590DA222684CC001971C8 /* RZLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZLocation.h; sourceTree = "<group>"; };
+		4C6590DB222684CC001971C8 /* RZLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZLocation.m; sourceTree = "<group>"; };
+		4C65910B224218CC001971C8 /* RZUpdateLocationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZUpdateLocationVC.h; sourceTree = "<group>"; };
+		4C65910C224218CC001971C8 /* RZUpdateLocationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZUpdateLocationVC.m; sourceTree = "<group>"; };
+		4C65910D224218CC001971C8 /* RZUpdateLocationVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZUpdateLocationVC.xib; sourceTree = "<group>"; };
+		4C6591102243652D001971C8 /* TableView_API */ = {isa = PBXFileReference; lastKnownFileType = text; path = TableView_API; sourceTree = "<group>"; };
+		4C6591122244CA05001971C8 /* UIView+RZActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RZActivityView.h"; sourceTree = "<group>"; };
+		4C6591132244CA05001971C8 /* UIView+RZActivityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RZActivityView.m"; sourceTree = "<group>"; };
+		4C6591152248A0EC001971C8 /* RZTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZTool.h; sourceTree = "<group>"; };
+		4C6591162248A0EC001971C8 /* RZTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZTool.m; sourceTree = "<group>"; };
 		4C83920A21CA1D3F00FAC7A7 /* RZWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZWebView.h; sourceTree = "<group>"; };
 		4C83920B21CA1D3F00FAC7A7 /* RZWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZWebView.m; sourceTree = "<group>"; };
 		4CE5AF462137D97800F11C6F /* RZListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZListVC.h; sourceTree = "<group>"; };
@@ -576,6 +592,7 @@
 				2A389B7E1EE14D14007E78FE /* RZHomeVC.h */,
 				2A389B7F1EE14D14007E78FE /* RZHomeVC.m */,
 				2A389B801EE14D14007E78FE /* RZHomeVC.xib */,
+				4C6590D422267C83001971C8 /* 定位 */,
 				4CE5AF422137D2D900F11C6F /* RZPageController */,
 				4C1A3202212D4142009FB868 /* RZSort */,
 				4C639C6521142A0A00084571 /* 多线程 */,
@@ -911,6 +928,8 @@
 				2A980D871FE26F68005B177F /* RZCustom.m */,
 				2A562BCF1FD68C86007C0DBA /* RZColorHeader.h */,
 				2A562BCE1FD68C0A007C0DBA /* RZMacros.h */,
+				4C6591152248A0EC001971C8 /* RZTool.h */,
+				4C6591162248A0EC001971C8 /* RZTool.m */,
 			);
 			path = Macro;
 			sourceTree = "<group>";
@@ -919,6 +938,8 @@
 			isa = PBXGroup;
 			children = (
 				2A562BD41FD68E1B007C0DBA /* RZAlert */,
+				4C6591122244CA05001971C8 /* UIView+RZActivityView.h */,
+				4C6591132244CA05001971C8 /* UIView+RZActivityView.m */,
 			);
 			path = "Controls(自定义控件)";
 			sourceTree = "<group>";
@@ -1094,6 +1115,18 @@
 			path = "多线程";
 			sourceTree = "<group>";
 		};
+		4C6590D422267C83001971C8 /* 定位 */ = {
+			isa = PBXGroup;
+			children = (
+				4C65910B224218CC001971C8 /* RZUpdateLocationVC.h */,
+				4C65910C224218CC001971C8 /* RZUpdateLocationVC.m */,
+				4C65910D224218CC001971C8 /* RZUpdateLocationVC.xib */,
+				4C6590DA222684CC001971C8 /* RZLocation.h */,
+				4C6590DB222684CC001971C8 /* RZLocation.m */,
+			);
+			path = "定位";
+			sourceTree = "<group>";
+		};
 		4C83920921CA1D3F00FAC7A7 /* RZWebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,6 +1187,7 @@
 				B31505BB1DBDFC1A00CA4005 /* LaunchScreen.storyboard */,
 				B31505BE1DBDFC1A00CA4005 /* Info.plist */,
 				B31505AE1DBDFC1A00CA4005 /* main.m */,
+				4C6591102243652D001971C8 /* TableView_API */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1255,6 +1289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A41F74F1F29C52F00239472 /* 22.jpg in Resources */,
+				4C65910F224218CC001971C8 /* RZUpdateLocationVC.xib in Resources */,
 				2A41F7581F29C52F00239472 /* Home.xcassets in Resources */,
 				2A41F74E1F29C52F00239472 /* 21.jpg in Resources */,
 				2A5445021F286165006BC937 /* FoldSectionView.xib in Resources */,
@@ -1286,6 +1321,7 @@
 				2A41F7381F29C52F00239472 /* 樱花树1.jpg in Resources */,
 				2A41F73F1F29C52F00239472 /* 雪花.png in Resources */,
 				2A41F7371F29C52F00239472 /* snowbg.jpg in Resources */,
+				4C6591112243652D001971C8 /* TableView_API in Resources */,
 				2A41F7521F29C52F00239472 /* 4.jpg in Resources */,
 				2A41F7441F29C52F00239472 /* 12.jpg in Resources */,
 				2A41F7541F29C52F00239472 /* 6.jpg in Resources */,
@@ -1406,6 +1442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C65910E224218CC001971C8 /* RZUpdateLocationVC.m in Sources */,
 				B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */,
 				2A562BF61FD69878007C0DBA /* UIButton+Indicator.m in Sources */,
 				2AE3733E1FD7CFBE00FD95B0 /* NSDictionary+JKSafeAccess.m in Sources */,
@@ -1450,6 +1487,7 @@
 				2A562BC61FD68939007C0DBA /* XHLaunchAdImageManager.m in Sources */,
 				4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */,
 				2A562BE11FD692A5007C0DBA /* NSDate+Extension.m in Sources */,
+				4C6591142244CA05001971C8 /* UIView+RZActivityView.m in Sources */,
 				2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */,
 				4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */,
 				2A5445051F286186006BC937 /* FoldSectionView.m in Sources */,
@@ -1469,6 +1507,7 @@
 				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
 				4C1A3205212D4157009FB868 /* RZSort.m in Sources */,
 				2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */,
+				4C6590DC222684CC001971C8 /* RZLocation.m in Sources */,
 				2A562C2C1FD6988E007C0DBA /* UIImageView+GeometryConversion.m in Sources */,
 				2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */,
 				2A562B8A1FD68875007C0DBA /* Foundation+Log.m in Sources */,
@@ -1484,6 +1523,7 @@
 				2A562BB71FD68939007C0DBA /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				2A562BBE1FD68939007C0DBA /* UIImage+XHLaunchAd.m in Sources */,
 				2A562BC81FD68939007C0DBA /* XHLaunchImageView.m in Sources */,
+				4C6591172248A0EC001971C8 /* RZTool.m in Sources */,
 				2A562BBA1FD68939007C0DBA /* JRSwizzle.m in Sources */,
 				2A41F7BA1F29C59600239472 /* RZResponse.m in Sources */,
 				2A562C311FD6988E007C0DBA /* UIImage+BetterFace.m in Sources */,
@@ -1632,16 +1672,20 @@
 			baseConfigurationReference = 1DCA26551751A369B01EF899 /* Pods-RZBaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D44DCBG9DC;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
 				INFOPLIST_FILE = RZBaseProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Debug;
@@ -1651,16 +1695,20 @@
 			baseConfigurationReference = 218597D78302200DB897B7D3 /* Pods-RZBaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D44DCBG9DC;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
 				INFOPLIST_FILE = RZBaseProject/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
 			name = Release;

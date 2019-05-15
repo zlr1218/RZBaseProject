@@ -86,6 +86,8 @@ static const NSString *RZAlertSureBlockKey          = @"RZAlertSureBlockKey";
         titleView.textAlignment = style.titleAlignment;
         titleView.editable = NO;
         titleView.selectable = NO;
+        titleView.showsVerticalScrollIndicator = NO;
+        titleView.scrollEnabled = NO;
         
         titleView.text = title;
         [titleView sizeToFit];
