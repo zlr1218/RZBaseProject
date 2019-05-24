@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RZHomeVC">
             <connections>
                 <outlet property="HomeHeaderView" destination="ixn-w4-ulu" id="lLa-bf-ktA"/>
+                <outlet property="homeTableBottom" destination="8wU-Fi-fsY" id="H43-qQ-7wL"/>
                 <outlet property="homeTableView" destination="Jy8-Pt-Hcp" id="MoU-0y-ajV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

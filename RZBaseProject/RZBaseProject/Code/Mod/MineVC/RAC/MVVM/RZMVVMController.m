@@ -53,11 +53,11 @@
     self.requestVM = [[RZRequestViewModel alloc] init];
     RACSignal *signal = [self.requestVM.requestCommand execute:nil];
     [signal subscribeNext:^(id  _Nullable x) {
-        NSMutableArray *dataSource = [NSMutableArray array];
-        for (NSDictionary *obj in x[@"subjects"]) {
-            [dataSource addObject:obj[@"title"]];
+        if ([x isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *data = x[@"data"];
+            NSArray *tech = data[@"tech"];
+            RZLog(@"%@", tech.firstObject);
         }
-        RZLog(@"%@", dataSource);
     }];
 }
 

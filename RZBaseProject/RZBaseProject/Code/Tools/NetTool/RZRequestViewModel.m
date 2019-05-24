@@ -24,14 +24,9 @@
     _requestCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         // 执行命令时就会调用这个block
         RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-//            NSString *urlString = @"https://api.douban.com/v2/book/search";
-//            NSDictionary *params = @{@"q": @"海贼王"};
-            NSString *urlString = @"https://api.douban.com/v2/movie/in_theaters";
-            NSDictionary *params = @{@"city": @"北京",
-                                     @"start": @"0",
-                                     @"count": @"10"};
+            NSString *urlString = @"https://www.apiopen.top/journalismApi";
             
-            [RZNetManager rz_requestWithType:RZHttpRequestTypeGet path:urlString parameters:params success:^(id response) {
+            [RZNetManager rz_requestWithType:RZHttpRequestTypeGet path:urlString parameters:nil success:^(id response) {
                 
                 [subscriber sendNext:response];
                 [subscriber sendCompleted];

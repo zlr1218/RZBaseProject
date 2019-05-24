@@ -34,7 +34,7 @@ pod 'YYCategories'
 pod 'YYWebImage'
 
 # 数据库
-pod 'FMDB'
+#pod 'FMDB'
 pod 'BGFMDB', '~> 2.0.9'
 
 # 蒙版
@@ -91,8 +91,8 @@ pod 'LazyScroll'
 # 二维码扫描
 pod 'LBXScan', '~> 2.3'
 
-# 照片和视频浏览器
-#pod 'MWPhotoBrowser'
+# 广告页
+pod 'XHLaunchAd'
 
 end
 

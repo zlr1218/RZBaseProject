@@ -26,9 +26,7 @@ PODS:
   - FCUUID (1.3.1):
     - UICKeyChainStore (~> 2.1.0)
   - FDFullscreenPopGesture (1.1)
-  - FMDB (2.7.5):
-    - FMDB/standard (= 2.7.5)
-  - FMDB/standard (2.7.5)
+  - FLAnimatedImage (1.0.12)
   - IQKeyboardManager (6.3.0)
   - JKCategories (1.8.1):
     - JKCategories/CoreData (= 1.8.1)
@@ -198,6 +196,8 @@ PODS:
   - TMUtils (1.0.1)
   - TZImagePickerController (3.2.0)
   - UICKeyChainStore (2.1.2)
+  - XHLaunchAd (3.9.8):
+    - FLAnimatedImage (~> 1.0.12)
   - YYAsyncLayer (1.0)
   - YYCache (1.0.4)
   - YYCategories (1.0.4):
@@ -223,7 +223,6 @@ DEPENDENCIES:
   - CocoaLumberjack
   - FCUUID
   - FDFullscreenPopGesture
-  - FMDB
   - IQKeyboardManager
   - JKCategories
   - JXCategoryView
@@ -240,6 +239,7 @@ DEPENDENCIES:
   - SDWebImage (~> 5.0)
   - SVProgressHUD
   - TZImagePickerController
+  - XHLaunchAd
   - YYAsyncLayer
   - YYCategories
   - YYImage
@@ -256,7 +256,7 @@ SPEC REPOS:
     - CocoaLumberjack
     - FCUUID
     - FDFullscreenPopGesture
-    - FMDB
+    - FLAnimatedImage
     - IQKeyboardManager
     - JKCategories
     - JXCategoryView
@@ -275,6 +275,7 @@ SPEC REPOS:
     - TMUtils
     - TZImagePickerController
     - UICKeyChainStore
+    - XHLaunchAd
     - YYAsyncLayer
     - YYCache
     - YYCategories
@@ -292,7 +293,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
   FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
   JKCategories: d5fecfa4f790685ea20daea319f74a8701d4c3ab
   JXCategoryView: 72560616347270d34c2e717cc08030e6218d7eda
@@ -311,6 +312,7 @@ SPEC CHECKSUMS:
   TMUtils: 8af8e4695b6e4086d0545ecd7cd025556515ab42
   TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
+  XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
@@ -322,6 +324,6 @@ SPEC CHECKSUMS:
   ZJScrollPageView: dd8778909cb2413782616ab156e873956f6b0682
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: ba64e9589600815c879d8a44d19e89154672cb94
+PODFILE CHECKSUM: 60753cf81575606e34f5a0d470379153a13efe87
 
 COCOAPODS: 1.5.3

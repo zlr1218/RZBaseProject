@@ -7,7 +7,7 @@
 //
 
 #import "YYText_DemoVC.h"
-#import <YYKit/YYKit.h>
+#import <YYText.h>
 
 #define kYYTextHeight 35.f
 #define kYYTextSpace 10.f

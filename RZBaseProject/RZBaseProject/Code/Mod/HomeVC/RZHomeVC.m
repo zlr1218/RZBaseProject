@@ -28,8 +28,6 @@
 
 #import "RZSort.h"
 
-#import "NSDictionary+RZSafeAccess.h"
-
 #import "RZUpdateLocationVC.h"
 
 @interface RZHomeVC ()<UITableViewDelegate, UITableViewDataSource, RZAlertViewDelegate>
@@ -37,6 +35,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (weak, nonatomic) IBOutlet UIView *HomeHeaderView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *homeTableBottom;
 @property (nonatomic, strong) NSArray *titleArr;
 
 @end
@@ -62,17 +61,8 @@ static NSString *const reCellID = @"HomeCell";
     // 注意对scrollView及其子控件进行iOS11适配
     kAdjustmentBehavior(self, self.homeTableView);
     
+    self.homeTableBottom.constant = kRZTabHeight;
     [self setupTableView];
-    
-    
-    NSString *string =@"\n";
-    NSString *rule = @"押金规则\n押金规则\n押金规则";
-    
-    if ([rule containsString:string]) {
-        NSArray *arr = [rule componentsSeparatedByString:string];
-        RZLog(@"%@", arr);
-    }
-    
 }
 
 - (void)setupTableView {
@@ -98,7 +88,7 @@ static NSString *const reCellID = @"HomeCell";
     
     NSString *str = [NSString stringWithFormat:@"%li、%@", indexPath.row + 1, self.titleArr[indexPath.row]];
     cell.textLabel.text = str;
-    cell.textLabel.textColor = [UIColor mandarinColor];
+    cell.textLabel.textColor = [UIColor orangeColor];
     return cell;
 }
 

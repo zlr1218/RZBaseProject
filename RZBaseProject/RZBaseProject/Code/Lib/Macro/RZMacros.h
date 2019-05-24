@@ -47,11 +47,10 @@ if (@available(iOS 11.0, *)) {\
 #if DEBUG
 
 #define RZLog(FORMAT, ...) do {                                             \
-fprintf(stderr,"\n♨ Time:%s File:%s line:%d Func:%s ♨\n☞ %s ☜\n",         \
-__TIME__,                                                                   \
+fprintf(stderr,"\n♨ File:%s line:%d Func:%s ♨\n☞ %s ☜\n",                \
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
 __LINE__,                                                                   \
-__func__,                                                                   \
+__PRETTY_FUNCTION__,                                                        \
 [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);            \
 } while (0)
 

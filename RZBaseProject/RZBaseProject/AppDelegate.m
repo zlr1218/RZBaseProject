@@ -18,9 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [SYSafeCategory callSafeCategory];
-    
     [self setupRootViewController];
+    
+    [SYSafeCategory callSafeCategory];
     
     return YES;
 }
