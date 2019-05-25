@@ -138,6 +138,7 @@
 		B31505BD1DBDFC1A00CA4005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B31505BB1DBDFC1A00CA4005 /* LaunchScreen.storyboard */; };
 		B31B2F2F1DEC1E53009634C1 /* RZBaseProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B31B2F2E1DEC1E53009634C1 /* RZBaseProjectTests.m */; };
 		B33D68111DD1736B0049F3D6 /* noteText in Resources */ = {isa = PBXBuildFile; fileRef = B33D68101DD1736B0049F3D6 /* noteText */; };
+		B3FC029622994CF9000606D4 /* RZDispatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FC029422994CF8000606D4 /* RZDispatchVC.m */; };
 		ED76F4E03E592F23D3A9C72E /* libPods-RZBaseProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CB0D55A4B458696AD72575 /* libPods-RZBaseProject.a */; };
 /* End PBXBuildFile section */
 
@@ -350,6 +351,8 @@
 		B31B2F301DEC1E53009634C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B31F404B1DBEF47B00934D96 /* RZBaseProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZBaseProject.pch; sourceTree = "<group>"; };
 		B33D68101DD1736B0049F3D6 /* noteText */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = noteText; sourceTree = "<group>"; };
+		B3FC029422994CF8000606D4 /* RZDispatchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZDispatchVC.m; sourceTree = "<group>"; };
+		B3FC029522994CF9000606D4 /* RZDispatchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZDispatchVC.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -845,6 +848,8 @@
 		4C639C6521142A0A00084571 /* 多线程 */ = {
 			isa = PBXGroup;
 			children = (
+				B3FC029522994CF9000606D4 /* RZDispatchVC.h */,
+				B3FC029422994CF8000606D4 /* RZDispatchVC.m */,
 				4C639C6621142A9100084571 /* RZThreadVC.h */,
 				4C639C6721142A9100084571 /* RZThreadVC.m */,
 				4C22C32F212419360095E005 /* RZGCDVC.h */,
@@ -1194,6 +1199,7 @@
 				B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */,
 				4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */,
 				2A562B831FD68843007C0DBA /* NSObject+RZDog.m in Sources */,
+				B3FC029622994CF9000606D4 /* RZDispatchVC.m in Sources */,
 				4C83920C21CA1D3F00FAC7A7 /* RZWebView.m in Sources */,
 				4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */,
 				2A389B6E1EE13E21007E78FE /* RZRootVC.m in Sources */,
