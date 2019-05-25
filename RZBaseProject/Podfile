@@ -69,8 +69,8 @@ pod 'TZImagePickerController'
 
 
 # 分类https://github.com/shaojiankui/JKCategories
-pod 'JKCategories'
-#pod 'JKCategories/Foundation'
+#pod 'JKCategories'
+pod 'JKCategories/Foundation'
 #pod 'JKCategories/Foundation/NSDictionary'
 #pod 'JKCategories/Foundation/NSArray'
 #pod 'JKCategories/Foundation/NSString'
