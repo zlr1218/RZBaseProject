@@ -8,6 +8,7 @@
 
 #import "YYText_DemoVC.h"
 #import <YYText.h>
+#import <NSString+YYAdd.h>
 
 #define kYYTextHeight 35.f
 #define kYYTextSpace 10.f

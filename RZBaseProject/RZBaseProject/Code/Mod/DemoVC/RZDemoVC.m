@@ -19,6 +19,8 @@ static NSString *const recellID = @"demoCell";
 @property (weak, nonatomic) IBOutlet UITableView *DemoTableView;
 @property (nonatomic, strong) NSMutableDictionary *DictStoreDemoTitle;
 
+@property (nonatomic, strong) dispatch_group_t group;
+
 @end
 
 @implementation RZDemoVC
@@ -27,6 +29,83 @@ static NSString *const recellID = @"demoCell";
     [super viewDidLoad];
     self.view.backgroundColor = RZ_White_Color;
     _DemoTableView.tableFooterView = [UIView new];
+    
+    
+    
+    
+    /**
+     @"https://api.apiopen.top/searchAuthors?name=李白"
+     @"https://api.apiopen.top/getSongPoetry?page=1&count=20"
+     @"https://api.apiopen.top/musicBroadcasting"
+     @"https://api.apiopen.top/getJoke?page=1&count=2&type=video"
+     */
+    
+//    self.threadGroup = dispatch_group_create();
+    
+    // 多任务请求
+//    [self requestData_01];
+//    [self requestData_02];
+//    [self requestData_03];
+//    [self requestData_04];
+//    dispatch_group_notify(self.threadGroup, dispatch_get_main_queue(), ^{
+//        RZLog(@"请求完成");
+//    });
+}
+
+- (void)requestData_01 {
+    dispatch_group_enter(self.threadGroup);
+    kWeakSelf(self);
+    [RZNetManager rz_requestWithType:RZHttpRequestTypePost path:@"https://api.apiopen.top/searchAuthors?name=李白" parameters:nil success:^(id response) {
+        RZLog(@"%@", response[@"result"]);
+        dispatch_group_leave(weakself.threadGroup);
+    } failed:^(NSError *error) {
+        RZLog(@"%@", error);
+        dispatch_group_leave(weakself.threadGroup);
+    } progress:^(int64_t bytesRead, int64_t totalBytesRead) {
+        RZLog(@"%lld", bytesRead);
+    }];
+}
+
+- (void)requestData_02 {
+    dispatch_group_enter(self.threadGroup);
+    kWeakSelf(self);
+    [RZNetManager rz_requestWithType:RZHttpRequestTypePost path:@"https://api.apiopen.top/getSongPoetry?page=1&count=20" parameters:nil success:^(id response) {
+        RZLog(@"%@", response[@"result"]);
+        dispatch_group_leave(weakself.threadGroup);
+    } failed:^(NSError *error) {
+        RZLog(@"%@", error);
+        dispatch_group_leave(weakself.threadGroup);
+    } progress:^(int64_t bytesRead, int64_t totalBytesRead) {
+        RZLog(@"%lld", bytesRead);
+    }];
+}
+
+- (void)requestData_03 {
+    dispatch_group_enter(self.threadGroup);
+    kWeakSelf(self);
+    [RZNetManager rz_requestWithType:RZHttpRequestTypePost path:@"https://api.apiopen.top/musicRankings" parameters:nil success:^(id response) {
+        RZLog(@"%@", response[@"result"]);
+        dispatch_group_leave(weakself.threadGroup);
+    } failed:^(NSError *error) {
+        RZLog(@"%@", error);
+        dispatch_group_leave(weakself.threadGroup);
+    } progress:^(int64_t bytesRead, int64_t totalBytesRead) {
+        RZLog(@"%lld", bytesRead);
+    }];
+}
+
+- (void)requestData_04 {
+    dispatch_group_enter(self.threadGroup);
+    kWeakSelf(self);
+    [RZNetManager rz_requestWithType:RZHttpRequestTypePost path:@"https://api.apiopen.top/getJoke?page=1&count=2&type=video" parameters:nil success:^(id response) {
+        RZLog(@"%@", response[@"result"]);
+        dispatch_group_leave(weakself.threadGroup);
+    } failed:^(NSError *error) {
+        RZLog(@"%@", error);
+        dispatch_group_leave(weakself.threadGroup);
+    } progress:^(int64_t bytesRead, int64_t totalBytesRead) {
+        RZLog(@"%lld", bytesRead);
+    }];
 }
 
 #pragma mark - 设置TableView

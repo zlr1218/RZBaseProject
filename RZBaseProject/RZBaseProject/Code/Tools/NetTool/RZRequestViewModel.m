@@ -24,7 +24,7 @@
     _requestCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         // 执行命令时就会调用这个block
         RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            NSString *urlString = @"https://www.apiopen.top/journalismApi";
+            NSString *urlString = @"https://api.apiopen.top/musicRankings";
             
             [RZNetManager rz_requestWithType:RZHttpRequestTypeGet path:urlString parameters:nil success:^(id response) {
                 

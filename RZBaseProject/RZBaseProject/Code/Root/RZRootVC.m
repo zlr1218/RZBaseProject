@@ -19,6 +19,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
-
+- (dispatch_group_t)threadGroup {
+    if (!_threadGroup) {
+        _threadGroup = dispatch_group_create();
+    }
+    return _threadGroup;
+}
 
 @end

@@ -10,4 +10,6 @@
 
 @interface RZRootVC : UIViewController
 
+@property (nonatomic, strong) dispatch_group_t threadGroup;    /**< 线程组 */
+
 @end

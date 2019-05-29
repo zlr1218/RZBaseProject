@@ -54,9 +54,9 @@
     RACSignal *signal = [self.requestVM.requestCommand execute:nil];
     [signal subscribeNext:^(id  _Nullable x) {
         if ([x isKindOfClass:[NSDictionary class]]) {
-            NSDictionary *data = x[@"data"];
-            NSArray *tech = data[@"tech"];
-            RZLog(@"%@", tech.firstObject);
+            NSDictionary *data = x[@"result"];
+            //NSArray *tech = data[@"tech"];
+            RZLog(@"%@", data);
         }
     }];
 }
