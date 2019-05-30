@@ -131,6 +131,8 @@
 		4C902DCB229BB1D200A28FC3 /* RZDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCA229BB1D200A28FC3 /* RZDatePickerView.xib */; };
 		4C902DCF229BBD8600A28FC3 /* RZPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DCD229BBD8600A28FC3 /* RZPickerVC.m */; };
 		4C902DD0229BBD8600A28FC3 /* RZPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */; };
+		4C902DE8229F732700A28FC3 /* RZBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DE7229F732700A28FC3 /* RZBtn.m */; };
+		4C902DEA229F733600A28FC3 /* RZBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DE9229F733600A28FC3 /* RZBtn.xib */; };
 		4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */; };
 		4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60119228BDFDA006A39D2 /* NSString+RZContains.m */; };
 		4CA60120228CF25B006A39D2 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6011E228CF25A006A39D2 /* UIImage+RoundedCorner.m */; };
@@ -338,6 +340,9 @@
 		4C902DCC229BBD8600A28FC3 /* RZPickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPickerVC.h; sourceTree = "<group>"; };
 		4C902DCD229BBD8600A28FC3 /* RZPickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZPickerVC.m; sourceTree = "<group>"; };
 		4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZPickerVC.xib; sourceTree = "<group>"; };
+		4C902DE6229F732700A28FC3 /* RZBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZBtn.h; sourceTree = "<group>"; };
+		4C902DE7229F732700A28FC3 /* RZBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZBtn.m; sourceTree = "<group>"; };
+		4C902DE9229F733600A28FC3 /* RZBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZBtn.xib; sourceTree = "<group>"; };
 		4CA6010F228BDCA0006A39D2 /* NSString+RZSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZSize.h"; sourceTree = "<group>"; };
 		4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RZSize.m"; sourceTree = "<group>"; };
 		4CA60118228BDFDA006A39D2 /* NSString+RZContains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZContains.h"; sourceTree = "<group>"; };
@@ -486,6 +491,9 @@
 				4C639C6521142A0A00084571 /* 多线程 */,
 				2A936A321F00D76C005E578D /* FoldTableView */,
 				2A54450A1F28840C006BC937 /* ios加密方式 */,
+				4C902DE6229F732700A28FC3 /* RZBtn.h */,
+				4C902DE7229F732700A28FC3 /* RZBtn.m */,
+				4C902DE9229F733600A28FC3 /* RZBtn.xib */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -1079,6 +1087,7 @@
 				2A41F76A1F29C52F00239472 /* test1.jpg in Resources */,
 				2A41F73A1F29C52F00239472 /* 樱花树3.jpg in Resources */,
 				2A41F7631F29C52F00239472 /* pic4.jpg in Resources */,
+				4C902DEA229F733600A28FC3 /* RZBtn.xib in Resources */,
 				B33D68111DD1736B0049F3D6 /* noteText in Resources */,
 				4C22C333212419360095E005 /* RZGCDVC.xib in Resources */,
 				2A41F7C21F29CBBF00239472 /* RZMineVC.xib in Resources */,
@@ -1228,6 +1237,7 @@
 				2A562B7F1FD6880E007C0DBA /* NSString+Size.m in Sources */,
 				2A389B781EE14007007E78FE /* RZDemoVC.m in Sources */,
 				2A389B741EE13E6F007E78FE /* RZNavigationVC.m in Sources */,
+				4C902DE8229F732700A28FC3 /* RZBtn.m in Sources */,
 				2A5444FF1F285EF5006BC937 /* RZFoldTableViewController.m in Sources */,
 				2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */,
 				2A980D881FE26F68005B177F /* RZCustom.m in Sources */,

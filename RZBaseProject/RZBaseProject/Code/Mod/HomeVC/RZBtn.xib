@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RZBtn">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="Ewd-w1-KLp"/>
+                <outlet property="lab" destination="44A-JK-CdN" id="5J9-Su-r38"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="海贼王" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44A-JK-CdN">
+                    <rect key="frame" x="7" y="16" width="46" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJl-s3-dUn">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                    <connections>
+                        <action selector="clickAction:" destination="-1" eventType="touchUpInside" id="LmA-yo-HbF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.83921568629999999" green="0.71764705880000002" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="LJl-s3-dUn" secondAttribute="bottom" id="8qq-xU-BVp"/>
+                <constraint firstItem="44A-JK-CdN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Cu5-Uq-fHw"/>
+                <constraint firstAttribute="trailing" secondItem="LJl-s3-dUn" secondAttribute="trailing" id="Gu7-rg-DRG"/>
+                <constraint firstItem="LJl-s3-dUn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="It8-Aq-0Mw"/>
+                <constraint firstItem="44A-JK-CdN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="NCM-Eg-91R"/>
+                <constraint firstItem="LJl-s3-dUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RMb-Q8-doH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

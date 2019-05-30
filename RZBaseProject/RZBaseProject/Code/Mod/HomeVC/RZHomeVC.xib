@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RZHomeVC">
             <connections>
                 <outlet property="HomeHeaderView" destination="ixn-w4-ulu" id="lLa-bf-ktA"/>
+                <outlet property="customView" destination="ryj-2t-8As" id="ZDR-JX-8Zg"/>
                 <outlet property="homeTableBottom" destination="8wU-Fi-fsY" id="H43-qQ-7wL"/>
                 <outlet property="homeTableView" destination="Jy8-Pt-Hcp" id="MoU-0y-ajV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -35,10 +36,20 @@
                         <outlet property="delegate" destination="-1" id="F2H-bn-pKi"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryj-2t-8As" customClass="RZBtn">
+                    <rect key="frame" x="260" y="418" width="50" height="50"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WMQ-9F-a2b"/>
+                        <constraint firstAttribute="width" constant="50" id="ehh-i4-bD8"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Jy8-Pt-Hcp" secondAttribute="bottom" constant="49" id="8wU-Fi-fsY"/>
+                <constraint firstAttribute="bottom" secondItem="ryj-2t-8As" secondAttribute="bottom" constant="100" id="Pd8-6Q-K7P"/>
+                <constraint firstAttribute="trailing" secondItem="ryj-2t-8As" secondAttribute="trailing" constant="10" id="bZg-Fw-YTZ"/>
                 <constraint firstItem="Jy8-Pt-Hcp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hVt-SM-sh7"/>
                 <constraint firstItem="Jy8-Pt-Hcp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="j4w-T8-k15"/>
                 <constraint firstAttribute="trailing" secondItem="Jy8-Pt-Hcp" secondAttribute="trailing" id="oRS-Zt-keK"/>

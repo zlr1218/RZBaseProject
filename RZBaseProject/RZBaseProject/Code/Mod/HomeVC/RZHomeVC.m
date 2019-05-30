@@ -30,12 +30,17 @@
 
 #import "RZUpdateLocationVC.h"
 
+#import "RZBtn.h"
+
 @interface RZHomeVC ()<UITableViewDelegate, UITableViewDataSource, RZAlertViewDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *homeTableView;
 @property (weak, nonatomic) IBOutlet UIView *HomeHeaderView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *homeTableBottom;
+
+@property (weak, nonatomic) IBOutlet RZBtn *customView;
+
 @property (nonatomic, strong) NSArray *titleArr;
 
 @end
@@ -60,6 +65,14 @@ static NSString *const reCellID = @"HomeCell";
     [super viewDidLoad];
     // 注意对scrollView及其子控件进行iOS11适配
     kAdjustmentBehavior(self, self.homeTableView);
+    
+    
+    // 自定义XIB控件
+    self.customView.title = @"点我";
+    self.customView.cornerRadius = 8;
+    [self.customView setClickBlock:^{
+        RZLog(@"点我");
+    }];
     
     self.homeTableBottom.constant = kRZTabHeight;
     [self setupTableView];
