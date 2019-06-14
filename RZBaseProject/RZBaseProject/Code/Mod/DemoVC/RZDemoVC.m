@@ -18,9 +18,6 @@ static NSString *const recellID = @"demoCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *DemoTableView;
 @property (nonatomic, strong) NSMutableDictionary *DictStoreDemoTitle;
-
-@property (nonatomic, strong) dispatch_group_t group;
-
 @end
 
 @implementation RZDemoVC

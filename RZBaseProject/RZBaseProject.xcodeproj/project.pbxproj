@@ -131,11 +131,12 @@
 		4C902DCB229BB1D200A28FC3 /* RZDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCA229BB1D200A28FC3 /* RZDatePickerView.xib */; };
 		4C902DCF229BBD8600A28FC3 /* RZPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DCD229BBD8600A28FC3 /* RZPickerVC.m */; };
 		4C902DD0229BBD8600A28FC3 /* RZPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */; };
-		4C902DE8229F732700A28FC3 /* RZBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DE7229F732700A28FC3 /* RZBtn.m */; };
-		4C902DEA229F733600A28FC3 /* RZBtn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DE9229F733600A28FC3 /* RZBtn.xib */; };
+		4C902DF522A61A1900A28FC3 /* RZCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */; };
+		4C902DF622A61A1900A28FC3 /* RZCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */; };
 		4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */; };
 		4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60119228BDFDA006A39D2 /* NSString+RZContains.m */; };
 		4CA60120228CF25B006A39D2 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6011E228CF25A006A39D2 /* UIImage+RoundedCorner.m */; };
+		4CC7B49B22A641DB00D892BC /* RZBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC7B49A22A641DB00D892BC /* RZBtn.m */; };
 		4CE5AF482137D97800F11C6F /* RZListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF472137D97800F11C6F /* RZListVC.m */; };
 		4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */; };
 		B31505AF1DBDFC1A00CA4005 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B31505AE1DBDFC1A00CA4005 /* main.m */; };
@@ -340,15 +341,17 @@
 		4C902DCC229BBD8600A28FC3 /* RZPickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPickerVC.h; sourceTree = "<group>"; };
 		4C902DCD229BBD8600A28FC3 /* RZPickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZPickerVC.m; sourceTree = "<group>"; };
 		4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZPickerVC.xib; sourceTree = "<group>"; };
-		4C902DE6229F732700A28FC3 /* RZBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZBtn.h; sourceTree = "<group>"; };
-		4C902DE7229F732700A28FC3 /* RZBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZBtn.m; sourceTree = "<group>"; };
-		4C902DE9229F733600A28FC3 /* RZBtn.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZBtn.xib; sourceTree = "<group>"; };
+		4C902DF222A61A1900A28FC3 /* RZCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCollectionVC.h; sourceTree = "<group>"; };
+		4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCollectionVC.m; sourceTree = "<group>"; };
+		4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZCollectionVC.xib; sourceTree = "<group>"; };
 		4CA6010F228BDCA0006A39D2 /* NSString+RZSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZSize.h"; sourceTree = "<group>"; };
 		4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RZSize.m"; sourceTree = "<group>"; };
 		4CA60118228BDFDA006A39D2 /* NSString+RZContains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZContains.h"; sourceTree = "<group>"; };
 		4CA60119228BDFDA006A39D2 /* NSString+RZContains.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RZContains.m"; sourceTree = "<group>"; };
 		4CA6011E228CF25A006A39D2 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		4CA6011F228CF25B006A39D2 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		4CC7B49922A641DB00D892BC /* RZBtn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZBtn.h; sourceTree = "<group>"; };
+		4CC7B49A22A641DB00D892BC /* RZBtn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZBtn.m; sourceTree = "<group>"; };
 		4CE5AF462137D97800F11C6F /* RZListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZListVC.h; sourceTree = "<group>"; };
 		4CE5AF472137D97800F11C6F /* RZListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZListVC.m; sourceTree = "<group>"; };
 		4CE5AF492137DBE400F11C6F /* RZPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPageVC.h; sourceTree = "<group>"; };
@@ -475,6 +478,9 @@
 				2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */,
 				2AF5BA331FD8E50F0004968C /* YYText_DemoVC.h */,
 				2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */,
+				4C902DF222A61A1900A28FC3 /* RZCollectionVC.h */,
+				4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */,
+				4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -491,9 +497,6 @@
 				4C639C6521142A0A00084571 /* 多线程 */,
 				2A936A321F00D76C005E578D /* FoldTableView */,
 				2A54450A1F28840C006BC937 /* ios加密方式 */,
-				4C902DE6229F732700A28FC3 /* RZBtn.h */,
-				4C902DE7229F732700A28FC3 /* RZBtn.m */,
-				4C902DE9229F733600A28FC3 /* RZBtn.xib */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -820,6 +823,8 @@
 			children = (
 				4C1D7686219D4669005B6D5E /* UIControl+RZLimitClick.h */,
 				4C1D7687219D4669005B6D5E /* UIControl+RZLimitClick.m */,
+				4CC7B49922A641DB00D892BC /* RZBtn.h */,
+				4CC7B49A22A641DB00D892BC /* RZBtn.m */,
 			);
 			path = UIButton;
 			sourceTree = "<group>";
@@ -1087,7 +1092,6 @@
 				2A41F76A1F29C52F00239472 /* test1.jpg in Resources */,
 				2A41F73A1F29C52F00239472 /* 樱花树3.jpg in Resources */,
 				2A41F7631F29C52F00239472 /* pic4.jpg in Resources */,
-				4C902DEA229F733600A28FC3 /* RZBtn.xib in Resources */,
 				B33D68111DD1736B0049F3D6 /* noteText in Resources */,
 				4C22C333212419360095E005 /* RZGCDVC.xib in Resources */,
 				2A41F7C21F29CBBF00239472 /* RZMineVC.xib in Resources */,
@@ -1132,6 +1136,7 @@
 				2A41F7691F29C52F00239472 /* test0.jpg in Resources */,
 				2A41F7471F29C52F00239472 /* 15.jpg in Resources */,
 				2A41F75F1F29C52F00239472 /* pic0.jpg in Resources */,
+				4C902DF622A61A1900A28FC3 /* RZCollectionVC.xib in Resources */,
 				2A41F73D1F29C52F00239472 /* 烟花背景.jpg in Resources */,
 				2A41F7651F29C52F00239472 /* pic6.jpg in Resources */,
 				2A41F7361F29C52F00239472 /* snow2.png in Resources */,
@@ -1229,6 +1234,8 @@
 				2A562B831FD68843007C0DBA /* NSObject+RZDog.m in Sources */,
 				B3FC029622994CF9000606D4 /* RZDispatchVC.m in Sources */,
 				4C83920C21CA1D3F00FAC7A7 /* RZWebView.m in Sources */,
+				4C902DF522A61A1900A28FC3 /* RZCollectionVC.m in Sources */,
+				4CC7B49B22A641DB00D892BC /* RZBtn.m in Sources */,
 				4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */,
 				2A389B6E1EE13E21007E78FE /* RZRootVC.m in Sources */,
 				2A54450E1F28840C006BC937 /* RZBase64ViewController.m in Sources */,
@@ -1237,7 +1244,6 @@
 				2A562B7F1FD6880E007C0DBA /* NSString+Size.m in Sources */,
 				2A389B781EE14007007E78FE /* RZDemoVC.m in Sources */,
 				2A389B741EE13E6F007E78FE /* RZNavigationVC.m in Sources */,
-				4C902DE8229F732700A28FC3 /* RZBtn.m in Sources */,
 				2A5444FF1F285EF5006BC937 /* RZFoldTableViewController.m in Sources */,
 				2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */,
 				2A980D881FE26F68005B177F /* RZCustom.m in Sources */,

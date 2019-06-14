@@ -66,16 +66,11 @@ static NSString *const reCellID = @"HomeCell";
     // 注意对scrollView及其子控件进行iOS11适配
     kAdjustmentBehavior(self, self.homeTableView);
     
-    
-    // 自定义XIB控件
-    self.customView.title = @"点我";
-    self.customView.cornerRadius = 8;
-    [self.customView setClickBlock:^{
-        RZLog(@"点我");
-    }];
-    
     self.homeTableBottom.constant = kRZTabHeight;
     [self setupTableView];
+    
+//    NSString *cityCodeFile = @"/Users/os/Library/Developer/CoreSimulator/Devices/6A953D64-0788-4989-A428-B78EED708C05/data/Containers/Data/Application/F7DC3F43-BE7E-4876-87CE-147F8522325F/Documents/RZCityList.plist";
+    
 }
 
 - (void)setupTableView {
