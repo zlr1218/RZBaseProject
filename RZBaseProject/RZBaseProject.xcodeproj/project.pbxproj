@@ -133,6 +133,7 @@
 		4C902DD0229BBD8600A28FC3 /* RZPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */; };
 		4C902DF522A61A1900A28FC3 /* RZCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */; };
 		4C902DF622A61A1900A28FC3 /* RZCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */; };
+		4CA09BDE22C4B7480061C93C /* RZCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CA09BDD22C4B7480061C93C /* RZCityList.plist */; };
 		4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */; };
 		4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60119228BDFDA006A39D2 /* NSString+RZContains.m */; };
 		4CA60120228CF25B006A39D2 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA6011E228CF25A006A39D2 /* UIImage+RoundedCorner.m */; };
@@ -344,6 +345,7 @@
 		4C902DF222A61A1900A28FC3 /* RZCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCollectionVC.h; sourceTree = "<group>"; };
 		4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCollectionVC.m; sourceTree = "<group>"; };
 		4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZCollectionVC.xib; sourceTree = "<group>"; };
+		4CA09BDD22C4B7480061C93C /* RZCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RZCityList.plist; sourceTree = "<group>"; };
 		4CA6010F228BDCA0006A39D2 /* NSString+RZSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZSize.h"; sourceTree = "<group>"; };
 		4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RZSize.m"; sourceTree = "<group>"; };
 		4CA60118228BDFDA006A39D2 /* NSString+RZContains.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZContains.h"; sourceTree = "<group>"; };
@@ -962,6 +964,7 @@
 		B31505AC1DBDFC1A00CA4005 /* RZBaseProject */ = {
 			isa = PBXGroup;
 			children = (
+				4CA09BDD22C4B7480061C93C /* RZCityList.plist */,
 				2A389B661EE13B06007E78FE /* Code */,
 				B31505AD1DBDFC1A00CA4005 /* Supporting Files */,
 				B33D68101DD1736B0049F3D6 /* noteText */,
@@ -1084,6 +1087,7 @@
 				2A41F74F1F29C52F00239472 /* 22.jpg in Resources */,
 				4C65910F224218CC001971C8 /* RZUpdateLocationVC.xib in Resources */,
 				2A41F7581F29C52F00239472 /* Home.xcassets in Resources */,
+				4CA09BDE22C4B7480061C93C /* RZCityList.plist in Resources */,
 				2A41F74E1F29C52F00239472 /* 21.jpg in Resources */,
 				2A5445021F286165006BC937 /* FoldSectionView.xib in Resources */,
 				2A5444F91F2836F5006BC937 /* cityList.plist in Resources */,

@@ -8,6 +8,7 @@
 
 #import "RZHomeVC.h"
 #import "RZTool.h"
+#import <CoreLocation/CoreLocation.h>
 
 #import "RZCityList.h"
 #import "RZFoldTableViewController.h"
@@ -70,6 +71,22 @@ static NSString *const reCellID = @"HomeCell";
     [self setupTableView];
     
 //    NSString *cityCodeFile = @"/Users/os/Library/Developer/CoreSimulator/Devices/6A953D64-0788-4989-A428-B78EED708C05/data/Containers/Data/Application/F7DC3F43-BE7E-4876-87CE-147F8522325F/Documents/RZCityList.plist";
+    
+    
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"RZCityList" ofType:@"plist"];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    NSString *filePath2 = [NSHomeDirectory() stringByAppendingString:@"/Documents/RZCityCoordinate.plist"];
+    NSDictionary *dict2 = [NSDictionary dictionaryWithContentsOfFile:filePath2];
+    
+    RZLog(@"%li - %li", dict2.count, dict.count);
+    
+    for (NSString *name in dict) {
+        if (![dict2.allKeys containsObject:name]) {
+            RZLog(@"%@", name);
+        }
+    }
+    
+    
     
 }
 

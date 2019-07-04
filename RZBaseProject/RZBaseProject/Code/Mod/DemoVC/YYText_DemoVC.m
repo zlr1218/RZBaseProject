@@ -24,8 +24,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self attributedStringUse];
     [self basicUse];
     [self superUse];
+}
+
+- (void)attributedStringUse {
+    UILabel *lab = [UILabel new];
+    lab.frame = CGRectMake(13, kYYTextAllSpace*2, 200, kYYTextHeight);
+    lab.textColor = RZ_Orange_Color;
+    lab.font = [UIFont boldSystemFontOfSize:17];
+    lab.text = @"富文本的使用";
+    [self.view addSubview:lab];
+    
+    NSMutableAttributedString *muStr = [[NSMutableAttributedString alloc] initWithString:@"富文本的使用"];
+    [muStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:28] range:NSMakeRange(0, 1)];
+    [muStr addAttribute:NSForegroundColorAttributeName value:RZ_Red_Color range:NSMakeRange(5, 1)];
+    lab.attributedText = muStr;
 }
 
 - (void)basicUse {
@@ -41,6 +56,13 @@
     textView.textColor = [UIColor orangeColor];
     textView.text = @"这是YYTextView的基本用法，和UITextView是一样的";
     [self.view addSubview:textView];
+    
+    
+    NSMutableAttributedString *muStr = [[NSMutableAttributedString alloc] initWithString:@"这是YYTextView的基本用法，和UITextView是一样的"];
+    [muStr addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:28] range:NSMakeRange(0, 1)];
+    [muStr addAttribute:NSForegroundColorAttributeName value:RZ_Red_Color range:NSMakeRange(5, 1)];
+    textView.attributedText = muStr;
+    
 }
 
 - (void)superUse {
