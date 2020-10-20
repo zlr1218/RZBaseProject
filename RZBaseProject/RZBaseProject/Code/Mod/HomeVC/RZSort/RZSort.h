@@ -10,6 +10,7 @@
 
 @interface RZSort : NSObject
 
++ (NSArray *)bubbleSort3:(NSArray *)array;
 + (NSArray *)bubbleSort:(NSArray *)array;
 
 

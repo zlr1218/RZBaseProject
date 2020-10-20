@@ -45,6 +45,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setupUI];
+    [self setupUI02];
+}
+
+- (void)setupUI02 {
+    
+}
+
+- (void)setupUI {
     // 初始化titleView
     JXCategoryTitleView *titleView = [[JXCategoryTitleView alloc] initWithFrame:CGRectMake(0, 0, kScreeWith, kTitleHeight)];
     titleView.delegate = self;

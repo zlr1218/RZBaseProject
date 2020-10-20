@@ -30,4 +30,8 @@
     return nil;
 }
 
++ (NSNumber *)num:(NSInteger)interger {
+    return [NSNumber numberWithInteger:interger];
+}
+
 @end

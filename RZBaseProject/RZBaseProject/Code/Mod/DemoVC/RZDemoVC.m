@@ -40,7 +40,7 @@ static NSString *const recellID = @"demoCell";
 //    self.threadGroup = dispatch_group_create();
     
     // 多任务请求
-//    [self requestData_01];
+    [self requestData_01];
 //    [self requestData_02];
 //    [self requestData_03];
 //    [self requestData_04];
@@ -52,8 +52,8 @@ static NSString *const recellID = @"demoCell";
 - (void)requestData_01 {
     dispatch_group_enter(self.threadGroup);
     kWeakSelf(self);
-    [RZNetManager rz_requestWithType:RZHttpRequestTypePost path:@"https://api.apiopen.top/searchAuthors?name=李白" parameters:nil success:^(id response) {
-        RZLog(@"%@", response[@"result"]);
+    [RZNetManager rz_requestWithType:RZHttpRequestTypeGet path:@"http://localhost:8888/index.php" parameters:nil success:^(id response) {
+        RZLog(@"%@", response);
         dispatch_group_leave(weakself.threadGroup);
     } failed:^(NSError *error) {
         RZLog(@"%@", error);

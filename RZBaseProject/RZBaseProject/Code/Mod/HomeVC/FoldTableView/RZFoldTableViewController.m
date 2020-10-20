@@ -79,7 +79,7 @@ static NSString *const recellID = @"foldCell";
             weakSectionView.sectionIcon.transform = CGAffineTransformRotate(weakSectionView.sectionIcon.transform, -M_PI);
         }];
         
-        [self.foldTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationFade];
+        [self.foldTableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationLeft];
     }];
     
     return sectionView;

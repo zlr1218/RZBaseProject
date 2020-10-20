@@ -55,13 +55,13 @@
  */
 - (void)btnAction02 {
     // 异步执行函数 + 串行队列
-    //    [self asyncAndSerial];
+//        [self asyncAndSerial];
     
     // 异步执行函数 + 并发队列
     //    [self asyncAndConcurrent];
     
     // 同步执行函数 + 串行队列
-    //    [self syncAndSerial];
+//        [self syncAndSerial];
     
     // 同步执行函数 + 并发队列
     //    [self syncAndConcurrent];
@@ -70,7 +70,15 @@
     //    [self syncAndMainQueue];
     
     // 异步执行函数 + 主队列
-    [self asyncAndMainQueue];
+//    [self asyncAndMainQueue];
+    
+    // 栅栏函数
+//    [self barrierAsync];
+    
+    // 延迟执行
+//    [self afterAction];
+    
+    [self operationAction1];
 }
 
 /*
@@ -149,6 +157,15 @@
     
     dispatch_sync(queue, ^{
        RZLog(@"01 -- %@", [NSThread currentThread]);
+        
+        // 当前串行队列正在执行，又加入了一个同步任务，便会立即执行新加入的任务，然而，当前队列中有任务在执行，阻塞了队列，导致新加入的任务不能执行，造成死锁。
+//        dispatch_sync(queue, ^{
+//            RZLog(@"03 -- %@", [NSThread currentThread]);
+//        });
+        // 解决死锁的办法，异步执行
+        dispatch_async(queue, ^{
+            RZLog(@"04 -- %@", [NSThread currentThread]);
+        });
     });
     
     dispatch_sync(queue, ^{
@@ -196,6 +213,7 @@
 - (void)syncAndMainQueue {
     dispatch_queue_t queue = dispatch_get_main_queue();
     dispatch_sync(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
         RZLog(@"01 -- %@", [NSThread currentThread]);
     });
 }
@@ -207,8 +225,105 @@
 - (void)asyncAndMainQueue {
     dispatch_queue_t queue = dispatch_get_main_queue();
     dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
         RZLog(@"01 -- %@", [NSThread currentThread]);
     });
 }
 
+/*
+栅栏异步执行函数 + 全局队列
+ 先执行完成栅栏之前的任务，再执行栅栏操作，再执行栅栏之后的操作
+*/
+- (void)barrierAsync {
+//    dispatch_queue_t globalQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_queue_t queue = dispatch_queue_create("pro.rzol", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
+        RZLog(@"01 -- %@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
+        RZLog(@"02 -- %@", [NSThread currentThread]);
+    });
+    
+    dispatch_barrier_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
+        RZLog(@"barrier -- %@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
+        RZLog(@"03 -- %@", [NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, ^{
+        [NSThread sleepForTimeInterval:2];// 模拟耗时操作
+        RZLog(@"04 -- %@", [NSThread currentThread]);
+    });
+}
+
+- (void)afterAction {
+    RZLog(@"01 -- %@ -- %f", [NSThread currentThread], CFAbsoluteTimeGetCurrent());
+    
+    // 秒级：NSEC_PER_SEC
+    int64_t delaySeconds = 2.0;
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, delaySeconds * NSEC_PER_SEC);
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        RZLog(@"02 -- %@ -- %f", [NSThread currentThread], CFAbsoluteTimeGetCurrent());
+    });
+    
+    // 2. NSThread
+    [self performSelector:@selector(delayAction) withObject:nil afterDelay:4.0];
+    //撤回全部申请延迟执行的方法
+    //[NSObject cancelPreviousPerformRequestsWithTarget:self];
+    /**
+    *  取消延迟执行
+    *
+    *  @param aTarget    一般填self
+    *  @param aSelector  延迟执行的方法
+    *  @param anArgument 设置延迟执行时填写的参数（必须和上面performSelector方法中的参数一样）
+    */
+    //[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(delayAction) object:nil];
+    
+    
+    // 3. NSTimer 定时器
+    [NSTimer scheduledTimerWithTimeInterval:6.0 target:self selector:@selector(delayAction) userInfo:nil repeats:NO];
+    // 取消
+//    [timer invalidate];
+    
+    // 4. sleep
+//    [NSThread sleepForTimeInterval:2.0];
+}
+- (void)delayAction {
+    RZLog(@"03 -- %@ -- %f", [NSThread currentThread], CFAbsoluteTimeGetCurrent());
+}
+
+
+- (void)operationAction1 {
+    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(task1) object:nil];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    queue.maxConcurrentOperationCount = 2;
+    [queue addOperation:operation];
+    [queue addOperationWithBlock:^{
+        RZLog(@"01 -- %@", [NSThread currentThread]);
+    }];
+    [queue addOperationWithBlock:^{
+        RZLog(@"02 -- %@", [NSThread currentThread]);
+    }];
+    [queue addOperationWithBlock:^{
+        RZLog(@"03 -- %@", [NSThread currentThread]);
+    }];
+    [queue addOperationWithBlock:^{
+        RZLog(@"04 -- %@", [NSThread currentThread]);
+    }];
+    
+    [operation start];
+}
+
+- (void)task1 {
+    RZLog(@"05 -- %@", [NSThread currentThread]);
+}
 @end

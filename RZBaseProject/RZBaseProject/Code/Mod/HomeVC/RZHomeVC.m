@@ -7,6 +7,7 @@
 //
 
 #import "RZHomeVC.h"
+#import "RZBaseProject-Swift.h"
 #import "RZTool.h"
 #import <CoreLocation/CoreLocation.h>
 
@@ -25,13 +26,17 @@
 #import "NSDate+Extension.h"
 
 #import "RZThreadVC.h"
+#import "RZDispatchVC.h"
 #import "RZGCDVC.h"
+#import "RZEmptyVC.h"
 
 #import "RZSort.h"
 
 #import "RZUpdateLocationVC.h"
 
 #import "RZBtn.h"
+
+#import "NSDate+JKExtension.h"
 
 @interface RZHomeVC ()<UITableViewDelegate, UITableViewDataSource, RZAlertViewDelegate>
 
@@ -70,24 +75,26 @@ static NSString *const reCellID = @"HomeCell";
     self.homeTableBottom.constant = kRZTabHeight;
     [self setupTableView];
     
-//    NSString *cityCodeFile = @"/Users/os/Library/Developer/CoreSimulator/Devices/6A953D64-0788-4989-A428-B78EED708C05/data/Containers/Data/Application/F7DC3F43-BE7E-4876-87CE-147F8522325F/Documents/RZCityList.plist";
+    RZSwift *test = [[RZSwift alloc] init];
+    // 调用swift代码时若有参数需要引入参数名称
+    [test abcWithName:@"123"];
+}
+
+- (CGFloat)getCurHour {
+    NSDate *now = [NSDate date];
+    NSInteger hour = [NSDate jk_hour:now];
+    NSInteger minute = [NSDate jk_minute:now];
     
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"RZCityList" ofType:@"plist"];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-    NSString *filePath2 = [NSHomeDirectory() stringByAppendingString:@"/Documents/RZCityCoordinate.plist"];
-    NSDictionary *dict2 = [NSDictionary dictionaryWithContentsOfFile:filePath2];
-    
-    RZLog(@"%li - %li", dict2.count, dict.count);
-    
-    for (NSString *name in dict) {
-        if (![dict2.allKeys containsObject:name]) {
-            RZLog(@"%@", name);
-        }
+    CGFloat curHour = 0;
+    if (minute >= 0 && minute < 20) {
+        curHour = hour + 0.5;
+    } else if (minute >= 20 && minute < 50) {
+        curHour = hour + 1;
+    } else if (minute >= 50 && minute < 60) {
+        curHour = hour + 1.5;
     }
-    
-    
-    
+    //RZLog(@"%li %li %lf", hour, minute, curHour);
+    return curHour;
 }
 
 - (void)setupTableView {
@@ -96,6 +103,10 @@ static NSString *const reCellID = @"HomeCell";
     
     // 隐藏指示器
     self.homeTableView.showsVerticalScrollIndicator = NO;
+}
+
+- (NSNumber*)num:(NSInteger)i {
+    return [NSNumber numberWithInteger:i];
 }
 
 #pragma mark - tableView的代理方法
@@ -111,7 +122,7 @@ static NSString *const reCellID = @"HomeCell";
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSString *str = [NSString stringWithFormat:@"%li、%@", indexPath.row + 1, self.titleArr[indexPath.row]];
+    NSString *str = [NSString stringWithFormat:@"%@、%@", [RZTool num:indexPath.row + 1], self.titleArr[indexPath.row]];
     cell.textLabel.text = str;
     cell.textLabel.textColor = [UIColor orangeColor];
     return cell;
@@ -182,7 +193,7 @@ static NSString *const reCellID = @"HomeCell";
     }
     
     if ([title isEqualToString:@"GCD 多线程"]) {
-        [self.navigationController pushViewController:[RZGCDVC new] animated:YES];
+        [self.navigationController pushViewController:[RZDispatchVC new] animated:YES];
     }
     
     if ([title isEqualToString:@"排序1"]) {
@@ -200,24 +211,30 @@ static NSString *const reCellID = @"HomeCell";
             NSInteger n = arc4random() % 10000;
             [array addObject:@(n)];
         }
-        [RZSort selectionSort:array];
-        //RZLog(@"%@", [RZSort bubbleSort:array]);// 冒泡
+        NSArray *arr = @[@34, @21, @6, @31, @43, @59, @8, @51, @51, @81, @52, @96, @80, @53, @34, @67, @37, @56, @27, @51, @11];
+//        RZLog(@"%@", [[RZSort selectionSort:arr] mj_JSONString]);
+        RZLog(@"%@", [[RZSort bubbleSort3:arr] mj_JSONString]);// 冒泡
+        RZLog(@"%@", [[RZSort bubbleSort:arr] mj_JSONString]);// 冒泡
     }
     
     if ([title isEqualToString:@"定位"]) {
         [self.navigationController pushViewController:[RZUpdateLocationVC new] animated:YES];
     }
+    
+    if ([title isEqualToString:@"空白界面"]) {
+        [self.navigationController pushViewController:[RZEmptyVC new] animated:YES];
+    }
 }
 
 - (void)alertView:(RZAlertView *)alertView ClickedBtnAtIndex:(NSInteger)index {
-    RZLog(@"RZAlertView CancleButtonIndex: %li", index);
+    RZLog(@"RZAlertView CancleButtonIndex: %@", [NSNumber numberWithInteger:index]);
 }
 
 #pragma mark - 懒加载
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"排序1", @"排序2", @"定位", @"------"];
+        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"排序1", @"排序2", @"定位", @"空白界面", @"------"];
     }
     return _titleArr;
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1806C763251D95D2009D66D7 /* RZSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806C762251D95D2009D66D7 /* RZSwift.swift */; };
+		18317D592415E9510053954A /* UIView+RZShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 18317D582415E9510053954A /* UIView+RZShadow.m */; };
+		18BA44FF251455D900E5A2D1 /* WSLWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BA44FD251455D900E5A2D1 /* WSLWaterFlowLayout.m */; };
+		18F5C340244173C60092A44C /* RZEmptyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F5C33E244173C60092A44C /* RZEmptyVC.m */; };
+		18F5C341244173C60092A44C /* RZEmptyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F5C33F244173C60092A44C /* RZEmptyVC.xib */; };
 		2A389B6E1EE13E21007E78FE /* RZRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A389B6D1EE13E21007E78FE /* RZRootVC.m */; };
 		2A389B711EE13E4B007E78FE /* RZTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A389B701EE13E4B007E78FE /* RZTabBarVC.m */; };
 		2A389B741EE13E6F007E78FE /* RZNavigationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A389B731EE13E6F007E78FE /* RZNavigationVC.m */; };
@@ -161,6 +166,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1806C75D251C7E53009D66D7 /* RZBaseProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RZBaseProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		1806C762251D95D2009D66D7 /* RZSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RZSwift.swift; sourceTree = "<group>"; };
+		18317D572415E9510053954A /* UIView+RZShadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RZShadow.h"; sourceTree = "<group>"; };
+		18317D582415E9510053954A /* UIView+RZShadow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RZShadow.m"; sourceTree = "<group>"; };
+		18BA44FD251455D900E5A2D1 /* WSLWaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSLWaterFlowLayout.m; sourceTree = "<group>"; };
+		18BA44FE251455D900E5A2D1 /* WSLWaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSLWaterFlowLayout.h; sourceTree = "<group>"; };
+		18F5C33D244173C60092A44C /* RZEmptyVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZEmptyVC.h; sourceTree = "<group>"; };
+		18F5C33E244173C60092A44C /* RZEmptyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZEmptyVC.m; sourceTree = "<group>"; };
+		18F5C33F244173C60092A44C /* RZEmptyVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZEmptyVC.xib; sourceTree = "<group>"; };
 		1DCA26551751A369B01EF899 /* Pods-RZBaseProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZBaseProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject.debug.xcconfig"; sourceTree = "<group>"; };
 		218597D78302200DB897B7D3 /* Pods-RZBaseProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RZBaseProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject.release.xcconfig"; sourceTree = "<group>"; };
 		2A389B6C1EE13E21007E78FE /* RZRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZRootVC.h; sourceTree = "<group>"; };
@@ -493,12 +507,17 @@
 				2A389B7E1EE14D14007E78FE /* RZHomeVC.h */,
 				2A389B7F1EE14D14007E78FE /* RZHomeVC.m */,
 				2A389B801EE14D14007E78FE /* RZHomeVC.xib */,
+				18F5C33D244173C60092A44C /* RZEmptyVC.h */,
+				18F5C33E244173C60092A44C /* RZEmptyVC.m */,
+				18F5C33F244173C60092A44C /* RZEmptyVC.xib */,
 				4C6590D422267C83001971C8 /* 定位 */,
 				4CE5AF422137D2D900F11C6F /* RZPageController */,
 				4C1A3202212D4142009FB868 /* RZSort */,
 				4C639C6521142A0A00084571 /* 多线程 */,
 				2A936A321F00D76C005E578D /* FoldTableView */,
 				2A54450A1F28840C006BC937 /* ios加密方式 */,
+				1806C762251D95D2009D66D7 /* RZSwift.swift */,
+				1806C75D251C7E53009D66D7 /* RZBaseProject-Bridging-Header.h */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -791,6 +810,8 @@
 		2A562BCB1FD68B2E007C0DBA /* Controls(自定义控件) */ = {
 			isa = PBXGroup;
 			children = (
+				18BA44FE251455D900E5A2D1 /* WSLWaterFlowLayout.h */,
+				18BA44FD251455D900E5A2D1 /* WSLWaterFlowLayout.m */,
 				2A562BD41FD68E1B007C0DBA /* RZAlert */,
 				4C6591122244CA05001971C8 /* UIView+RZActivityView.h */,
 				4C6591132244CA05001971C8 /* UIView+RZActivityView.m */,
@@ -915,6 +936,8 @@
 			isa = PBXGroup;
 			children = (
 				4CA6010E228BDC4F006A39D2 /* NSString */,
+				18317D572415E9510053954A /* UIView+RZShadow.h */,
+				18317D582415E9510053954A /* UIView+RZShadow.m */,
 			);
 			path = RZCategories;
 			sourceTree = "<group>";
@@ -1048,7 +1071,8 @@
 				TargetAttributes = {
 					B31505A91DBDFC1A00CA4005 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = D44DCBG9DC;
+						DevelopmentTeam = 25MNJ5AYKP;
+						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
 					B31B2F2B1DEC1E53009634C1 = {
@@ -1129,6 +1153,7 @@
 				2A41F7421F29C52F00239472 /* 10.jpg in Resources */,
 				2A41F7551F29C52F00239472 /* 7.jpg in Resources */,
 				2A41F7601F29C52F00239472 /* pic1.jpg in Resources */,
+				18F5C341244173C60092A44C /* RZEmptyVC.xib in Resources */,
 				2A41F75E1F29C52F00239472 /* pbg.jpg in Resources */,
 				2A41F7531F29C52F00239472 /* 5.jpg in Resources */,
 				2A41F74B1F29C52F00239472 /* 19.jpg in Resources */,
@@ -1254,6 +1279,7 @@
 				2A41F7C11F29CBBF00239472 /* RZMineVC.m in Sources */,
 				2A389B711EE13E4B007E78FE /* RZTabBarVC.m in Sources */,
 				2A562BBC1FD68939007C0DBA /* UIView+Toast.m in Sources */,
+				18BA44FF251455D900E5A2D1 /* WSLWaterFlowLayout.m in Sources */,
 				2A562BDD1FD68E1B007C0DBA /* UIView+RZAlert.m in Sources */,
 				2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */,
 				2A5444FB1F2836F5006BC937 /* RZListPickerView.m in Sources */,
@@ -1266,6 +1292,7 @@
 				2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */,
 				4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */,
 				2A5445051F286186006BC937 /* FoldSectionView.m in Sources */,
+				18317D592415E9510053954A /* UIView+RZShadow.m in Sources */,
 				2A562BDB1FD68E1B007C0DBA /* RZAlertController.m in Sources */,
 				2A5444FA1F2836F5006BC937 /* RZCityList.m in Sources */,
 				2A980D851FE26F10005B177F /* UIImage+CompressImage.m in Sources */,
@@ -1280,6 +1307,7 @@
 				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
 				4C1A3205212D4157009FB868 /* RZSort.m in Sources */,
 				2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */,
+				18F5C340244173C60092A44C /* RZEmptyVC.m in Sources */,
 				4C6590DC222684CC001971C8 /* RZLocation.m in Sources */,
 				2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */,
 				2A562B8A1FD68875007C0DBA /* Foundation+Log.m in Sources */,
@@ -1293,6 +1321,7 @@
 				2A980D8B1FE27349005B177F /* RZRequestViewModel.m in Sources */,
 				2A389B811EE14D14007E78FE /* RZHomeVC.m in Sources */,
 				2A41F7BC1F29C59600239472 /* RZEncryptionTool.m in Sources */,
+				1806C763251D95D2009D66D7 /* RZSwift.swift in Sources */,
 				2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */,
 				2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */,
 			);
@@ -1425,10 +1454,11 @@
 			baseConfigurationReference = 1DCA26551751A369B01EF899 /* Pods-RZBaseProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D44DCBG9DC;
+				DEVELOPMENT_TEAM = 25MNJ5AYKP;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
@@ -1438,6 +1468,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RZBaseProject/Code/Mod/HomeVC/RZBaseProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -1448,10 +1481,11 @@
 			baseConfigurationReference = 218597D78302200DB897B7D3 /* Pods-RZBaseProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D44DCBG9DC;
+				DEVELOPMENT_TEAM = 25MNJ5AYKP;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
@@ -1461,6 +1495,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "RZBaseProject/Code/Mod/HomeVC/RZBaseProject-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(PODS_ROOT)/**";
 			};
@@ -1469,6 +1505,7 @@
 		B31B2F331DEC1E53009634C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = D44DCBG9DC;
 				INFOPLIST_FILE = RZBaseProjectTests/Info.plist;
@@ -1482,6 +1519,7 @@
 		B31B2F341DEC1E53009634C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = D44DCBG9DC;
 				INFOPLIST_FILE = RZBaseProjectTests/Info.plist;

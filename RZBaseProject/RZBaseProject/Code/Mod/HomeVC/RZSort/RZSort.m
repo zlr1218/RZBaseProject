@@ -19,23 +19,92 @@
  冒泡排序（从小到大）
  如果是从小到大排序，则每轮比较完成，本轮最后发生交换的坐标之前的元素都是有序的，后面的不一定是有序的，所以记录下最后交换的坐标
  */
-+ (NSArray *)bubbleSort:(NSArray *)array {
++ (NSArray *)bubbleSort1:(NSArray *)array {
+    NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
+    for (NSInteger i = 0; i < mArr.count-1; i++) {
+        // 两两比较，从0开始，到最后是 倒数第二个数（count-2）与最后一个数（count-1）比较,所以，j的最大值应是count-2，（等同于<count-1）
+        for (NSInteger j = 0; j < mArr.count-1-i; j++) {
+            // 两两比较，确定一个最大或最小值，放在最后
+            if ([mArr[j] integerValue] > [mArr[j+1] integerValue]) {
+                [mArr exchangeObjectAtIndex:j withObjectAtIndex:j+1];
+            }
+        }
+    }
+    return mArr;
+}
++ (NSArray *)bubbleSort2:(NSArray *)array {
     NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
     TICK;
     NSInteger right = mArr.count-1;
-    NSInteger temp = 0;
-    for (NSInteger i = 0; i < mArr.count-1; i++) {
+    for (NSInteger i = 0; i < right; i++) {
         BOOL flag = true;// 记录本轮比较是否发生交换
-        for (NSInteger j = 0; j < right; j++) {
-            if (mArr[j] > mArr[j+1]) {
+        for (NSInteger j = 0; j < right-i; j++) {
+            if ([mArr[j] integerValue] > [mArr[j+1] integerValue]) {
                 [mArr exchangeObjectAtIndex:j withObjectAtIndex:j+1];
                 flag = false;
-                temp = j;
             }
         }
-        right = temp;
         // 如果本轮未发生交换，说明数组已经是有序数组，直接终止排序，节省时间，增加效率
         if (flag) {break;}
+    }
+    TOCK;
+    return mArr;
+}
++ (NSArray *)bubbleSort3:(NSArray *)array {
+    NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
+    TICK;
+    NSInteger pos = 0;
+    for (NSInteger i = 0; i < mArr.count-1; i++) {
+        BOOL flag = true;// 记录本轮比较是否发生交换
+        NSInteger k = mArr.count-1;
+        for (NSInteger j = 0; j < k; j++) {
+            if ([mArr[j] integerValue] > [mArr[j+1] integerValue]) {
+                [mArr exchangeObjectAtIndex:j withObjectAtIndex:j+1];
+                flag = false;
+                pos = j;
+            }
+        }
+        // 记录下最后一次交换的坐标，这个坐标后面的没有交换，就是有序的，就不用排序了
+        if (flag) {break;}
+        k = pos;
+    }
+    TOCK;
+    return mArr;
+}
+// 最终优化版本
++ (NSArray *)bubbleSort:(NSArray *)array {
+    NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
+    TICK;
+    NSInteger pos_max = 0;
+    NSInteger pos_min = mArr.count-1;
+    for (NSInteger i = 0; i < mArr.count-1; i++) {
+        
+        // 双向扫描 从左往右扫描（k_min-->k_max）记录最后一次交换坐标（k_max），从右往左扫描(k_max-->k_min)记录最后一次交换坐标（k_min）
+        NSInteger k_min = 0;
+        NSInteger k_max = mArr.count-1;
+        BOOL flag_max = true;// 记录本轮比较是否发生交换
+        for (NSInteger j = k_min; j < k_max; j++) {
+            if ([mArr[j] integerValue] > [mArr[j+1] integerValue]) {
+                [mArr exchangeObjectAtIndex:j withObjectAtIndex:j+1];
+                flag_max = false;
+                pos_max = j;
+            }
+        }
+        // 记录下最后一次交换的坐标，这个坐标后面的没有交换，就是有序的，就不用排序了
+        if (flag_max) {break;}
+        k_max = pos_max;
+        
+        BOOL flag_min = true;// 记录本轮比较是否发生交换
+        for (NSInteger j = k_max; j > k_min; j--) {
+            if ([mArr[j] integerValue] < [mArr[j-1] integerValue]) {
+                [mArr exchangeObjectAtIndex:j withObjectAtIndex:j-1];
+                flag_min = false;
+                pos_min = j;
+            }
+        }
+        // 记录下最后一次交换的坐标，这个坐标后面的没有交换，就是有序的，就不用排序了
+        if (flag_min) {break;}
+        k_min = pos_min;
     }
     TOCK;
     return mArr;
@@ -49,24 +118,29 @@
  再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
  重复第二步，直到所有元素均排序完毕。
  
- + (NSArray *)selectionSort:(NSArray *)array {
- NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
- TICK;
- for (NSInteger i = 0; i < mArr.count-1; i++) {
- NSInteger mix = i;
- for (NSInteger j = i+1; j < mArr.count; j++) {
- if (mArr[mix] > mArr[j]) {
- mix = j;
- }
- }
- [mArr exchangeObjectAtIndex:i withObjectAtIndex:mix];
- }
- TOCK;
- return mArr;
- }
+ 时间复杂度：O(n^2)
+ 空间复杂度：O(1)
+ 排序不稳定：353928 当3与2进行比较时，第一个3与第二个3的相对位置发生了变化，因此不稳定
  */
+
++ (NSArray *)selectionSort1:(NSArray *)array {
+    NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
+    TICK;
+    for (NSInteger i = 0; i < mArr.count-1; i++) {
+        NSInteger min = i;
+        for (NSInteger j = i+1; j < mArr.count; j++) {
+            if (mArr[min] > mArr[j]) {
+                min = j;
+            }
+        }
+        [mArr exchangeObjectAtIndex:i withObjectAtIndex:min];
+    }
+    TOCK;
+    return mArr;
+}
 + (NSArray *)selectionSort:(NSArray *)array {
     NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
+    RZLog(@"%@", mArr.mj_JSONString);
     TICK;
     NSInteger left = 0;
     NSInteger right = mArr.count-1;
@@ -74,10 +148,10 @@
         NSInteger mix = left;
         NSInteger max = left;
         for (NSInteger j = left+1; j <= right; j++) {
-            if (mArr[mix] > mArr[j]) {
+            if ([mArr[mix] integerValue] > [mArr[j] integerValue]) {
                 mix = j;
             }
-            if (mArr[max] < mArr[j]) {
+            if ([mArr[max] integerValue] < [mArr[j] integerValue]) {
                 max = j;
             }
         }
@@ -91,7 +165,13 @@
         if (max != right) {
             [mArr exchangeObjectAtIndex:right withObjectAtIndex:max];
         }
-
+        
+        NSMutableArray *marr2 = [NSMutableArray array];
+        for (NSInteger i = left; i <= right; i++) {
+            [marr2 addObject:mArr[i]];
+        }
+        RZLog(@"%@", marr2.mj_JSONString);
+        
         left++;
         right--;
     }

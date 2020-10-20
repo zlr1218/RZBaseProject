@@ -12,4 +12,6 @@
 
 + (UIWindow *)window;
 
++ (NSNumber *)num:(NSInteger)interger;
+
 @end
