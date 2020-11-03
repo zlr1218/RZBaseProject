@@ -29,7 +29,7 @@
 #import "RZDispatchVC.h"
 #import "RZGCDVC.h"
 #import "RZEmptyVC.h"
-#import "RZInterviewVC.h"
+#import "RZInterviewController.h"
 
 #import "RZSort.h"
 
@@ -220,6 +220,10 @@ static NSString *const reCellID = @"HomeCell";
     if ([title isEqualToString:@"空白界面"]) {
         [self.navigationController pushViewController:[RZEmptyVC new] animated:YES];
     }
+    
+    if ([title isEqualToString:@"面试题"]) {
+        [self.navigationController pushViewController:[RZInterviewController new] animated:YES];
+    }
 }
 
 - (void)alertView:(RZAlertView *)alertView ClickedBtnAtIndex:(NSInteger)index {
@@ -230,7 +234,7 @@ static NSString *const reCellID = @"HomeCell";
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"冒泡排序", @"选择排序", @"插入排序", @"快排", @"定位", @"空白界面", @"------"];
+        _titleArr = @[@"table折叠示例", @"面试题", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"冒泡排序", @"选择排序", @"插入排序", @"快排", @"定位", @"空白界面", @"------"];
     }
     return _titleArr;
 }
