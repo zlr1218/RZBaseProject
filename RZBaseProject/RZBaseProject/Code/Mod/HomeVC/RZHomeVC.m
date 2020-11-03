@@ -29,6 +29,7 @@
 #import "RZDispatchVC.h"
 #import "RZGCDVC.h"
 #import "RZEmptyVC.h"
+#import "RZInterviewVC.h"
 
 #import "RZSort.h"
 
@@ -48,6 +49,8 @@
 @property (weak, nonatomic) IBOutlet RZBtn *customView;
 
 @property (nonatomic, strong) NSArray *titleArr;
+
+@property (nonatomic, strong) NSArray *sortArr;
 
 @end
 
@@ -196,25 +199,18 @@ static NSString *const reCellID = @"HomeCell";
         [self.navigationController pushViewController:[RZDispatchVC new] animated:YES];
     }
     
-    if ([title isEqualToString:@"排序1"]) {
-        NSMutableArray *array = [NSMutableArray array];
-        for (int i = 0; i < 1000; i++) {
-            NSInteger n = arc4random() % 10000;
-            [array addObject:@(n)];
-        }
-        [RZSort quickSork:array];
-        //RZLog(@"%@", [RZSort quickSork:array]);// 快排
+    if ([title isEqualToString:@"冒泡排序"]) {
+//        RZLog(@"%@", [[RZSort bubbleSort3:arr] mj_JSONString]);// 冒泡
+        RZLog(@"%@", [[RZSort bubbleSort:self.sortArr] mj_JSONString]);// 冒泡
     }
-    if ([title isEqualToString:@"排序2"]) {
-        NSMutableArray *array = [NSMutableArray array];
-        for (int i = 0; i < 1000; i++) {
-            NSInteger n = arc4random() % 10000;
-            [array addObject:@(n)];
-        }
-        NSArray *arr = @[@34, @21, @6, @31, @43, @59, @8, @51, @51, @81, @52, @96, @80, @53, @34, @67, @37, @56, @27, @51, @11];
-//        RZLog(@"%@", [[RZSort selectionSort:arr] mj_JSONString]);
-        RZLog(@"%@", [[RZSort bubbleSort3:arr] mj_JSONString]);// 冒泡
-        RZLog(@"%@", [[RZSort bubbleSort:arr] mj_JSONString]);// 冒泡
+    if ([title isEqualToString:@"选择排序"]) {
+        RZLog(@"%@", [[RZSort selectionSort:self.sortArr] mj_JSONString]);
+    }
+    if ([title isEqualToString:@"插入排序"]) {
+        RZLog(@"%@", [[RZSort insertionSort:self.sortArr] mj_JSONString]);// 插入排序
+    }
+    if ([title isEqualToString:@"快排"]) {
+        RZLog(@"%@", [[RZSort quickSork:self.sortArr] mj_JSONString]);// 快排
     }
     
     if ([title isEqualToString:@"定位"]) {
@@ -234,9 +230,23 @@ static NSString *const reCellID = @"HomeCell";
 
 - (NSArray *)titleArr {
     if (!_titleArr) {
-        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"排序1", @"排序2", @"定位", @"空白界面", @"------"];
+        _titleArr = @[@"table折叠示例", @"城市列表选择", @"UIView+Toast", @"iOS_base64加密", @"RZAlert", @"RZAlertController", @"UIView+RZAlert", @"NSString+Size", @"NSDate+Extension", @"多线程", @"GCD 多线程", @"冒泡排序", @"选择排序", @"插入排序", @"快排", @"定位", @"空白界面", @"------"];
     }
     return _titleArr;
+}
+
+- (NSArray *)sortArr {
+    if (!_sortArr) {
+//        _sortArr = @[@34, @21, @6, @31, @43, @59, @8, @51, @51, @81, @52, @96, @80, @53, @34, @67, @37, @56, @27, @51, @11];
+        NSMutableArray *marr = [NSMutableArray array];
+        for (int i = 0; i < 1000; i++) {
+            NSInteger n = arc4random() % 10000;
+            [marr addObject:@(n)];
+        }
+        _sortArr = [NSArray arrayWithArray:marr];
+        RZLog(@"%@", _sortArr.mj_JSONString);
+    }
+    return _sortArr;
 }
 
 @end

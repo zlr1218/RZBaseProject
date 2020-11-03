@@ -140,7 +140,6 @@
 }
 + (NSArray *)selectionSort:(NSArray *)array {
     NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
-    RZLog(@"%@", mArr.mj_JSONString);
     TICK;
     NSInteger left = 0;
     NSInteger right = mArr.count-1;
@@ -166,11 +165,11 @@
             [mArr exchangeObjectAtIndex:right withObjectAtIndex:max];
         }
         
-        NSMutableArray *marr2 = [NSMutableArray array];
-        for (NSInteger i = left; i <= right; i++) {
-            [marr2 addObject:mArr[i]];
-        }
-        RZLog(@"%@", marr2.mj_JSONString);
+//        NSMutableArray *marr2 = [NSMutableArray array];
+//        for (NSInteger i = left; i <= right; i++) {
+//            [marr2 addObject:mArr[i]];
+//        }
+//        RZLog(@"%@", marr2.mj_JSONString);
         
         left++;
         right--;
@@ -187,12 +186,22 @@
 + (NSArray *)insertionSort:(NSArray *)array {
     NSMutableArray *mArr = [NSMutableArray arrayWithArray:array];
     TICK;
-    for (NSInteger i = 1; i < mArr.count; i++) {
-        for (NSInteger j = 0; j < i; j++) {
-            if (mArr[i] < mArr[j]) {
-                [mArr exchangeObjectAtIndex:i withObjectAtIndex:j];
+    for (NSInteger i = 1; i < mArr.count; i++) {// 无序
+        // 拿出待插入元素
+        NSNumber *temp = mArr[i];
+        // 然后有序序列从右往左扫描，大于temp的元素往右移一位
+        NSInteger j;
+        for (j = i-1; j >= 0; j--) {// 有序
+            if ([mArr[j] integerValue] > [temp integerValue]) {
+                // 把较大值往后移一位
+                mArr[j+1] = mArr[j];
+            } else {
+                break;
             }
         }
+        // 当比较完所有有序序列的元素或者没有比temp大的时结束，插入元素
+        // 这里为什么是j+1？因为以上两中情况中，1、比较完所有元素执行了j--，不满足j>=0，2、不大于temp的元素坐标为j，也就该插入到j元素的后面
+        mArr[j+1] = temp;
     }
     TOCK;
     return mArr;
@@ -217,17 +226,18 @@
 }
 + (void)indenticalQuickSort:(NSMutableArray *)mArr indexL:(NSInteger)l indexR:(NSInteger)r {
     if (l >= r) return;
-    NSInteger p = [RZSort partition:mArr indexL:l indexR:r];
+//    NSInteger p = [RZSort partition:mArr indexL:l indexR:r];
+    NSInteger p = [RZSort sortByArr:mArr L:l R:r];
     [RZSort indenticalQuickSort:mArr indexL:l indexR:p-1];
     [RZSort indenticalQuickSort:mArr indexL:p+1 indexR:r];
 }
 + (NSInteger)partition:(NSMutableArray *)mArr indexL:(NSInteger)l indexR:(NSInteger)r {
     NSInteger t = l;
     while (l < r) {
-        while (mArr[r] >= mArr[t] && l < r) {
+        while ([mArr[r] integerValue] >= [mArr[t] integerValue] && l < r) {
             r--;
         }
-        while (mArr[l] <= mArr[t] && l < r) {
+        while ([mArr[l] integerValue] <= [mArr[t] integerValue] && l < r) {
             l++;
         }
         if (l < r) {
@@ -236,6 +246,24 @@
     }
     [mArr exchangeObjectAtIndex:t withObjectAtIndex:l];
     return l;
+}
+
++ (NSInteger)sortByArr:(NSMutableArray *)mArr L:(NSInteger)l R:(NSInteger)r {
+    // 定基准
+    NSInteger t = l;
+    NSInteger index = t+1;
+    // 分区操作：根据基准分区，小于基准的放基准前面，大于基准的放基准后面
+    for (NSInteger i = index; i <= r; i++) {
+        if ([mArr[i] integerValue] < [mArr[t] integerValue]) {
+            // 扫描到比第一个基准小的，放在index位置，第二个放在index+1
+            [mArr exchangeObjectAtIndex:i withObjectAtIndex:index];
+            index++;
+        }
+    }
+    // 最后一个比基准小的放在了index, 然后执行了一次index++，所以index-1才是最后一个比基准小的元素的位置，交换后达成了基准左侧都比基准小，右侧都比基准大
+    [mArr exchangeObjectAtIndex:t withObjectAtIndex:index-1];
+    
+    return index-1;
 }
 
 

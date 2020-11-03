@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1804EFBE2550F9420066A1E5 /* RZInterviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFBC2550F9420066A1E5 /* RZInterviewVC.m */; };
+		1804EFBF2550F9420066A1E5 /* RZInterviewVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1804EFBD2550F9420066A1E5 /* RZInterviewVC.xib */; };
+		1804EFDF25510E0A0066A1E5 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFC925510E090066A1E5 /* FMDatabaseQueue.m */; };
+		1804EFE025510E0A0066A1E5 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFCC25510E090066A1E5 /* FMDatabaseAdditions.m */; };
+		1804EFE125510E0A0066A1E5 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFCD25510E090066A1E5 /* FMDatabase.m */; };
+		1804EFE225510E0A0066A1E5 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFD125510E090066A1E5 /* FMDatabasePool.m */; };
+		1804EFE325510E0A0066A1E5 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFD225510E090066A1E5 /* FMResultSet.m */; };
+		1804EFE425510E0A0066A1E5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1804EFD325510E090066A1E5 /* Info.plist */; };
+		1804EFE525510E0A0066A1E5 /* BGDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFDA25510E090066A1E5 /* BGDB.m */; };
+		1804EFE625510E0A0066A1E5 /* NSCache+BGCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFDB25510E090066A1E5 /* NSCache+BGCache.m */; };
+		1804EFE725510E0A0066A1E5 /* NSObject+BGModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFDC25510E090066A1E5 /* NSObject+BGModel.m */; };
+		1804EFE825510E0A0066A1E5 /* BGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFDD25510E0A0066A1E5 /* BGTool.m */; };
 		1806C763251D95D2009D66D7 /* RZSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1806C762251D95D2009D66D7 /* RZSwift.swift */; };
 		18317D592415E9510053954A /* UIView+RZShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 18317D582415E9510053954A /* UIView+RZShadow.m */; };
 		18BA44FF251455D900E5A2D1 /* WSLWaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BA44FD251455D900E5A2D1 /* WSLWaterFlowLayout.m */; };
@@ -166,6 +178,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1804EFBB2550F9420066A1E5 /* RZInterviewVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZInterviewVC.h; sourceTree = "<group>"; };
+		1804EFBC2550F9420066A1E5 /* RZInterviewVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZInterviewVC.m; sourceTree = "<group>"; };
+		1804EFBD2550F9420066A1E5 /* RZInterviewVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZInterviewVC.xib; sourceTree = "<group>"; };
+		1804EFC825510E090066A1E5 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		1804EFC925510E090066A1E5 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		1804EFCA25510E090066A1E5 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		1804EFCB25510E090066A1E5 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		1804EFCC25510E090066A1E5 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		1804EFCD25510E090066A1E5 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		1804EFCE25510E090066A1E5 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		1804EFCF25510E090066A1E5 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		1804EFD025510E090066A1E5 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		1804EFD125510E090066A1E5 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		1804EFD225510E090066A1E5 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		1804EFD325510E090066A1E5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1804EFD525510E090066A1E5 /* NSCache+BGCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCache+BGCache.h"; sourceTree = "<group>"; };
+		1804EFD625510E090066A1E5 /* NSObject+BGModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BGModel.h"; sourceTree = "<group>"; };
+		1804EFD725510E090066A1E5 /* BGTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGTool.h; sourceTree = "<group>"; };
+		1804EFD825510E090066A1E5 /* BGFMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGFMDB.h; sourceTree = "<group>"; };
+		1804EFD925510E090066A1E5 /* BGFMDBConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGFMDBConfig.h; sourceTree = "<group>"; };
+		1804EFDA25510E090066A1E5 /* BGDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGDB.m; sourceTree = "<group>"; };
+		1804EFDB25510E090066A1E5 /* NSCache+BGCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCache+BGCache.m"; sourceTree = "<group>"; };
+		1804EFDC25510E090066A1E5 /* NSObject+BGModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BGModel.m"; sourceTree = "<group>"; };
+		1804EFDD25510E0A0066A1E5 /* BGTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGTool.m; sourceTree = "<group>"; };
+		1804EFDE25510E0A0066A1E5 /* BGDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGDB.h; sourceTree = "<group>"; };
 		1806C75D251C7E53009D66D7 /* RZBaseProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RZBaseProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		1806C762251D95D2009D66D7 /* RZSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RZSwift.swift; sourceTree = "<group>"; };
 		18317D572415E9510053954A /* UIView+RZShadow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RZShadow.h"; sourceTree = "<group>"; };
@@ -408,6 +445,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1804EFBA2550F8EA0066A1E5 /* 面试题 */ = {
+			isa = PBXGroup;
+			children = (
+				1804EFBB2550F9420066A1E5 /* RZInterviewVC.h */,
+				1804EFBC2550F9420066A1E5 /* RZInterviewVC.m */,
+				1804EFBD2550F9420066A1E5 /* RZInterviewVC.xib */,
+			);
+			path = "面试题";
+			sourceTree = "<group>";
+		};
+		1804EFC625510DF30066A1E5 /* BGFMDB */ = {
+			isa = PBXGroup;
+			children = (
+				1804EFD425510E090066A1E5 /* BG */,
+				1804EFC725510E090066A1E5 /* FMDB */,
+			);
+			path = BGFMDB;
+			sourceTree = "<group>";
+		};
+		1804EFC725510E090066A1E5 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				1804EFC825510E090066A1E5 /* FMDatabase.h */,
+				1804EFCD25510E090066A1E5 /* FMDatabase.m */,
+				1804EFD025510E090066A1E5 /* FMDatabaseAdditions.h */,
+				1804EFCC25510E090066A1E5 /* FMDatabaseAdditions.m */,
+				1804EFCB25510E090066A1E5 /* FMDatabasePool.h */,
+				1804EFD125510E090066A1E5 /* FMDatabasePool.m */,
+				1804EFCE25510E090066A1E5 /* FMDatabaseQueue.h */,
+				1804EFC925510E090066A1E5 /* FMDatabaseQueue.m */,
+				1804EFCF25510E090066A1E5 /* FMDB.h */,
+				1804EFCA25510E090066A1E5 /* FMResultSet.h */,
+				1804EFD225510E090066A1E5 /* FMResultSet.m */,
+				1804EFD325510E090066A1E5 /* Info.plist */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		1804EFD425510E090066A1E5 /* BG */ = {
+			isa = PBXGroup;
+			children = (
+				1804EFDE25510E0A0066A1E5 /* BGDB.h */,
+				1804EFDA25510E090066A1E5 /* BGDB.m */,
+				1804EFD825510E090066A1E5 /* BGFMDB.h */,
+				1804EFD925510E090066A1E5 /* BGFMDBConfig.h */,
+				1804EFD725510E090066A1E5 /* BGTool.h */,
+				1804EFDD25510E0A0066A1E5 /* BGTool.m */,
+				1804EFD525510E090066A1E5 /* NSCache+BGCache.h */,
+				1804EFDB25510E090066A1E5 /* NSCache+BGCache.m */,
+				1804EFD625510E090066A1E5 /* NSObject+BGModel.h */,
+				1804EFDC25510E090066A1E5 /* NSObject+BGModel.m */,
+			);
+			path = BG;
+			sourceTree = "<group>";
+		};
 		22453BEE7297AB7C3806023B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +523,7 @@
 		2A389B671EE13B06007E78FE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				1804EFC625510DF30066A1E5 /* BGFMDB */,
 				4CA6010D228BDC1F006A39D2 /* RZCategories */,
 				2A562BC91FD68B2E007C0DBA /* Const */,
 				2A562BCB1FD68B2E007C0DBA /* Controls(自定义控件) */,
@@ -510,6 +603,7 @@
 				18F5C33D244173C60092A44C /* RZEmptyVC.h */,
 				18F5C33E244173C60092A44C /* RZEmptyVC.m */,
 				18F5C33F244173C60092A44C /* RZEmptyVC.xib */,
+				1804EFBA2550F8EA0066A1E5 /* 面试题 */,
 				4C6590D422267C83001971C8 /* 定位 */,
 				4CE5AF422137D2D900F11C6F /* RZPageController */,
 				4C1A3202212D4142009FB868 /* RZSort */,
@@ -1125,9 +1219,11 @@
 				2A41F7C21F29CBBF00239472 /* RZMineVC.xib in Resources */,
 				2A41F7571F29C52F00239472 /* 9.jpg in Resources */,
 				2A41F7431F29C52F00239472 /* 11.jpg in Resources */,
+				1804EFE425510E0A0066A1E5 /* Info.plist in Resources */,
 				2A5445001F285EF5006BC937 /* RZFoldTableViewController.xib in Resources */,
 				2A52DFCE1FDF83930057D64B /* RZMVVMController.xib in Resources */,
 				2A41F7501F29C52F00239472 /* 23.jpg in Resources */,
+				1804EFBF2550F9420066A1E5 /* RZInterviewVC.xib in Resources */,
 				2A389B821EE14D14007E78FE /* RZHomeVC.xib in Resources */,
 				2A41F76B1F29C52F00239472 /* test2.jpg in Resources */,
 				2A41F7351F29C52F00239472 /* fire.png in Resources */,
@@ -1257,6 +1353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1804EFE825510E0A0066A1E5 /* BGTool.m in Sources */,
 				4C65910E224218CC001971C8 /* RZUpdateLocationVC.m in Sources */,
 				B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */,
 				4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */,
@@ -1270,11 +1367,14 @@
 				2A54450E1F28840C006BC937 /* RZBase64ViewController.m in Sources */,
 				2A52DFCD1FDF83930057D64B /* RZMVVMController.m in Sources */,
 				2A562BB81FD68939007C0DBA /* FDKeychain.m in Sources */,
+				1804EFE225510E0A0066A1E5 /* FMDatabasePool.m in Sources */,
 				2A562B7F1FD6880E007C0DBA /* NSString+Size.m in Sources */,
 				2A389B781EE14007007E78FE /* RZDemoVC.m in Sources */,
 				2A389B741EE13E6F007E78FE /* RZNavigationVC.m in Sources */,
+				1804EFBE2550F9420066A1E5 /* RZInterviewVC.m in Sources */,
 				2A5444FF1F285EF5006BC937 /* RZFoldTableViewController.m in Sources */,
 				2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */,
+				1804EFE025510E0A0066A1E5 /* FMDatabaseAdditions.m in Sources */,
 				2A980D881FE26F68005B177F /* RZCustom.m in Sources */,
 				2A41F7C11F29CBBF00239472 /* RZMineVC.m in Sources */,
 				2A389B711EE13E4B007E78FE /* RZTabBarVC.m in Sources */,
@@ -1291,6 +1391,7 @@
 				4C6591142244CA05001971C8 /* UIView+RZActivityView.m in Sources */,
 				2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */,
 				4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */,
+				1804EFDF25510E0A0066A1E5 /* FMDatabaseQueue.m in Sources */,
 				2A5445051F286186006BC937 /* FoldSectionView.m in Sources */,
 				18317D592415E9510053954A /* UIView+RZShadow.m in Sources */,
 				2A562BDB1FD68E1B007C0DBA /* RZAlertController.m in Sources */,
@@ -1304,7 +1405,10 @@
 				4C902DC9229BB1B000A28FC3 /* RZDatePickerView.m in Sources */,
 				2A562BDC1FD68E1B007C0DBA /* RZAlertView.m in Sources */,
 				2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */,
+				1804EFE625510E0A0066A1E5 /* NSCache+BGCache.m in Sources */,
+				1804EFE325510E0A0066A1E5 /* FMResultSet.m in Sources */,
 				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
+				1804EFE125510E0A0066A1E5 /* FMDatabase.m in Sources */,
 				4C1A3205212D4157009FB868 /* RZSort.m in Sources */,
 				2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */,
 				18F5C340244173C60092A44C /* RZEmptyVC.m in Sources */,
@@ -1316,9 +1420,11 @@
 				2A41F7BB1F29C59600239472 /* MF_Base64Additions.m in Sources */,
 				4C6591172248A0EC001971C8 /* RZTool.m in Sources */,
 				2A562BBA1FD68939007C0DBA /* JRSwizzle.m in Sources */,
+				1804EFE725510E0A0066A1E5 /* NSObject+BGModel.m in Sources */,
 				4CA60120228CF25B006A39D2 /* UIImage+RoundedCorner.m in Sources */,
 				2A41F7BA1F29C59600239472 /* RZResponse.m in Sources */,
 				2A980D8B1FE27349005B177F /* RZRequestViewModel.m in Sources */,
+				1804EFE525510E0A0066A1E5 /* BGDB.m in Sources */,
 				2A389B811EE14D14007E78FE /* RZHomeVC.m in Sources */,
 				2A41F7BC1F29C59600239472 /* RZEncryptionTool.m in Sources */,
 				1806C763251D95D2009D66D7 /* RZSwift.swift in Sources */,
