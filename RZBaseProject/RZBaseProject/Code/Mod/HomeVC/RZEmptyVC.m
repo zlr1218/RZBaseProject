@@ -19,4 +19,16 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)other {
+    RZLog(@"执行了other方法");
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    if (sel == @selector(test)) {
+        Method m = class_getInstanceMethod(self, @selector(other));
+        class_addMethod(self, sel, method_getImplementation(m), method_getTypeEncoding(m));
+    }
+    return [super resolveInstanceMethod:sel];
+}
+
 @end

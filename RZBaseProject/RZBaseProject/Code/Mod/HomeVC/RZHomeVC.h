@@ -10,4 +10,7 @@
 
 @interface RZHomeVC : RZRootVC
 
+@property (nonatomic, copy) NSArray *arr;
+@property (nonatomic, strong) NSMutableArray *mArr;
+
 @end

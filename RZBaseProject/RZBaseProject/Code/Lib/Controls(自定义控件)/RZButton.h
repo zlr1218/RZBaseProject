@@ -1,8 +1,8 @@
 //
-//  RZEmptyVC.h
+//  RZButton.h
 //  RZBaseProject
 //
-//  Created by Apple on 2020/4/11.
+//  Created by Apple on 2020/11/12.
 //  Copyright © 2020 RZOL. All rights reserved.
 //
 
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RZEmptyVC : UIViewController
-
-- (void)test;
+@interface RZButton : UIControl
 
 @end
 

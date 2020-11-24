@@ -14,6 +14,18 @@
 
 @implementation RZSort
 
++ (BOOL)resolveInstanceMethod:(SEL)sel {
+    return [super resolveInstanceMethod:sel];
+}
+
++ (BOOL)resolveClassMethod:(SEL)sel {
+    return [super resolveClassMethod:sel];
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    return [super forwardingTargetForSelector:aSelector];
+}
+
 #pragma mark - 冒泡排序
 /*
  冒泡排序（从小到大）

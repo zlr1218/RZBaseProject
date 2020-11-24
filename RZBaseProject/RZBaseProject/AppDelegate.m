@@ -18,11 +18,49 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     [self setupRootViewController];
     
     [SYSafeCategory callSafeCategory];
     
     return YES;
+}
+
+- (void)asyncSerial {
+    // 串行队列异步执行
+    dispatch_async(dispatch_get_main_queue(), ^{
+        for (NSInteger i = 1; i < 10000; i++) {
+            sleep(1);
+            RZLog(@"串行队列异步执行：%@ -- %li", [NSThread currentThread], (long)i);
+        }
+    });
+}
+- (void)syncSerial {
+    // 串行队列同步执行
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        for (NSInteger i = 1; i < 10000; i++) {
+            sleep(1);
+            RZLog(@"串行队列同步执行：%@ -- %li", [NSThread currentThread], (long)i);
+        }
+    });
+}
+- (void)asyncConcurrent {
+    // 并发队列异步执行
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (NSInteger i = 0; i < 10000; i++) {
+            sleep(1);
+            RZLog(@"并发队列异步执行：%@ -- %li", [NSThread currentThread], (long)i);
+        }
+    });
+}
+- (void)syncConcurrent {
+    // 并发队列同步执行
+    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (NSInteger i = 0; i < 10000; i++) {
+            sleep(1);
+            RZLog(@"并发队列同步执行：%@ -- %li", [NSThread currentThread], (long)i);
+        }
+    });
 }
 
 - (void)setupRootViewController {
@@ -43,6 +81,9 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+//    [self asyncConcurrent];
+//    [self asyncSerial];
 }
 
 

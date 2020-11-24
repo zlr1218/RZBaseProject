@@ -81,6 +81,40 @@ static NSString *const reCellID = @"HomeCell";
     RZSwift *test = [[RZSwift alloc] init];
     // 调用swift代码时若有参数需要引入参数名称
     [test abcWithName:@"123"];
+    
+    // copy与strong的区别
+    RZEmptyVC *v1 = [RZEmptyVC new];
+    RZEmptyVC *v2 = [RZEmptyVC new];
+    RZLog(@"%p - %p", v1, v2);
+    self.arr = @[v1, v2];
+    NSArray *arr1 = self.arr.copy;
+    NSArray *arr2 = self.arr.mutableCopy;
+    CFGetRetainCount((__bridge CFTypeRef)(self.arr));
+    RZLog(@"%p \n %p \n %p \n %p - %p", self.arr, arr1, arr2, self.arr[0], arr2[0]);
+    
+    self.mArr = [NSMutableArray arrayWithArray:@[v1, v2]];
+    NSArray *arr3 = self.mArr.copy;
+    NSArray *arr4 = self.mArr.mutableCopy;
+    RZLog(@"%p \n %p \n %p \n %p - %p", self.mArr, arr3, arr4, self.mArr[0], arr4[0]);
+    
+    [v1 test];
+    
+    void (^testBlock1)(void) = ^{
+        RZLog(@"testBlock1");
+    };
+    RZLog(@"%@", [testBlock1 class]);
+    
+    NSInteger i = 10;
+    void (^testBlock2)(void) = ^{
+        RZLog(@"testBlock2");
+    };
+    RZLog(@"%@", [testBlock2 class]);
+    
+    void (^testBlock3)(void) = [ ^{
+        RZLog(@"testBlock3");
+        RZLog(@"%li", (long)i);
+    } copy];
+    RZLog(@"%@", [testBlock3 class]);
 }
 
 - (CGFloat)getCurHour {
@@ -201,16 +235,16 @@ static NSString *const reCellID = @"HomeCell";
     
     if ([title isEqualToString:@"冒泡排序"]) {
 //        RZLog(@"%@", [[RZSort bubbleSort3:arr] mj_JSONString]);// 冒泡
-        RZLog(@"%@", [[RZSort bubbleSort:self.sortArr] mj_JSONString]);// 冒泡
+        RZLog(@"冒泡排序：%@", [[RZSort bubbleSort:self.sortArr] mj_JSONString]);// 冒泡
     }
     if ([title isEqualToString:@"选择排序"]) {
-        RZLog(@"%@", [[RZSort selectionSort:self.sortArr] mj_JSONString]);
+        RZLog(@"选择排序：%@", [[RZSort selectionSort:self.sortArr] mj_JSONString]);
     }
     if ([title isEqualToString:@"插入排序"]) {
-        RZLog(@"%@", [[RZSort insertionSort:self.sortArr] mj_JSONString]);// 插入排序
+        RZLog(@"插入排序：%@", [[RZSort insertionSort:self.sortArr] mj_JSONString]);// 插入排序
     }
     if ([title isEqualToString:@"快排"]) {
-        RZLog(@"%@", [[RZSort quickSork:self.sortArr] mj_JSONString]);// 快排
+        RZLog(@"快排：%@", [[RZSort quickSork:self.sortArr] mj_JSONString]);// 快排
     }
     
     if ([title isEqualToString:@"定位"]) {
