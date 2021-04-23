@@ -12,8 +12,8 @@
 //重写NSLog,Debug模式下打印日志和当前行数
 #if DEBUG
 
-#define RZLocationLog(FORMAT, ...) do {                                      \
-fprintf(stderr,"\n♨ Time:%s File:%s line:%d Func:%s ♨\n☞ %s ☜\n",         \
+#define RZLocationLog(FORMAT, ...) do {                                     \
+fprintf(stderr,"\n♨ Time:%s File:%s line:%d Func:%s ♨\n☞ %s ☜\n",           \
 __TIME__,                                                                   \
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \
 __LINE__,                                                                   \
@@ -177,7 +177,7 @@ __func__,                                                                   \
             
         case kCLErrorDenied:
             RZLocationLog(@"定位权限的问题");
-            [[self window] makeAlert:@"请在系统设置中开启定位服务(设置>隐私>定位服务>开启)" Title:@"地点功能需要开启位置授权" sureTitle:@"去设置" sureBlock:^{
+            [[self window] showAlertTitle:@"提示" msg:@"请在系统设置中开启定位服务(设置>隐私>定位服务>开启)" sureName:@"去设置" sure:^{
                 NSURL * url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
                 if([[UIApplication sharedApplication] canOpenURL:url]) {
                     NSURL*url =[NSURL URLWithString:UIApplicationOpenSettingsURLString];

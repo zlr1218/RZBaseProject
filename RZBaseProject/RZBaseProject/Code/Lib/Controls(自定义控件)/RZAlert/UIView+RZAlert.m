@@ -32,30 +32,56 @@ static const NSString *RZAlertSureBlockKey          = @"RZAlertSureBlockKey";
 
 #pragma mark - Make Alert Methods
 
-- (void)makeAlert:(NSString *)message sureBlock:(RZAlertSureBlock)sureBlock {
-    [self makeAlert:message title:nil style:nil cancleTitle:@"取消" cancleBlock:nil sureTitle:@"确定" sureBlock:sureBlock];
-}
-
-- (void)makeAlert:(NSString *)message Title:(NSString *)title sureTitle:(NSString *)sureTitle sureBlock:(RZAlertSureBlock)sureBlock {
-    UIView *alert = [self alertViewForMessage:message title:title style:nil cancleTitle:@"取消" sureTitle:sureTitle];
+/// 仅展示Message,默认为关闭按钮,无回调
+- (void)showAlertMsg:(NSString *)msg {
+    UIView *alert = [self alertViewForMessage:msg title:nil style:nil cancleTitle:nil sureTitle:nil];
     [self showAlert:alert];
     objc_setAssociatedObject(self, &RZAlertViewKey, alert, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    objc_setAssociatedObject(self, &RZAlertSureBlockKey, sureBlock, OBJC_ASSOCIATION_COPY);
 }
 
-- (void)makeAlert:(NSString *)message
-            title:(NSString *)title
-            style:(RZAlertStyle *)style
-      cancleTitle:(NSString *)cancleTitle
-      cancleBlock:(RZAlertCancleBlock)cancleBlock
-        sureTitle:(NSString *)sureTitle
-        sureBlock:(RZAlertSureBlock)sureBlock {
-    UIView *alert = [self alertViewForMessage:message title:title style:style cancleTitle:cancleTitle sureTitle:sureTitle];
+/// 仅展示Message,自定义关闭按钮名称,有回调
+- (void)showAlertMsg:(NSString *)msg closeName:(NSString *)closeName close:(RZAlertCancleBlock)close {
+    UIView *alert = [self alertViewForMessage:msg title:nil style:nil cancleTitle:closeName sureTitle:nil];
     [self showAlert:alert];
     objc_setAssociatedObject(self, &RZAlertViewKey, alert, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    objc_setAssociatedObject(self, &RZAlertCancleBlockKey, cancleBlock, OBJC_ASSOCIATION_COPY);
-    objc_setAssociatedObject(self, &RZAlertSureBlockKey, sureBlock, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, &RZAlertCancleBlockKey, close, OBJC_ASSOCIATION_COPY);
 }
+
+/// 展示标题,信息,默认“确定”“取消”,有回调
+- (void)showAlertTitle:(NSString *)title msg:(NSString *)msg sure:(RZAlertSureBlock)sure {
+    UIView *alert = [self alertViewForMessage:msg title:title style:nil cancleTitle:@"取消" sureTitle:@"确定"];
+    [self showAlert:alert];
+    objc_setAssociatedObject(self, &RZAlertViewKey, alert, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &RZAlertSureBlockKey, sure, OBJC_ASSOCIATION_COPY);
+}
+
+/// 展示标题,信息,自定义确定按钮名称,有回调
+- (void)showAlertTitle:(NSString *)title msg:(NSString *)msg sureName:(NSString *)sureName sure:(RZAlertSureBlock)sure {
+    UIView *alert = [self alertViewForMessage:msg title:title style:nil cancleTitle:@"取消" sureTitle:sureName];
+    [self showAlert:alert];
+    objc_setAssociatedObject(self, &RZAlertViewKey, alert, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &RZAlertSureBlockKey, sure, OBJC_ASSOCIATION_COPY);
+}
+
+
+
+/// 全部自定义
+- (void)showAlertTitle:(NSString *)title
+                   msg:(NSString *)msg
+                 style:(RZAlertStyle *)style
+             closeName:(NSString *)closeName
+                 close:(RZAlertCancleBlock)close
+              sureName:(NSString *)sureName
+                  sure:(RZAlertSureBlock)sure
+{
+    UIView *alert = [self alertViewForMessage:msg title:title style:style cancleTitle:closeName sureTitle:sureName];
+    [self showAlert:alert];
+    objc_setAssociatedObject(self, &RZAlertViewKey, alert, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &RZAlertCancleBlockKey, close, OBJC_ASSOCIATION_COPY);
+    objc_setAssociatedObject(self, &RZAlertSureBlockKey, sure, OBJC_ASSOCIATION_COPY);
+}
+
+#pragma mark - UI搭建
 
 - (UIView *)alertViewForMessage:(NSString *)message title:(NSString *)title style:(RZAlertStyle *)style cancleTitle:(NSString *)cancleTitle sureTitle:(NSString *)sureTitle {
     if ((message == nil || message.length == 0) &&
@@ -122,7 +148,7 @@ static const NSString *RZAlertSureBlockKey          = @"RZAlertSureBlockKey";
         if (title != nil && title.length != 0) {
             messageView.frame = CGRectMake(kRZAlert_MarginX, CGRectGetMaxY(titleView.frame), kRZAlert_MessageWidth, messageHeight);
         }else{
-            messageView.frame = CGRectMake(kRZAlert_MarginX, kRZAlert_MarginY, kRZAlert_MessageWidth, messageHeight);
+            messageView.frame = CGRectMake(kRZAlert_MarginX, kRZAlert_MarginY, kRZAlert_MessageWidth, messageHeight+kRZAlert_MarginY);
         }
         
         [contentView addSubview:messageView];
@@ -133,20 +159,20 @@ static const NSString *RZAlertSureBlockKey          = @"RZAlertSureBlockKey";
     CGFloat btnY = CGRectGetMaxY(messageView.frame);
     CGFloat btnWidth = kRZAlert_ContentWidth;
     CGFloat btnHeight = kRZAlert_ContentHeight/2.f;
-    if (cancleTitle != nil && cancleTitle.length != 0) {
-        if (sureTitle != nil && sureTitle.length != 0) {
-            btnWidth = kRZAlert_ContentWidth/2.f;
-        }
-        cancleBtn = [self buttonWithFrame:CGRectMake(0, btnY, btnWidth, btnHeight) title:cancleTitle target:self action:@selector(cancleAction)];
-        [contentView addSubview:cancleBtn];
+    if (cancleTitle == nil || cancleTitle.length == 0) {
+        cancleTitle = @"确定";
     }
     
     // sure按钮
     UIButton *sureBtn;
     if (sureTitle != nil && sureTitle.length != 0) {
+        btnWidth = kRZAlert_ContentWidth/2.f;
         sureBtn = [self buttonWithFrame:CGRectMake(btnWidth, btnY, btnWidth, btnHeight) title:sureTitle target:self action:@selector(sureAction)];
         [contentView addSubview:sureBtn];
     }
+    
+    cancleBtn = [self buttonWithFrame:CGRectMake(0, btnY, btnWidth, btnHeight) title:cancleTitle target:self action:@selector(cancleAction)];
+    [contentView addSubview:cancleBtn];
     
     contentView.frame = CGRectMake(0, 0, kRZAlert_ContentWidth, CGRectGetMaxY(cancleBtn.frame));
     contentView.center = self.center;
@@ -155,14 +181,13 @@ static const NSString *RZAlertSureBlockKey          = @"RZAlertSureBlockKey";
 }
 
 - (void)cancleAction {
-    // 默认点击取消 隐藏alert
-    UIView *titleView = objc_getAssociatedObject(self, &RZAlertViewKey);
-    [self rz_hideAlert:titleView];
-    // block
     RZAlertCancleBlock cancleBlock = objc_getAssociatedObject(self, &RZAlertCancleBlockKey);
     if (cancleBlock) {
         cancleBlock();
     }
+    // 默认点击取消 隐藏alert
+    UIView *titleView = objc_getAssociatedObject(self, &RZAlertViewKey);
+    [self rz_hideAlert:titleView];
 }
 
 - (void)sureAction {
@@ -294,7 +319,7 @@ static const NSString *RZAlertSureBlockKey          = @"RZAlertSureBlockKey";
         self.titleAlignment = NSTextAlignmentCenter;
         
         self.messageColor = [[UIColor blackColor] colorWithAlphaComponent:1.f];
-        self.messageFont = [UIFont systemFontOfSize:14];
+        self.messageFont = [UIFont systemFontOfSize:15];
         self.messageAlignment = NSTextAlignmentCenter;
         
         self.btnTitleColor = [[UIColor blueColor] colorWithAlphaComponent:1.f];

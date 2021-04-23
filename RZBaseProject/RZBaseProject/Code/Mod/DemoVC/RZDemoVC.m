@@ -7,8 +7,11 @@
 //
 
 #import "RZDemoVC.h"
-#import "NSDictionary+JKSafeAccess.h"
 #import "RZPageVC.h"
+#import "RZAnswerView.h"
+#import "RZTimerVC.h"
+#import "RZBGFMDBVC.h"
+#import "RZCustomPlayerVC.h"
 
 
 static NSString *const recellID = @"demoCell";
@@ -27,9 +30,6 @@ static NSString *const recellID = @"demoCell";
     self.view.backgroundColor = RZ_White_Color;
     _DemoTableView.tableFooterView = [UIView new];
     
-    
-    
-    
     /**
      @"https://api.apiopen.top/searchAuthors?name=李白"
      @"https://api.apiopen.top/getSongPoetry?page=1&count=20"
@@ -40,13 +40,30 @@ static NSString *const recellID = @"demoCell";
 //    self.threadGroup = dispatch_group_create();
     
     // 多任务请求
-    [self requestData_01];
+//    [self requestData_01];
 //    [self requestData_02];
 //    [self requestData_03];
 //    [self requestData_04];
 //    dispatch_group_notify(self.threadGroup, dispatch_get_main_queue(), ^{
 //        RZLog(@"请求完成");
 //    });
+    
+    
+//    RZAnswerView *answer = [[RZAnswerView alloc] initWithFrame:CGRectMake(0, 200, kScreeWith, 300)];
+//    [self.view addSubview:answer];
+    
+}
+
+// 改变约束的乘数（self.startTitleLabCenterY.multiplier）
+- (void)changeMultiplierOfConstraint:(NSLayoutConstraint *)constraint multiplier:(CGFloat)multiplier {
+    [NSLayoutConstraint deactivateConstraints:@[constraint]];
+    
+    NSLayoutConstraint *newConstraint = [NSLayoutConstraint constraintWithItem:constraint.firstItem attribute:constraint.firstAttribute relatedBy:constraint.relation toItem:constraint.secondItem attribute:constraint.secondAttribute multiplier:multiplier constant:constraint.constant];
+    newConstraint.priority = constraint.priority;
+    newConstraint.shouldBeArchived = constraint.shouldBeArchived;
+    newConstraint.identifier = constraint.identifier;
+    
+    [NSLayoutConstraint activateConstraints:@[newConstraint]];
 }
 
 - (void)requestData_01 {
@@ -127,7 +144,7 @@ static NSString *const recellID = @"demoCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *arr_Key = self.DictStoreDemoTitle.allKeys;
-    NSString *aClassName = [self.DictStoreDemoTitle jk_stringForKey:arr_Key[indexPath.row]];
+    NSString *aClassName = self.DictStoreDemoTitle[arr_Key[indexPath.row]];
     Class ViewController = NSClassFromString(aClassName);
     
     [self.navigationController pushViewController:[ViewController new] animated:YES];
@@ -139,9 +156,12 @@ static NSString *const recellID = @"demoCell";
     if (!_DictStoreDemoTitle) {
         _DictStoreDemoTitle = [NSMutableDictionary dictionary];
         
-        [_DictStoreDemoTitle jk_setString:@"ZYCornerRadius_DemoVC" forKey:@"一句代码，圆角风雨无阻_ZYCornerRadius"];
-        [_DictStoreDemoTitle jk_setString:@"RZPageVC" forKey:@"PageControl"];
-        [_DictStoreDemoTitle jk_setString:@"YYText_DemoVC" forKey:@"YYText"];
+        _DictStoreDemoTitle[@"一句代码，圆角风雨无阻_ZYCornerRadius"] = @"ZYCornerRadius_DemoVC";
+        _DictStoreDemoTitle[@"PageControl"]                       = @"RZPageVC";
+        _DictStoreDemoTitle[@"YYText"]                            = @"YYText_DemoVC";
+        _DictStoreDemoTitle[@"定时器"]                             = @"RZTimerVC";
+        _DictStoreDemoTitle[@"数据库"]                             = @"RZBGFMDBVC";
+        _DictStoreDemoTitle[@"播放器"]                             = @"RZCustomPlayerVC";
     }
     return _DictStoreDemoTitle;
 }

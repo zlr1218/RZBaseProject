@@ -7,6 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0E87B725C19FBE006586F8 /* ZLCollectionBaseDecorationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87A525C19FBE006586F8 /* ZLCollectionBaseDecorationView.m */; };
+		0C0E87B825C19FBE006586F8 /* ZLCellFakeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87A625C19FBE006586F8 /* ZLCellFakeView.m */; };
+		0C0E87B925C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87A725C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.m */; };
+		0C0E87BA25C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87AB25C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.m */; };
+		0C0E87BB25C19FBE006586F8 /* ZLCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87AC25C19FBE006586F8 /* ZLCollectionReusableView.m */; };
+		0C0E87BC25C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87AD25C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.m */; };
+		0C0E87BD25C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87B125C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.m */; };
+		0C0E87BE25C19FBE006586F8 /* ZLBaseEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87B225C19FBE006586F8 /* ZLBaseEventModel.m */; };
+		0C0E87BF25C19FBE006586F8 /* ZLCollectionViewVerticalLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87B525C19FBE006586F8 /* ZLCollectionViewVerticalLayout.m */; };
+		0C0E87E925C1A1DE006586F8 /* RZCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87E725C1A1DE006586F8 /* RZCustomCell.m */; };
+		0C0E87EA25C1A1DE006586F8 /* RZCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0E87E825C1A1DE006586F8 /* RZCustomCell.xib */; };
+		0C0E87F025C1B8A9006586F8 /* RZHeaderCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0E87EE25C1B8A9006586F8 /* RZHeaderCollectionView.m */; };
+		0C0E87F125C1B8A9006586F8 /* RZHeaderCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0E87EF25C1B8A9006586F8 /* RZHeaderCollectionView.xib */; };
+		0C11B7852616C07800AB2D87 /* RZTimerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C11B7842616C07800AB2D87 /* RZTimerVC.m */; };
+		0C6189CC25A7102000149768 /* RZTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6189CB25A7102000149768 /* RZTable.swift */; };
+		0C9FC79825B17DBC00B92E7A /* RZCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9FC79725B17DBC00B92E7A /* RZCollectionVC.m */; };
+		0CC972D425F85F7D00986D6E /* UIView+RZAnswerAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC972D325F85F7D00986D6E /* UIView+RZAnswerAlert.m */; };
+		0CC972D925F8606300986D6E /* RZAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC972D825F8606300986D6E /* RZAnswerView.m */; };
+		0CC972E325F8623000986D6E /* RZAnswerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC972E125F8623000986D6E /* RZAnswerCell.m */; };
+		0CC972E425F8623000986D6E /* RZAnswerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC972E225F8623000986D6E /* RZAnswerCell.xib */; };
+		0CDCF187262E9D1C00062800 /* RZBGFMDBVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF186262E9D1C00062800 /* RZBGFMDBVC.m */; };
+		0CDCF18C262E9DF300062800 /* RZPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF18B262E9DF300062800 /* RZPeople.m */; };
+		0CDCF237262FFD1C00062800 /* RZHorizontalControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF22F262FFD1300062800 /* RZHorizontalControlView.m */; };
+		0CDCF239262FFD1C00062800 /* RZPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF231262FFD1600062800 /* RZPlayerController.m */; };
+		0CDCF23A262FFD1C00062800 /* RZVerticalControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF234262FFD1A00062800 /* RZVerticalControlView.m */; };
+		0CDCF241262FFE4100062800 /* RZCustomPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF240262FFE4100062800 /* RZCustomPlayerVC.m */; };
 		1804EFEA25511E100066A1E5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1804EFE925511E100066A1E5 /* libsqlite3.tbd */; };
 		1804EFEC25511E180066A1E5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1804EFEB25511E180066A1E5 /* libsqlite3.0.tbd */; };
 		1804EFEF255128810066A1E5 /* RZMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFEE255128810066A1E5 /* RZMan.m */; };
@@ -141,8 +167,6 @@
 		4C902DCB229BB1D200A28FC3 /* RZDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCA229BB1D200A28FC3 /* RZDatePickerView.xib */; };
 		4C902DCF229BBD8600A28FC3 /* RZPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DCD229BBD8600A28FC3 /* RZPickerVC.m */; };
 		4C902DD0229BBD8600A28FC3 /* RZPickerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */; };
-		4C902DF522A61A1900A28FC3 /* RZCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */; };
-		4C902DF622A61A1900A28FC3 /* RZCollectionVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */; };
 		4CA09BDE22C4B7480061C93C /* RZCityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4CA09BDD22C4B7480061C93C /* RZCityList.plist */; };
 		4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */; };
 		4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA60119228BDFDA006A39D2 /* NSString+RZContains.m */; };
@@ -171,6 +195,55 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0E87A525C19FBE006586F8 /* ZLCollectionBaseDecorationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionBaseDecorationView.m; sourceTree = "<group>"; };
+		0C0E87A625C19FBE006586F8 /* ZLCellFakeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCellFakeView.m; sourceTree = "<group>"; };
+		0C0E87A725C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionViewLayoutAttributes.m; sourceTree = "<group>"; };
+		0C0E87A825C19FBE006586F8 /* ZLBaseEventModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLBaseEventModel.h; sourceTree = "<group>"; };
+		0C0E87A925C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionViewBackgroundViewLayoutAttributes.h; sourceTree = "<group>"; };
+		0C0E87AA25C19FBE006586F8 /* ZLCollectionViewVerticalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionViewVerticalLayout.h; sourceTree = "<group>"; };
+		0C0E87AB25C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionViewHorzontalLayout.m; sourceTree = "<group>"; };
+		0C0E87AC25C19FBE006586F8 /* ZLCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionReusableView.m; sourceTree = "<group>"; };
+		0C0E87AD25C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionViewBaseFlowLayout.m; sourceTree = "<group>"; };
+		0C0E87AE25C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionViewLayoutAttributes.h; sourceTree = "<group>"; };
+		0C0E87AF25C19FBE006586F8 /* ZLCellFakeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCellFakeView.h; sourceTree = "<group>"; };
+		0C0E87B025C19FBE006586F8 /* ZLCollectionBaseDecorationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionBaseDecorationView.h; sourceTree = "<group>"; };
+		0C0E87B125C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionViewBackgroundViewLayoutAttributes.m; sourceTree = "<group>"; };
+		0C0E87B225C19FBE006586F8 /* ZLBaseEventModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLBaseEventModel.m; sourceTree = "<group>"; };
+		0C0E87B325C19FBE006586F8 /* ZLCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionReusableView.h; sourceTree = "<group>"; };
+		0C0E87B425C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionViewHorzontalLayout.h; sourceTree = "<group>"; };
+		0C0E87B525C19FBE006586F8 /* ZLCollectionViewVerticalLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCollectionViewVerticalLayout.m; sourceTree = "<group>"; };
+		0C0E87B625C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCollectionViewBaseFlowLayout.h; sourceTree = "<group>"; };
+		0C0E87E625C1A1DE006586F8 /* RZCustomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCustomCell.h; sourceTree = "<group>"; };
+		0C0E87E725C1A1DE006586F8 /* RZCustomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCustomCell.m; sourceTree = "<group>"; };
+		0C0E87E825C1A1DE006586F8 /* RZCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZCustomCell.xib; sourceTree = "<group>"; };
+		0C0E87ED25C1B8A9006586F8 /* RZHeaderCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZHeaderCollectionView.h; sourceTree = "<group>"; };
+		0C0E87EE25C1B8A9006586F8 /* RZHeaderCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZHeaderCollectionView.m; sourceTree = "<group>"; };
+		0C0E87EF25C1B8A9006586F8 /* RZHeaderCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZHeaderCollectionView.xib; sourceTree = "<group>"; };
+		0C11B7832616C07800AB2D87 /* RZTimerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZTimerVC.h; sourceTree = "<group>"; };
+		0C11B7842616C07800AB2D87 /* RZTimerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZTimerVC.m; sourceTree = "<group>"; };
+		0C6189CB25A7102000149768 /* RZTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RZTable.swift; sourceTree = "<group>"; };
+		0C9FC79625B17DBC00B92E7A /* RZCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCollectionVC.h; sourceTree = "<group>"; };
+		0C9FC79725B17DBC00B92E7A /* RZCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCollectionVC.m; sourceTree = "<group>"; };
+		0CC972D225F85F7D00986D6E /* UIView+RZAnswerAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+RZAnswerAlert.h"; sourceTree = "<group>"; };
+		0CC972D325F85F7D00986D6E /* UIView+RZAnswerAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+RZAnswerAlert.m"; sourceTree = "<group>"; };
+		0CC972D725F8606300986D6E /* RZAnswerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZAnswerView.h; sourceTree = "<group>"; };
+		0CC972D825F8606300986D6E /* RZAnswerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZAnswerView.m; sourceTree = "<group>"; };
+		0CC972E025F8623000986D6E /* RZAnswerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZAnswerCell.h; sourceTree = "<group>"; };
+		0CC972E125F8623000986D6E /* RZAnswerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZAnswerCell.m; sourceTree = "<group>"; };
+		0CC972E225F8623000986D6E /* RZAnswerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZAnswerCell.xib; sourceTree = "<group>"; };
+		0CDCF185262E9D1C00062800 /* RZBGFMDBVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZBGFMDBVC.h; sourceTree = "<group>"; };
+		0CDCF186262E9D1C00062800 /* RZBGFMDBVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZBGFMDBVC.m; sourceTree = "<group>"; };
+		0CDCF18A262E9DF300062800 /* RZPeople.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPeople.h; sourceTree = "<group>"; };
+		0CDCF18B262E9DF300062800 /* RZPeople.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZPeople.m; sourceTree = "<group>"; };
+		0CDCF22E262FFD1100062800 /* RZPlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZPlayerController.h; sourceTree = "<group>"; };
+		0CDCF22F262FFD1300062800 /* RZHorizontalControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZHorizontalControlView.m; sourceTree = "<group>"; };
+		0CDCF231262FFD1600062800 /* RZPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZPlayerController.m; sourceTree = "<group>"; };
+		0CDCF232262FFD1700062800 /* RZHorizontalControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZHorizontalControlView.h; sourceTree = "<group>"; };
+		0CDCF233262FFD1800062800 /* RZPlayBackDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZPlayBackDelegate.h; sourceTree = "<group>"; };
+		0CDCF234262FFD1A00062800 /* RZVerticalControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZVerticalControlView.m; sourceTree = "<group>"; };
+		0CDCF236262FFD1C00062800 /* RZVerticalControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZVerticalControlView.h; sourceTree = "<group>"; };
+		0CDCF23F262FFE4100062800 /* RZCustomPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCustomPlayerVC.h; sourceTree = "<group>"; };
+		0CDCF240262FFE4100062800 /* RZCustomPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCustomPlayerVC.m; sourceTree = "<group>"; };
 		1804EFE925511E100066A1E5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1804EFEB25511E180066A1E5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		1804EFED255128810066A1E5 /* RZMan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZMan.h; sourceTree = "<group>"; };
@@ -369,9 +442,6 @@
 		4C902DCC229BBD8600A28FC3 /* RZPickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZPickerVC.h; sourceTree = "<group>"; };
 		4C902DCD229BBD8600A28FC3 /* RZPickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZPickerVC.m; sourceTree = "<group>"; };
 		4C902DCE229BBD8600A28FC3 /* RZPickerVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZPickerVC.xib; sourceTree = "<group>"; };
-		4C902DF222A61A1900A28FC3 /* RZCollectionVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCollectionVC.h; sourceTree = "<group>"; };
-		4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCollectionVC.m; sourceTree = "<group>"; };
-		4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RZCollectionVC.xib; sourceTree = "<group>"; };
 		4CA09BDD22C4B7480061C93C /* RZCityList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RZCityList.plist; sourceTree = "<group>"; };
 		4CA6010F228BDCA0006A39D2 /* NSString+RZSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+RZSize.h"; sourceTree = "<group>"; };
 		4CA60110228BDCA0006A39D2 /* NSString+RZSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+RZSize.m"; sourceTree = "<group>"; };
@@ -423,6 +493,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C0E87A425C19FBE006586F8 /* ZLCollectionFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				0C0E87A825C19FBE006586F8 /* ZLBaseEventModel.h */,
+				0C0E87B225C19FBE006586F8 /* ZLBaseEventModel.m */,
+				0C0E87AF25C19FBE006586F8 /* ZLCellFakeView.h */,
+				0C0E87A625C19FBE006586F8 /* ZLCellFakeView.m */,
+				0C0E87B025C19FBE006586F8 /* ZLCollectionBaseDecorationView.h */,
+				0C0E87A525C19FBE006586F8 /* ZLCollectionBaseDecorationView.m */,
+				0C0E87B325C19FBE006586F8 /* ZLCollectionReusableView.h */,
+				0C0E87AC25C19FBE006586F8 /* ZLCollectionReusableView.m */,
+				0C0E87A925C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.h */,
+				0C0E87B125C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.m */,
+				0C0E87B625C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.h */,
+				0C0E87AD25C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.m */,
+				0C0E87B425C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.h */,
+				0C0E87AB25C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.m */,
+				0C0E87AE25C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.h */,
+				0C0E87A725C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.m */,
+				0C0E87AA25C19FBE006586F8 /* ZLCollectionViewVerticalLayout.h */,
+				0C0E87B525C19FBE006586F8 /* ZLCollectionViewVerticalLayout.m */,
+			);
+			path = ZLCollectionFlowLayout;
+			sourceTree = "<group>";
+		};
+		0C78273B25CFF3E800EED6C2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A389B7E1EE14D14007E78FE /* RZHomeVC.h */,
+				2A389B7F1EE14D14007E78FE /* RZHomeVC.m */,
+				2A389B801EE14D14007E78FE /* RZHomeVC.xib */,
+				18F5C33D244173C60092A44C /* RZEmptyVC.h */,
+				18F5C33E244173C60092A44C /* RZEmptyVC.m */,
+				18F5C33F244173C60092A44C /* RZEmptyVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0C78274425CFF43200EED6C2 /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				1806C762251D95D2009D66D7 /* RZSwift.swift */,
+				0C6189CB25A7102000149768 /* RZTable.swift */,
+			);
+			path = swift;
+			sourceTree = "<group>";
+		};
+		0CDCF22D262FFCD800062800 /* RZPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				0CDCF232262FFD1700062800 /* RZHorizontalControlView.h */,
+				0CDCF22F262FFD1300062800 /* RZHorizontalControlView.m */,
+				0CDCF233262FFD1800062800 /* RZPlayBackDelegate.h */,
+				0CDCF22E262FFD1100062800 /* RZPlayerController.h */,
+				0CDCF231262FFD1600062800 /* RZPlayerController.m */,
+				0CDCF236262FFD1C00062800 /* RZVerticalControlView.h */,
+				0CDCF234262FFD1A00062800 /* RZVerticalControlView.m */,
+			);
+			path = RZPlayer;
+			sourceTree = "<group>";
+		};
 		1804EFBA2550F8EA0066A1E5 /* 面试题 */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +590,8 @@
 		2A389B671EE13B06007E78FE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				0CDCF22D262FFCD800062800 /* RZPlayer */,
+				0C0E87A425C19FBE006586F8 /* ZLCollectionFlowLayout */,
 				4CA6010D228BDC1F006A39D2 /* RZCategories */,
 				2A562BC91FD68B2E007C0DBA /* Const */,
 				2A562BCB1FD68B2E007C0DBA /* Controls(自定义控件) */,
@@ -522,9 +655,14 @@
 				2AE373401FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m */,
 				2AF5BA331FD8E50F0004968C /* YYText_DemoVC.h */,
 				2AF5BA341FD8E50F0004968C /* YYText_DemoVC.m */,
-				4C902DF222A61A1900A28FC3 /* RZCollectionVC.h */,
-				4C902DF322A61A1900A28FC3 /* RZCollectionVC.m */,
-				4C902DF422A61A1900A28FC3 /* RZCollectionVC.xib */,
+				0C11B7832616C07800AB2D87 /* RZTimerVC.h */,
+				0C11B7842616C07800AB2D87 /* RZTimerVC.m */,
+				0CDCF185262E9D1C00062800 /* RZBGFMDBVC.h */,
+				0CDCF186262E9D1C00062800 /* RZBGFMDBVC.m */,
+				0CDCF18A262E9DF300062800 /* RZPeople.h */,
+				0CDCF18B262E9DF300062800 /* RZPeople.m */,
+				0CDCF23F262FFE4100062800 /* RZCustomPlayerVC.h */,
+				0CDCF240262FFE4100062800 /* RZCustomPlayerVC.m */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -532,21 +670,16 @@
 		2A389B791EE149F1007E78FE /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				2A389B7E1EE14D14007E78FE /* RZHomeVC.h */,
-				2A389B7F1EE14D14007E78FE /* RZHomeVC.m */,
-				2A389B801EE14D14007E78FE /* RZHomeVC.xib */,
-				18F5C33D244173C60092A44C /* RZEmptyVC.h */,
-				18F5C33E244173C60092A44C /* RZEmptyVC.m */,
-				18F5C33F244173C60092A44C /* RZEmptyVC.xib */,
-				1804EFBA2550F8EA0066A1E5 /* 面试题 */,
 				4C6590D422267C83001971C8 /* 定位 */,
-				4CE5AF422137D2D900F11C6F /* RZPageController */,
-				4C1A3202212D4142009FB868 /* RZSort */,
 				4C639C6521142A0A00084571 /* 多线程 */,
+				1804EFBA2550F8EA0066A1E5 /* 面试题 */,
+				0C78273B25CFF3E800EED6C2 /* Controller */,
 				2A936A321F00D76C005E578D /* FoldTableView */,
 				2A54450A1F28840C006BC937 /* ios加密方式 */,
-				1806C762251D95D2009D66D7 /* RZSwift.swift */,
 				1806C75D251C7E53009D66D7 /* RZBaseProject-Bridging-Header.h */,
+				4CE5AF422137D2D900F11C6F /* RZPageController */,
+				4C1A3202212D4142009FB868 /* RZSort */,
+				0C78274425CFF43200EED6C2 /* swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -839,13 +972,20 @@
 		2A562BCB1FD68B2E007C0DBA /* Controls(自定义控件) */ = {
 			isa = PBXGroup;
 			children = (
-				18BA44FE251455D900E5A2D1 /* WSLWaterFlowLayout.h */,
-				18BA44FD251455D900E5A2D1 /* WSLWaterFlowLayout.m */,
 				2A562BD41FD68E1B007C0DBA /* RZAlert */,
-				4C6591122244CA05001971C8 /* UIView+RZActivityView.h */,
-				4C6591132244CA05001971C8 /* UIView+RZActivityView.m */,
+				0CC972E025F8623000986D6E /* RZAnswerCell.h */,
+				0CC972E125F8623000986D6E /* RZAnswerCell.m */,
+				0CC972E225F8623000986D6E /* RZAnswerCell.xib */,
+				0CC972D725F8606300986D6E /* RZAnswerView.h */,
+				0CC972D825F8606300986D6E /* RZAnswerView.m */,
 				18416DE5255CD6730071B584 /* RZButton.h */,
 				18416DE6255CD6730071B584 /* RZButton.m */,
+				4C6591122244CA05001971C8 /* UIView+RZActivityView.h */,
+				4C6591132244CA05001971C8 /* UIView+RZActivityView.m */,
+				0CC972D225F85F7D00986D6E /* UIView+RZAnswerAlert.h */,
+				0CC972D325F85F7D00986D6E /* UIView+RZAnswerAlert.m */,
+				18BA44FE251455D900E5A2D1 /* WSLWaterFlowLayout.h */,
+				18BA44FD251455D900E5A2D1 /* WSLWaterFlowLayout.m */,
 			);
 			path = "Controls(自定义控件)";
 			sourceTree = "<group>";
@@ -987,10 +1127,18 @@
 		4CE5AF422137D2D900F11C6F /* RZPageController */ = {
 			isa = PBXGroup;
 			children = (
+				0C9FC79625B17DBC00B92E7A /* RZCollectionVC.h */,
+				0C9FC79725B17DBC00B92E7A /* RZCollectionVC.m */,
 				4CE5AF492137DBE400F11C6F /* RZPageVC.h */,
 				4CE5AF4A2137DBE400F11C6F /* RZPageVC.m */,
 				4CE5AF462137D97800F11C6F /* RZListVC.h */,
 				4CE5AF472137D97800F11C6F /* RZListVC.m */,
+				0C0E87E625C1A1DE006586F8 /* RZCustomCell.h */,
+				0C0E87E725C1A1DE006586F8 /* RZCustomCell.m */,
+				0C0E87E825C1A1DE006586F8 /* RZCustomCell.xib */,
+				0C0E87ED25C1B8A9006586F8 /* RZHeaderCollectionView.h */,
+				0C0E87EE25C1B8A9006586F8 /* RZHeaderCollectionView.m */,
+				0C0E87EF25C1B8A9006586F8 /* RZHeaderCollectionView.xib */,
 			);
 			path = RZPageController;
 			sourceTree = "<group>";
@@ -1102,7 +1250,7 @@
 				TargetAttributes = {
 					B31505A91DBDFC1A00CA4005 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 25MNJ5AYKP;
+						DevelopmentTeam = 45D8HNV34Z;
 						LastSwiftMigration = 1120;
 						ProvisioningStyle = Automatic;
 					};
@@ -1152,6 +1300,7 @@
 				2A41F73A1F29C52F00239472 /* 樱花树3.jpg in Resources */,
 				2A41F7631F29C52F00239472 /* pic4.jpg in Resources */,
 				B33D68111DD1736B0049F3D6 /* noteText in Resources */,
+				0CC972E425F8623000986D6E /* RZAnswerCell.xib in Resources */,
 				4C22C333212419360095E005 /* RZGCDVC.xib in Resources */,
 				2A41F7C21F29CBBF00239472 /* RZMineVC.xib in Resources */,
 				2A41F7571F29C52F00239472 /* 9.jpg in Resources */,
@@ -1160,10 +1309,12 @@
 				2A52DFCE1FDF83930057D64B /* RZMVVMController.xib in Resources */,
 				2A41F7501F29C52F00239472 /* 23.jpg in Resources */,
 				2A389B821EE14D14007E78FE /* RZHomeVC.xib in Resources */,
+				0C0E87F125C1B8A9006586F8 /* RZHeaderCollectionView.xib in Resources */,
 				2A41F76B1F29C52F00239472 /* test2.jpg in Resources */,
 				2A41F7351F29C52F00239472 /* fire.png in Resources */,
 				B31505BA1DBDFC1A00CA4005 /* Assets.xcassets in Resources */,
 				2A41F74D1F29C52F00239472 /* 20.jpg in Resources */,
+				0C0E87EA25C1A1DE006586F8 /* RZCustomCell.xib in Resources */,
 				2A41F73C1F29C52F00239472 /* 樱花瓣2.jpg in Resources */,
 				2A41F7491F29C52F00239472 /* 17.jpg in Resources */,
 				2A41F7661F29C52F00239472 /* pic7.jpg in Resources */,
@@ -1196,7 +1347,6 @@
 				2A41F7691F29C52F00239472 /* test0.jpg in Resources */,
 				2A41F7471F29C52F00239472 /* 15.jpg in Resources */,
 				2A41F75F1F29C52F00239472 /* pic0.jpg in Resources */,
-				4C902DF622A61A1900A28FC3 /* RZCollectionVC.xib in Resources */,
 				2A41F73D1F29C52F00239472 /* 烟花背景.jpg in Resources */,
 				2A41F7651F29C52F00239472 /* pic6.jpg in Resources */,
 				2A41F7361F29C52F00239472 /* snow2.png in Resources */,
@@ -1236,27 +1386,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-resources.sh",
-				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/HXPhotoPicker/HXPhotoPicker/Resources/HXPhotoPicker.bundle",
 				"${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
-				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-back.png",
-				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-help.html",
-				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-helpicons.png",
-				"${PODS_ROOT}/ZBarSDK/iphone/res/zbar-samples.png",
+				"${PODS_ROOT}/ZFPlayer/ZFPlayer/Classes/ControlView/ZFPlayer.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HXPhotoPicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CodeScan.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-back.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-help.html",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-helpicons.png",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/zbar-samples.png",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ZFPlayer.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1291,12 +1431,14 @@
 				1804EFEF255128810066A1E5 /* RZMan.m in Sources */,
 				1804EFF2255129A50066A1E5 /* RZInterviewController.m in Sources */,
 				4C65910E224218CC001971C8 /* RZUpdateLocationVC.m in Sources */,
+				0CC972D425F85F7D00986D6E /* UIView+RZAnswerAlert.m in Sources */,
 				B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */,
 				4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */,
 				2A562B831FD68843007C0DBA /* NSObject+RZDog.m in Sources */,
+				0C0E87BD25C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.m in Sources */,
+				0C0E87B725C19FBE006586F8 /* ZLCollectionBaseDecorationView.m in Sources */,
 				B3FC029622994CF9000606D4 /* RZDispatchVC.m in Sources */,
 				4C83920C21CA1D3F00FAC7A7 /* RZWebView.m in Sources */,
-				4C902DF522A61A1900A28FC3 /* RZCollectionVC.m in Sources */,
 				4CC7B49B22A641DB00D892BC /* RZBtn.m in Sources */,
 				4CA6011A228BDFDA006A39D2 /* NSString+RZContains.m in Sources */,
 				2A389B6E1EE13E21007E78FE /* RZRootVC.m in Sources */,
@@ -1306,14 +1448,19 @@
 				2A562B7F1FD6880E007C0DBA /* NSString+Size.m in Sources */,
 				2A389B781EE14007007E78FE /* RZDemoVC.m in Sources */,
 				2A389B741EE13E6F007E78FE /* RZNavigationVC.m in Sources */,
+				0CC972D925F8606300986D6E /* RZAnswerView.m in Sources */,
 				2A5444FF1F285EF5006BC937 /* RZFoldTableViewController.m in Sources */,
 				2A52DFD11FDFADD80057D64B /* RZLoginViewModel.m in Sources */,
+				0CDCF187262E9D1C00062800 /* RZBGFMDBVC.m in Sources */,
 				2A980D881FE26F68005B177F /* RZCustom.m in Sources */,
 				2A41F7C11F29CBBF00239472 /* RZMineVC.m in Sources */,
 				2A389B711EE13E4B007E78FE /* RZTabBarVC.m in Sources */,
+				0CDCF23A262FFD1C00062800 /* RZVerticalControlView.m in Sources */,
 				2A562BBC1FD68939007C0DBA /* UIView+Toast.m in Sources */,
 				18BA44FF251455D900E5A2D1 /* WSLWaterFlowLayout.m in Sources */,
 				2A562BDD1FD68E1B007C0DBA /* UIView+RZAlert.m in Sources */,
+				0CDCF241262FFE4100062800 /* RZCustomPlayerVC.m in Sources */,
+				0CDCF18C262E9DF300062800 /* RZPeople.m in Sources */,
 				2ACD0B891FDA694A00A6F0E7 /* RZDelegate.m in Sources */,
 				2A5444FB1F2836F5006BC937 /* RZListPickerView.m in Sources */,
 				2AB896341FDE5AE200A4D6E4 /* RACBtn.m in Sources */,
@@ -1323,6 +1470,7 @@
 				2A562BE11FD692A5007C0DBA /* NSDate+Extension.m in Sources */,
 				4C6591142244CA05001971C8 /* UIView+RZActivityView.m in Sources */,
 				2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */,
+				0C0E87BC25C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.m in Sources */,
 				18416DE7255CD6730071B584 /* RZButton.m in Sources */,
 				4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */,
 				2A5445051F286186006BC937 /* FoldSectionView.m in Sources */,
@@ -1334,30 +1482,44 @@
 				2A562B7D1FD6880E007C0DBA /* NSString+Contains.m in Sources */,
 				B31505AF1DBDFC1A00CA4005 /* main.m in Sources */,
 				4C639C6821142A9100084571 /* RZThreadVC.m in Sources */,
+				0C0E87BF25C19FBE006586F8 /* ZLCollectionViewVerticalLayout.m in Sources */,
 				4C902DCF229BBD8600A28FC3 /* RZPickerVC.m in Sources */,
+				0CC972E325F8623000986D6E /* RZAnswerCell.m in Sources */,
+				0C0E87BE25C19FBE006586F8 /* ZLBaseEventModel.m in Sources */,
 				4C902DC9229BB1B000A28FC3 /* RZDatePickerView.m in Sources */,
 				2A562BDC1FD68E1B007C0DBA /* RZAlertView.m in Sources */,
 				2AB896311FDE297C00A4D6E4 /* RACViewController.m in Sources */,
 				2ABA4B5E1FE0CDBA00C49BAF /* RACObject.m in Sources */,
 				4C1A3205212D4157009FB868 /* RZSort.m in Sources */,
 				2A980D821FE26D6D005B177F /* RZNetManager.m in Sources */,
+				0C0E87F025C1B8A9006586F8 /* RZHeaderCollectionView.m in Sources */,
 				18F5C340244173C60092A44C /* RZEmptyVC.m in Sources */,
+				0CDCF237262FFD1C00062800 /* RZHorizontalControlView.m in Sources */,
 				4C6590DC222684CC001971C8 /* RZLocation.m in Sources */,
 				2AF5BA351FD8E50F0004968C /* YYText_DemoVC.m in Sources */,
 				2A562B8A1FD68875007C0DBA /* Foundation+Log.m in Sources */,
+				0CDCF239262FFD1C00062800 /* RZPlayerController.m in Sources */,
+				0C0E87BB25C19FBE006586F8 /* ZLCollectionReusableView.m in Sources */,
+				0C9FC79825B17DBC00B92E7A /* RZCollectionVC.m in Sources */,
 				4C1D7688219D466A005B6D5E /* UIControl+RZLimitClick.m in Sources */,
 				4C22C332212419360095E005 /* RZGCDVC.m in Sources */,
 				2A41F7BB1F29C59600239472 /* MF_Base64Additions.m in Sources */,
 				4C6591172248A0EC001971C8 /* RZTool.m in Sources */,
 				2A562BBA1FD68939007C0DBA /* JRSwizzle.m in Sources */,
+				0C11B7852616C07800AB2D87 /* RZTimerVC.m in Sources */,
+				0C0E87B925C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.m in Sources */,
+				0C6189CC25A7102000149768 /* RZTable.swift in Sources */,
 				4CA60120228CF25B006A39D2 /* UIImage+RoundedCorner.m in Sources */,
 				2A41F7BA1F29C59600239472 /* RZResponse.m in Sources */,
 				2A980D8B1FE27349005B177F /* RZRequestViewModel.m in Sources */,
 				2A389B811EE14D14007E78FE /* RZHomeVC.m in Sources */,
+				0C0E87B825C19FBE006586F8 /* ZLCellFakeView.m in Sources */,
 				2A41F7BC1F29C59600239472 /* RZEncryptionTool.m in Sources */,
 				1806C763251D95D2009D66D7 /* RZSwift.swift in Sources */,
 				2AE373411FD7D1CF00FD95B0 /* ZYCornerRadius_DemoVC.m in Sources */,
+				0C0E87BA25C19FBE006586F8 /* ZLCollectionViewHorzontalLayout.m in Sources */,
 				2AE373441FD7DB3800FD95B0 /* RZDataSource.m in Sources */,
+				0C0E87E925C1A1DE006586F8 /* RZCustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1492,14 +1654,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25MNJ5AYKP;
+				DEVELOPMENT_TEAM = 45D8HNV34Z;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
 				INFOPLIST_FILE = RZBaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject07;
+				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RZBaseProject/Code/Mod/HomeVC/RZBaseProject-Bridging-Header.h";
@@ -1519,14 +1681,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 25MNJ5AYKP;
+				DEVELOPMENT_TEAM = 45D8HNV34Z;
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RZBaseProject/RZBaseProject.pch";
 				INFOPLIST_FILE = RZBaseProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject07;
+				PRODUCT_BUNDLE_IDENTIFIER = RZOL.RZBaseProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RZBaseProject/Code/Mod/HomeVC/RZBaseProject-Bridging-Header.h";

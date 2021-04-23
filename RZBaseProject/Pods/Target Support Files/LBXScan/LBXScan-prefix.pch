@@ -13,5 +13,4 @@
 #import <Foundation/Foundation.h>
 #import "LBXScanNative.h"
 #import "ZXingWrapper.h"
-#import "LBXZBarWrapper.h"
 #import "LBXScanView.h"

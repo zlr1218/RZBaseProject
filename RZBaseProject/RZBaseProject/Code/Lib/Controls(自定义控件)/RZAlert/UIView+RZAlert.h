@@ -17,28 +17,27 @@ typedef void(^RZAlertSureBlock)();
 @class RZAlertStyle;
 @interface UIView (RZAlert)
 
-/**
- 仅展示Message，确定SureBlock
- */
-- (void)makeAlert:(NSString *)message
-        sureBlock:(RZAlertSureBlock)sureBlock;
+/// 仅展示Message,默认为关闭按钮,无回调
+- (void)showAlertMsg:(NSString *)msg;
 
-/**
- 展示Message、SureTitle、确定SureBlock
- */
-- (void)makeAlert:(NSString *)message
-            Title:(NSString *)title
-        sureTitle:(NSString *)sureTitle
-        sureBlock:(RZAlertSureBlock)sureBlock;
+/// 仅展示Message,自定义关闭按钮名称,有回调
+- (void)showAlertMsg:(NSString *)msg closeName:(NSString *)closeName close:(RZAlertCancleBlock)close;
+
+/// 展示标题,信息,默认“确定”“取消”,有回调
+- (void)showAlertTitle:(NSString *)title msg:(NSString *)msg sure:(RZAlertSureBlock)sure;
+
+/// 展示标题,信息,自定义确定按钮名称,有回调
+- (void)showAlertTitle:(NSString *)title msg:(NSString *)msg sureName:(NSString *)sureName sure:(RZAlertSureBlock)sure;
 
 
-- (void)makeAlert:(NSString *)message
-            title:(NSString *)title
-            style:(RZAlertStyle *)style
-      cancleTitle:(NSString *)cancleTitle
-      cancleBlock:(RZAlertCancleBlock)cancleBlock
-        sureTitle:(NSString *)sureTitle
-        sureBlock:(RZAlertSureBlock)sureBlock;
+/// 全部自定义
+- (void)showAlertTitle:(NSString *)title
+                   msg:(NSString *)msg
+                 style:(RZAlertStyle *)style
+             closeName:(NSString *)closeName
+                 close:(RZAlertCancleBlock)close
+              sureName:(NSString *)sureName
+                  sure:(RZAlertSureBlock)sure;
 
 @end
 

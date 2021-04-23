@@ -34,4 +34,11 @@
     return [NSNumber numberWithInteger:interger];
 }
 
++ (BOOL)emptyArr:(NSArray *)arr {
+    if (kObjEmpty(arr)) return YES;
+    if (![NSArray isKindOfClass:[arr class]]) return YES;
+    if (!(arr.count > 0)) return YES;
+    return NO;
+}
+
 @end

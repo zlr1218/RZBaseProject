@@ -59,7 +59,7 @@
         }else{
 
 #ifdef LBXScan_Define_UI
-            [_qRScanView stopDeviceReadying];
+            [self.qRScanView stopDeviceReadying];
 #endif
 
         }
@@ -304,7 +304,7 @@
 - (void)scanResultWithArray:(NSArray<LBXScanResult*>*)array
 {
     //设置了委托的处理
-    if (_delegate) {
+    if (_delegate && array && array.count > 0) {
         [_delegate scanResultWithArray:array];
     }
     
@@ -574,8 +574,16 @@
 
 + (BOOL)photoPermission
 {
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
-    {
+    if (@available(iOS 8.0, *)) {
+        
+        PHAuthorizationStatus authorStatus = [PHPhotoLibrary authorizationStatus];
+        if ( authorStatus == PHAuthorizationStatusDenied ) {
+            
+            return NO;
+        }
+        
+    }else{
+        
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
         
         if ( author == ALAuthorizationStatusDenied ) {
@@ -585,15 +593,8 @@
         return YES;
     }
     
-    PHAuthorizationStatus authorStatus = [PHPhotoLibrary authorizationStatus];
-    if ( authorStatus == PHAuthorizationStatusDenied ) {
-        
-        return NO;
-    }
-    return YES;
+    return NO;
 }
-
-
 
 
 @end

@@ -144,6 +144,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ZFPlayerController (ZFPlayerPlaybackControl)
 
+/// Resume playback record.default is NO.
+/// Memory storage playback records.
+@property (nonatomic, assign) BOOL resumePlayRecord;
+
 /// 0...1.0
 /// Only affects audio volume for the device instance and not for the player.
 /// You can change device volume or player volume as needed,change the player volume you can conform the `ZFPlayerMediaPlayback` protocol.
@@ -160,8 +164,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// The play asset URL.
 @property (nonatomic) NSURL *assetURL;
 
-/// if tableView or collectionView has only one section , use sectionAssetURLs.
-/// if normal model set this can use `playTheNext` `playThePrevious` `playTheIndex:`.
+/// If tableView or collectionView has only one section , use `assetURLs`.
+/// If tableView or collectionView has more sections , use `sectionAssetURLs`.
+/// Set this you can use `playTheNext` `playThePrevious` `playTheIndex:` method.
 @property (nonatomic, copy, nullable) NSArray <NSURL *>*assetURLs;
 
 /// The currently playing index,limited to one-dimensional arrays.
@@ -246,19 +251,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)replaceCurrentPlayerManager:(id<ZFPlayerMediaPlayback>)manager;
 
 /**
- Add video to the cell.
+ Add video to cell.
  */
 - (void)addPlayerViewToCell;
 
 /**
- Add video to the container view.
+ Add video to container view.
  */
 - (void)addPlayerViewToContainerView:(UIView *)containerView;
 
 /**
- Add to the keyWindow.
+ Add to small float view.
  */
-- (void)addPlayerViewToKeyWindow;
+- (void)addPlayerViewToSmallFloatView;
 
 /**
  Stop the current playing video and remove the playerView.
@@ -277,7 +282,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) ZFOrientationObserver *orientationObserver;
 
 /// Whether automatic screen rotation is supported.
-/// iOS8.1~iOS8.3 the value is YES, other iOS version the value is NO.
+/// The value is NO.
 /// This property is used for the return value of UIViewController `shouldAutorotate` method.
 @property (nonatomic, readonly) BOOL shouldAutorotate;
 
@@ -289,14 +294,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// When ZFFullScreenMode is ZFFullScreenModePortrait, while the player fullSceen this value is YES.
 @property (nonatomic, readonly) BOOL isFullScreen;
 
+/// when call the `stop` method, exit the fullScreen model, default is YES.
+@property (nonatomic, assign) BOOL exitFullScreenWhenStop;
+
 /// Lock the screen orientation.
 @property (nonatomic, getter=isLockedScreen) BOOL lockedScreen;
-
-/// The statusbar hidden.
-@property (nonatomic, getter=isStatusBarHidden) BOOL statusBarHidden;
-
-/// Use device orientation, default NO.
-@property (nonatomic, assign) BOOL forceDeviceOrientation;
 
 /// The current orientation of the player.
 /// Default is UIInterfaceOrientationPortrait.
@@ -307,6 +309,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// The block invoked when player rotated.
 @property (nonatomic, copy, nullable) void(^orientationDidChanged)(ZFPlayerController *player, BOOL isFullScreen);
+
+/// default is  UIStatusBarStyleLightContent.
+@property (nonatomic, assign) UIStatusBarStyle fullScreenStatusBarStyle;
+
+/// defalut is UIStatusBarAnimationSlide.
+@property (nonatomic, assign) UIStatusBarAnimation fullScreenStatusBarAnimation;
+
+/// The fullscreen statusbar hidden.
+@property (nonatomic, getter=isStatusBarHidden) BOOL statusBarHidden;
 
 /**
  Add the device orientation observer.
@@ -321,10 +332,28 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Enter the fullScreen while the ZFFullScreenMode is ZFFullScreenModeLandscape.
 
- @param orientation UIInterfaceOrientation
+ @param orientation is UIInterfaceOrientation.
  @param animated is animated.
+*/
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation animated:(BOOL)animated;
+
+/**
+ Enter the fullScreen while the ZFFullScreenMode is ZFFullScreenModeLandscape.
+
+ @param orientation is UIInterfaceOrientation.
+ @param animated is animated.
+ @param completion rotating completed callback.
+*/
+- (void)rotateToOrientation:(UIInterfaceOrientation)orientation animated:(BOOL)animated completion:(void(^ __nullable)(void))completion;
+
+/**
+ Enter the fullScreen while the ZFFullScreenMode is ZFFullScreenModePortrait.
+
+ @param fullScreen is fullscreen.
+ @param animated is animated.
+ @param completion rotating completed callback.
  */
-- (void)enterLandscapeFullScreen:(UIInterfaceOrientation)orientation animated:(BOOL)animated;
+- (void)enterPortraitFullScreen:(BOOL)fullScreen animated:(BOOL)animated completion:(void(^ __nullable)(void))completion;
 
 /**
  Enter the fullScreen while the ZFFullScreenMode is ZFFullScreenModePortrait.
@@ -333,6 +362,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param animated is animated.
  */
 - (void)enterPortraitFullScreen:(BOOL)fullScreen animated:(BOOL)animated;
+
+/**
+ FullScreen mode is determined by ZFFullScreenMode.
+
+ @param fullScreen is fullscreen.
+ @param animated is animated.
+ @param completion rotating completed callback.
+ */
+- (void)enterFullScreen:(BOOL)fullScreen animated:(BOOL)animated completion:(void(^ __nullable)(void))completion;
 
 /**
  FullScreen mode is determined by ZFFullScreenMode.
@@ -371,6 +409,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// The indexPath is playing.
 @property (nonatomic, readonly, nullable) NSIndexPath *playingIndexPath;
 
+/// The indexPath should be play while scrolling.
+@property (nonatomic, readonly, nullable) NSIndexPath *shouldPlayIndexPath;
+
 /// The view tag that the player display in scrollView.
 @property (nonatomic, readonly) NSInteger containerViewTag;
 
@@ -395,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) CGFloat playerApperaPercent;
 
-/// If tableView or collectionView has more section, use sectionAssetURLs.
+/// If tableView or collectionView has more sections, use `sectionAssetURLs`.
 @property (nonatomic, copy, nullable) NSArray <NSArray <NSURL *>*>*sectionAssetURLs;
 
 /// The block invoked When the player appearing.
@@ -416,38 +457,87 @@ NS_ASSUME_NONNULL_BEGIN
 /// The block invoked When the player did disappeared.
 @property (nonatomic, copy, nullable) void(^zf_playerDidDisappearInScrollView)(NSIndexPath *indexPath);
 
-/**
- Play the indexPath of url, while the `assetURLs` or `sectionAssetURLs` is not NULL.
+/// The block invoked When the player should play.
+@property (nonatomic, copy, nullable) void(^zf_playerShouldPlayInScrollView)(NSIndexPath *indexPath);
 
+/// The block invoked When the player did stop scroll.
+@property (nonatomic, copy, nullable) void(^zf_scrollViewDidEndScrollingCallback)(NSIndexPath *indexPath);
+
+/// Filter the cell that should be played when the scroll is stopped (to play when the scroll is stopped).
+- (void)zf_filterShouldPlayCellWhileScrolled:(void (^ __nullable)(NSIndexPath *indexPath))handler;
+
+/// Filter the cell that should be played while scrolling (you can use this to filter the highlighted cell).
+- (void)zf_filterShouldPlayCellWhileScrolling:(void (^ __nullable)(NSIndexPath *indexPath))handler;
+
+/**
+ Play the indexPath of url without scroll postion,  while the `assetURLs` or `sectionAssetURLs` is not NULL.
+ 
  @param indexPath Play the indexPath of url.
  */
 - (void)playTheIndexPath:(NSIndexPath *)indexPath;
 
 /**
- Play the indexPath of url ,while the `assetURLs` or `sectionAssetURLs` is not NULL.
- 
- @param indexPath Play the indexPath of url
- @param scrollToTop Scroll the current cell to top with animations.
+ Play the indexPath of url, while the `assetURLs` or `sectionAssetURLs` is not NULL.
+
+ @param indexPath Play the indexPath of url.
+ @param scrollPosition scroll position.
+ @param animated scroll animation.
  */
-- (void)playTheIndexPath:(NSIndexPath *)indexPath scrollToTop:(BOOL)scrollToTop;
+- (void)playTheIndexPath:(NSIndexPath *)indexPath
+          scrollPosition:(ZFPlayerScrollViewScrollPosition)scrollPosition
+                animated:(BOOL)animated;
 
 /**
- Play the indexPath of url ,while the `assetURLs` or `sectionAssetURLs` is not NULL.
+ Play the indexPath of url with scroll postion, while the `assetURLs` or `sectionAssetURLs` is not NULL.
+ 
+ @param indexPath Play the indexPath of url.
+ @param scrollPosition scroll position.
+ @param animated scroll animation.
+ @param completionHandler Scroll completion callback.
+ */
+- (void)playTheIndexPath:(NSIndexPath *)indexPath
+          scrollPosition:(ZFPlayerScrollViewScrollPosition)scrollPosition
+                animated:(BOOL)animated
+       completionHandler:(void (^ __nullable)(void))completionHandler;
+
+
+/**
+ Play the indexPath of url with scroll postion.
  
  @param indexPath Play the indexPath of url
  @param assetURL The player URL.
- @param scrollToTop Scroll the current cell to top with animations.
  */
-- (void)playTheIndexPath:(NSIndexPath *)indexPath assetURL:(NSURL *)assetURL scrollToTop:(BOOL)scrollToTop;
+- (void)playTheIndexPath:(NSIndexPath *)indexPath assetURL:(NSURL *)assetURL;
+
 
 /**
- Play the indexPath of url ,while the `assetURLs` or `sectionAssetURLs` is not NULL.
+ Play the indexPath of url with scroll postion.
  
  @param indexPath Play the indexPath of url
- @param scrollToTop scroll the current cell to top with animations.
+ @param assetURL The player URL.
+ @param scrollPosition  scroll position.
+ @param animated scroll animation.
+ */
+- (void)playTheIndexPath:(NSIndexPath *)indexPath
+                assetURL:(NSURL *)assetURL
+          scrollPosition:(ZFPlayerScrollViewScrollPosition)scrollPosition
+                animated:(BOOL)animated;
+
+/**
+ Play the indexPath of url with scroll postion.
+ 
+ @param indexPath Play the indexPath of url
+ @param assetURL The player URL.
+ @param scrollPosition  scroll position.
+ @param animated scroll animation.
  @param completionHandler Scroll completion callback.
  */
-- (void)playTheIndexPath:(NSIndexPath *)indexPath scrollToTop:(BOOL)scrollToTop completionHandler:(void (^ __nullable)(void))completionHandler;
+- (void)playTheIndexPath:(NSIndexPath *)indexPath
+                assetURL:(NSURL *)assetURL
+          scrollPosition:(ZFPlayerScrollViewScrollPosition)scrollPosition
+                animated:(BOOL)animated
+       completionHandler:(void (^ __nullable)(void))completionHandler;
+
 
 @end
 
@@ -464,6 +554,54 @@ NS_ASSUME_NONNULL_BEGIN
  @param containerView The playerView containerView.
  */
 - (void)updateNoramlPlayerWithContainerView:(UIView *)containerView __attribute__((deprecated("use `addPlayerViewToContainerView:` instead.")));
+
+/**
+ Play the indexPath of url ,while the `assetURLs` or `sectionAssetURLs` is not NULL.
+ 
+ @param indexPath Play the indexPath of url
+ @param scrollToTop Scroll the current cell to top with animations.
+ */
+- (void)playTheIndexPath:(NSIndexPath *)indexPath scrollToTop:(BOOL)scrollToTop  __attribute__((deprecated("use `playTheIndexPath:scrollPosition:animated:` instead.")));
+
+/**
+ Play the indexPath of url with scroll postion.
+ 
+ @param indexPath Play the indexPath of url
+ @param assetURL The player URL.
+ @param scrollToTop Scroll the current cell to top with animations.
+ */
+- (void)playTheIndexPath:(NSIndexPath *)indexPath assetURL:(NSURL *)assetURL scrollToTop:(BOOL)scrollToTop  __attribute__((deprecated("use `playTheIndexPath:assetURL:scrollPosition:animated:` instead.")));
+
+/**
+ Play the indexPath of url ,while the `assetURLs` or `sectionAssetURLs` is not NULL.
+ 
+ @param indexPath Play the indexPath of url
+ @param scrollToTop scroll the current cell to top with animations.
+ @param completionHandler Scroll completion callback.
+ */
+- (void)playTheIndexPath:(NSIndexPath *)indexPath scrollToTop:(BOOL)scrollToTop completionHandler:(void (^ __nullable)(void))completionHandler  __attribute__((deprecated("use `playTheIndexPath:scrollPosition:animated:completionHandler:` instead.")));
+
+/**
+ Enter the fullScreen while the ZFFullScreenMode is ZFFullScreenModeLandscape.
+
+ @param orientation UIInterfaceOrientation
+ @param animated is animated.
+ @param completion rotating completed callback.
+ */
+- (void)enterLandscapeFullScreen:(UIInterfaceOrientation)orientation animated:(BOOL)animated completion:(void(^ __nullable)(void))completion __attribute__((deprecated("use `rotateToOrientation:animated:completion:` instead.")));
+
+/**
+ Enter the fullScreen while the ZFFullScreenMode is ZFFullScreenModeLandscape.
+
+ @param orientation UIInterfaceOrientation
+ @param animated is animated.
+ */
+- (void)enterLandscapeFullScreen:(UIInterfaceOrientation)orientation animated:(BOOL)animated __attribute__((deprecated("use `rotateToOrientation:animated:` instead.")));
+
+/**
+ Add to the keyWindow.
+ */
+- (void)addPlayerViewToKeyWindow __attribute__((deprecated("use `addPlayerViewToSmallFloatView` instead.")));;
 
 @end
 

@@ -20,90 +20,58 @@ PODS:
   - BGFMDB/BG (2.0.13):
     - BGFMDB/FMDB
   - BGFMDB/FMDB (2.0.13)
-  - CocoaLumberjack (3.5.3):
-    - CocoaLumberjack/Core (= 3.5.3)
-  - CocoaLumberjack/Core (3.5.3)
+  - CocoaLumberjack (3.6.2):
+    - CocoaLumberjack/Core (= 3.6.2)
+  - CocoaLumberjack/Core (3.6.2)
   - FCUUID (1.3.1):
     - UICKeyChainStore (~> 2.1.0)
   - FDFullscreenPopGesture (1.1)
   - FLAnimatedImage (1.0.12)
-  - IQKeyboardManager (6.3.0)
-  - JKCategories/Foundation (1.8.1):
-    - JKCategories/Foundation/NSArray (= 1.8.1)
-    - JKCategories/Foundation/NSBundle (= 1.8.1)
-    - JKCategories/Foundation/NSData (= 1.8.1)
-    - JKCategories/Foundation/NSDate (= 1.8.1)
-    - JKCategories/Foundation/NSDateFormatter (= 1.8.1)
-    - JKCategories/Foundation/NSDictionary (= 1.8.1)
-    - JKCategories/Foundation/NSException (= 1.8.1)
-    - JKCategories/Foundation/NSFileHandle (= 1.8.1)
-    - JKCategories/Foundation/NSFileManager (= 1.8.1)
-    - JKCategories/Foundation/NSHTTPCookieStorage (= 1.8.1)
-    - JKCategories/Foundation/NSIndexPath (= 1.8.1)
-    - JKCategories/Foundation/NSInvocation (= 1.8.1)
-    - JKCategories/Foundation/NSNotificationCenter (= 1.8.1)
-    - JKCategories/Foundation/NSNumber (= 1.8.1)
-    - JKCategories/Foundation/NSObject (= 1.8.1)
-    - JKCategories/Foundation/NSRunLoop (= 1.8.1)
-    - JKCategories/Foundation/NSSet (= 1.8.1)
-    - JKCategories/Foundation/NSString (= 1.8.1)
-    - JKCategories/Foundation/NSTimer (= 1.8.1)
-    - JKCategories/Foundation/NSURL (= 1.8.1)
-    - JKCategories/Foundation/NSURLConnection (= 1.8.1)
-    - JKCategories/Foundation/NSURLRequest (= 1.8.1)
-    - JKCategories/Foundation/NSURLSession (= 1.8.1)
-    - JKCategories/Foundation/NSUserDefaults (= 1.8.1)
-  - JKCategories/Foundation/NSArray (1.8.1)
-  - JKCategories/Foundation/NSBundle (1.8.1)
-  - JKCategories/Foundation/NSData (1.8.1)
-  - JKCategories/Foundation/NSDate (1.8.1)
-  - JKCategories/Foundation/NSDateFormatter (1.8.1)
-  - JKCategories/Foundation/NSDictionary (1.8.1)
-  - JKCategories/Foundation/NSException (1.8.1)
-  - JKCategories/Foundation/NSFileHandle (1.8.1)
-  - JKCategories/Foundation/NSFileManager (1.8.1)
-  - JKCategories/Foundation/NSHTTPCookieStorage (1.8.1)
-  - JKCategories/Foundation/NSIndexPath (1.8.1)
-  - JKCategories/Foundation/NSInvocation (1.8.1)
-  - JKCategories/Foundation/NSNotificationCenter (1.8.1)
-  - JKCategories/Foundation/NSNumber (1.8.1)
-  - JKCategories/Foundation/NSObject (1.8.1)
-  - JKCategories/Foundation/NSRunLoop (1.8.1)
-  - JKCategories/Foundation/NSSet (1.8.1)
-  - JKCategories/Foundation/NSString (1.8.1):
-    - JKCategories/Foundation/NSData
-  - JKCategories/Foundation/NSTimer (1.8.1)
-  - JKCategories/Foundation/NSURL (1.8.1)
-  - JKCategories/Foundation/NSURLConnection (1.8.1)
-  - JKCategories/Foundation/NSURLRequest (1.8.1)
-  - JKCategories/Foundation/NSURLSession (1.8.1)
-  - JKCategories/Foundation/NSUserDefaults (1.8.1)
-  - JXCategoryView (1.3.4)
+  - HXPhotoPicker (3.1.8):
+    - HXPhotoPicker/Default (= 3.1.8)
+  - HXPhotoPicker/Default (3.1.8)
+  - IQKeyboardManager (6.5.6)
+  - JJException (0.2.9):
+    - JJException/All (= 0.2.9)
+  - JJException/All (0.2.9):
+    - JJException/ARC
+    - JJException/DeallocBlock
+    - JJException/Main
+    - JJException/MRC
+    - JJException/Swizzle
+  - JJException/ARC (0.2.9):
+    - JJException/DeallocBlock
+    - JJException/Main
+    - JJException/Swizzle
+  - JJException/DeallocBlock (0.2.9)
+  - JJException/Main (0.2.9)
+  - JJException/MRC (0.2.9):
+    - JJException/Main
+    - JJException/Swizzle
+  - JJException/Swizzle (0.2.9)
+  - JMButton (0.6)
+  - JXCategoryView (1.5.5)
   - LazyScroll (1.0.1):
     - TMUtils (~> 1.0.1)
-  - LBXScan (2.3):
-    - LBXScan/All (= 2.3)
-  - LBXScan/All (2.3):
+  - LBXScan (2.5.1):
+    - LBXScan/All (= 2.5.1)
+  - LBXScan/All (2.5.1):
     - LBXScan/Types (~> 2.2)
-    - ZBarSDK (~> 1.3.1)
-  - LBXScan/Types (2.3)
-  - M13ProgressSuite (1.2.9)
-  - Masonry (0.6.4)
-  - MBProgressHUD (1.1.0)
-  - MJExtension (3.0.17)
-  - MJRefresh (3.1.17)
+  - LBXScan/Types (2.5.1)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
+  - MJExtension (3.2.4)
+  - MJRefresh (3.5.0)
   - Reachability (3.2)
   - ReactiveObjC (3.0.0)
-  - SDCycleScrollView (1.80):
+  - SDCycleScrollView (1.82):
     - SDWebImage (>= 5.0.0)
-  - SDWebImage (5.0.2):
-    - SDWebImage/Core (= 5.0.2)
-  - SDWebImage/Core (5.0.2)
-  - SVProgressHUD (2.2.5)
+  - SDWebImage (5.9.5):
+    - SDWebImage/Core (= 5.9.5)
+  - SDWebImage/Core (5.9.5)
   - TMUtils (1.0.1)
-  - TZImagePickerController (3.2.0)
   - UICKeyChainStore (2.1.2)
-  - XHLaunchAd (3.9.8):
+  - XHLaunchAd (3.9.12):
     - FLAnimatedImage (~> 1.0.12)
   - YYAsyncLayer (1.0)
   - YYCache (1.0.4)
@@ -117,59 +85,62 @@ PODS:
   - YYWebImage (1.0.5):
     - YYCache
     - YYImage
-  - ZBarSDK (1.3.1)
-  - ZFPlayer (3.2.11):
-    - ZFPlayer/Core (= 3.2.11)
-  - ZFPlayer/Core (3.2.11)
-  - ZJScrollPageView (0.4.0)
+  - ZFPlayer (4.0.1):
+    - ZFPlayer/Core (= 4.0.1)
+  - ZFPlayer/AVPlayer (4.0.1):
+    - ZFPlayer/Core
+  - ZFPlayer/ControlView (4.0.1):
+    - ZFPlayer/Core
+  - ZFPlayer/Core (4.0.1)
   - ZYCornerRadius (1.0.2)
 
 DEPENDENCIES:
-  - AFNetworking (~> 3.0)
+  - AFNetworking
   - BGFMDB (~> 2.0.9)
   - CocoaLumberjack
   - FCUUID
   - FDFullscreenPopGesture
+  - HXPhotoPicker (~> 3.1.7)
   - IQKeyboardManager
-  - JKCategories/Foundation
+  - JJException
+  - JMButton (~> 0.5)
   - JXCategoryView
   - LazyScroll
   - LBXScan (~> 2.3)
-  - M13ProgressSuite
-  - Masonry (~> 0.6.4)
+  - Masonry
   - MBProgressHUD
   - MJExtension
   - MJRefresh
   - Reachability
   - ReactiveObjC (~> 3.0.0)
-  - SDCycleScrollView (>= 1.80)
-  - SDWebImage (~> 5.0)
-  - SVProgressHUD
-  - TZImagePickerController
+  - SDCycleScrollView (>= 1.82)
+  - SDWebImage
   - XHLaunchAd
   - YYAsyncLayer
   - YYCategories
   - YYImage
   - YYText
   - YYWebImage
-  - ZFPlayer (~> 3.0)
-  - ZJScrollPageView
+  - ZFPlayer (~> 4.0)
+  - ZFPlayer/AVPlayer (~> 4.0)
+  - ZFPlayer/ControlView (~> 4.0)
   - ZYCornerRadius (~> 1.0.2)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AFNetworking
     - BGFMDB
     - CocoaLumberjack
     - FCUUID
     - FDFullscreenPopGesture
     - FLAnimatedImage
+    - HXPhotoPicker
     - IQKeyboardManager
-    - JKCategories
+    - JJException
+    - JMButton
     - JXCategoryView
     - LazyScroll
     - LBXScan
-    - M13ProgressSuite
     - Masonry
     - MBProgressHUD
     - MJExtension
@@ -178,9 +149,7 @@ SPEC REPOS:
     - ReactiveObjC
     - SDCycleScrollView
     - SDWebImage
-    - SVProgressHUD
     - TMUtils
-    - TZImagePickerController
     - UICKeyChainStore
     - XHLaunchAd
     - YYAsyncLayer
@@ -189,48 +158,43 @@ SPEC REPOS:
     - YYImage
     - YYText
     - YYWebImage
-    - ZBarSDK
     - ZFPlayer
-    - ZJScrollPageView
     - ZYCornerRadius
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BGFMDB: 48e6823027232402a678acc7f71484b1fc9171d0
-  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
+  CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  IQKeyboardManager: 2ca9d64893247556f53523dcd8d78641f0ba7c23
-  JKCategories: d5fecfa4f790685ea20daea319f74a8701d4c3ab
-  JXCategoryView: 72560616347270d34c2e717cc08030e6218d7eda
+  HXPhotoPicker: feac2119e5b90cbd3d634ebae9fc9fa62be7bb74
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  JJException: da7c64ccf29d9938a4075378a7e9a29db7383c37
+  JMButton: 04a4e98d096f9f504df2908fade68699b822dd5e
+  JXCategoryView: 0293fcb356f10a5c2e679dac0a1a5f1899ee0c87
   LazyScroll: 23f4550711452ad4306a30fc75106a7a5556a882
-  LBXScan: e51449f0832d1fe17da632af0d22adeb3cfa3543
-  M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
-  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
-  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
-  MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
-  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  LBXScan: 90ca10d0c38fb4a5a6980d7782354f3f69f50093
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
-  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
-  SDWebImage: 6764b5fa0f73c203728052955dbefa2bf1f33282
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SDCycleScrollView: a0d74c3384caa72bdfc81470bdbc8c14b3e1fbcf
+  SDWebImage: 0b2ba0d56479bf6a45ecddbfd5558bea93150d25
   TMUtils: 8af8e4695b6e4086d0545ecd7cd025556515ab42
-  TZImagePickerController: 7850b158d025065b162a1a963d445040b828abc9
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
-  XHLaunchAd: 45048592af01aa501c9d2d0c45e95ca74c4d0596
+  XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
   YYAsyncLayer: df6b01ebc695c5f6b4c15dd5c23fa3e081eb25c0
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
-  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
-  ZFPlayer: 4260b232df83cc7d571ffaa81e9317b3a74eb57c
-  ZJScrollPageView: dd8778909cb2413782616ab156e873956f6b0682
+  ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: 98c08373c2171b1a7501440cf04ef4eaaa4f12bb
+PODFILE CHECKSUM: d0dfea64283e5c4dab768c69c1b38accf7f037e8
 
-COCOAPODS: 1.7.0
+COCOAPODS: 1.10.1

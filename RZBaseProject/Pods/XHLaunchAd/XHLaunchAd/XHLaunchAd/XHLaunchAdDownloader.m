@@ -8,8 +8,13 @@
 
 #import "XHLaunchAdDownloader.h"
 #import "XHLaunchAdCache.h"
-#import "FLAnimatedImage.h"
 #import "XHLaunchAdConst.h"
+
+#if __has_include(<FLAnimatedImage/FLAnimatedImage.h>)
+    #import <FLAnimatedImage/FLAnimatedImage.h>
+#else
+    #import "FLAnimatedImage.h"
+#endif
 
 #pragma mark - XHLaunchAdDownload
 
@@ -137,7 +142,9 @@ didFinishDownloadingToURL:(NSURL *)location {
 didFinishDownloadingToURL:(NSURL *)location {
     NSError *error=nil;
     NSURL *toURL = [NSURL fileURLWithPath:[XHLaunchAdCache videoPathWithURL:self.url]];
-    [[NSFileManager defaultManager] copyItemAtURL:location toURL:toURL error:&error];
+
+    [[NSFileManager defaultManager] copyItemAtURL:location toURL:toURL error:&error];//复制到缓存目录
+
     if(error)  XHLaunchAdLog(@"error = %@",error);
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.completedBlock) {
@@ -276,9 +283,7 @@ didFinishDownloadingToURL:(NSURL *)location {
         if(error){
             if(completedBlock) completedBlock(NO);
         }else{
-            [XHLaunchAdCache async_saveVideoAtLocation:location URL:url completed:^(BOOL result, NSURL * _Nonnull URL) {
-                if(completedBlock) completedBlock(result);
-            }];
+            if(completedBlock) completedBlock(YES);
         }
     }];
 }

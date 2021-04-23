@@ -9,8 +9,9 @@
 #import "AppDelegate.h"
 #import "RZTabBarVC.h"
 #import "SYSafeCategory.h"
+//#import <CCVodSDK/CCVodSDK.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()//<BJVRequestTokenDelegate>
 
 @end
 
@@ -19,6 +20,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // CC播放器
+    //设置全局AVAudioSession
+//    NSError *categoryError = nil;
+//    BOOL success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&categoryError];
+//    if (!success)
+//    {
+//        NSLog(@"Error setting audio session category: %@", categoryError);
+//    }
+//    NSError *activeError = nil;
+//    success = [[AVAudioSession sharedInstance] setActive:YES error:&activeError];
+//    if (!success)
+//    {
+//        NSLog(@"Error setting audio session active: %@", activeError);
+//    }
+    
+    //百家云
+//    [[BJVAppConfig sharedInstance] setPrivateDomainPrefix:BAIJIAYU_DOMAIN_NAME];
+//    [BJVideoPlayerCore setTokenDelegate:self];
+    
     [self setupRootViewController];
     
     [SYSafeCategory callSafeCategory];
@@ -26,49 +46,22 @@
     return YES;
 }
 
-- (void)asyncSerial {
-    // 串行队列异步执行
-    dispatch_async(dispatch_get_main_queue(), ^{
-        for (NSInteger i = 1; i < 10000; i++) {
-            sleep(1);
-            RZLog(@"串行队列异步执行：%@ -- %li", [NSThread currentThread], (long)i);
-        }
-    });
-}
-- (void)syncSerial {
-    // 串行队列同步执行
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        for (NSInteger i = 1; i < 10000; i++) {
-            sleep(1);
-            RZLog(@"串行队列同步执行：%@ -- %li", [NSThread currentThread], (long)i);
-        }
-    });
-}
-- (void)asyncConcurrent {
-    // 并发队列异步执行
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (NSInteger i = 0; i < 10000; i++) {
-            sleep(1);
-            RZLog(@"并发队列异步执行：%@ -- %li", [NSThread currentThread], (long)i);
-        }
-    });
-}
-- (void)syncConcurrent {
-    // 并发队列同步执行
-    dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        for (NSInteger i = 0; i < 10000; i++) {
-            sleep(1);
-            RZLog(@"并发队列同步执行：%@ -- %li", [NSThread currentThread], (long)i);
-        }
-    });
-}
-
+/// 设置主控制器
 - (void)setupRootViewController {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = RZ_White_Color;
     RZTabBarVC *tabVC = [[RZTabBarVC alloc] init];
     self.window.rootViewController = tabVC;
     [self.window makeKeyAndVisible];
+}
+
+/// 在这里写支持的旋转方向，为了防止横屏方向，应用启动时候界面变为横屏模式
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    // 可以这么写
+    if (self.allowOrentitaionRotation) {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 
@@ -100,6 +93,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+
+#pragma mark - 百家云 BJVRequestTokenDelegate
+
+//- (void)requestTokenWithVideoID:(NSString *)videoID
+//                     completion:(void (^)(NSString * _Nullable token, NSError * _Nullable error))completion {
+//}
+//- (void)requestTokenWithClassID:(NSString *)classID
+//                      sessionID:(nullable NSString *)sessionID
+//                     completion:(void (^)(NSString * _Nullable token, NSError * _Nullable error))completion {
+//
+//}
 
 
 @end

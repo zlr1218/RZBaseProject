@@ -64,7 +64,7 @@
     
     // lineView
     JXCategoryIndicatorLineView *lineView = [[JXCategoryIndicatorLineView alloc] init];
-    lineView.indicatorLineWidth = JXCategoryViewAutomaticDimension;
+    lineView.indicatorWidth = JXCategoryViewAutomaticDimension;
     titleView.indicators = @[lineView];
     
     _count = self.titles.count;

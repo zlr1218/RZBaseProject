@@ -19,11 +19,11 @@
 
 /** 全局文件的头文件 */
 #import "RZListPickerView.h"
-#import "SVProgressHUD.h"
 #import "Masonry.h"
 #import <MJExtension/MJExtension.h>
 #import "RZNetManager.h"
 #import "WSLWaterFlowLayout.h"
 #import <BGFMDB.h>
+//#import <BJVideoPlayerCore/BJVAppConfig.h>
 
 #endif /* RZBaseProject_pch */

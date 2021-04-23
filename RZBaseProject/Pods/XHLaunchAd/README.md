@@ -1,5 +1,7 @@
 ![](Logo/header.png)
 
+### Github下载不了/下载慢 可以访问国内下载地址: [https://gitee.com/CoderZhuXH/XHLaunchAd](https://gitee.com/CoderZhuXH/XHLaunchAd)
+
 ### 开屏广告、启动广告解决方案-支持静态/动态图片广告/mp4视频广告
 
 [![AppVeyor](https://img.shields.io/appveyor/ci/gruntjs/grunt.svg?maxAge=2592000)](https://github.com/CoderZhuXH/XHLaunchAd)
@@ -29,8 +31,31 @@
 ![](Logo/qqgroup.png)
 
 
+###  常见问题
+####    1.为什么设置了本地图片广告,却提示找不到图片资源?
+*   请将本地广告图片,直接放在工程目录,不要放在Assets里面,XHLaunchAd不是通过imageName:读取图片,而是是通过[NSBundle mainBundle] path....的方式读取本地图片的(此处涉及到内存优化)
+
+####    2.为什么我启动的时候会先进入根控制器后,再显示广告页面?
+*   请确认下,你在请求广告数据之前,是否有调用`[XHLaunchAd setWaitDataDuration:2];`方法设置数据等待时间
+
+####    3.为什么有时候启动广告倒计时出现跳秒现象或者出现卡顿现象?
+*   此问题是你APP启动时主线程阻塞造成的.
+*   XHLaunchAd采用GCD定时器,倒计时不受主线程阻塞影响,但更新秒数/UI是在主线程中进行的.主线程阻塞影响UI更新.
+*   请检查你程序启动时,有没有掉用同步方法或同步请求,(例如:环信SDK同步登录等).
+*   建议打开手机-设置-开发者-弱网环境 进行调试比较容易找到阻塞原因.
+
+####    4.为什么设置了缓存策略,关闭网络后,开屏广告却不显示?
+*   XHLaunchAd 图片广告设置configuration.imageOption为XHLaunchAdImageDefault 或者XHLaunchAdImageRefreshCached 或者XHLaunchAdImageCacheInBackground后,都会缓存广告image,视频广告会默认缓存视频文件,断网后广告数据请求会失败,你需要在广告数据请求失败的回调里初始化XHLaunchAd,没有初始化XHLaunchAd,开屏广告是不会显示的.
+[XHLaunchAd cacheImageURLString]和 [XHLaunchAd cacheVideoURLString]可以获取上一次广告显示时的ImageURLString和videoUrlString.
+
+####    5.如何用一张广告图,适配所有机型?
+*   图片广告:设置imageAdconfiguration.contentMode = UIViewContentModeScaleAspectFill; 视频广告:设置videoAdconfiguration.videoGravity = AVLayerVideoGravityResizeAspectFill;.
+*   广告图片/视频内容到四周保留适当安全距离,多余的会裁剪掉,例如:用8P尺寸1242*2208的广告图,在iphonex,iphonexr,iphonexs,iphonexs max上显示时,左右两侧会多出一部分,多出的的部分会裁剪掉,这一区域不要放广告内容.
+
+
 ### 更新记录:  
 
+*   2020.01.09 -- v3.9.10 -->1.广告点击事件代理支持返回bool值决定是否移除广告(- (BOOL)xhLaunchAd:(XHLaunchAd *)launchAd clickAtOpenModel:(id)openModel clickPoint:(CGPoint)clickPoint) 2.LaunchScreen.storyboard safeAreaInsets问题修复 3.其他bug fix
 *   2018.01.31 -- v3.9.6 -->1.添加视频广告静音属性(muted),2.显示视频广告时暂停其它APP音频播放显示完恢复,3.增加视频播放失败通知
 *   2018.01.11 -- v3.9.5 -->1.修复videoGravity修饰符错误bug...
 *   2017.12.29 -- v3.9.4 -->1.替换视频播放控制器为AVPlayerViewController 2.解决/优化在线程阻塞的情况下视频播放加载慢的问题 3.注意:此次更新后XHLaunchAd支持iOS8及以上版本,不在支持iOS7...
@@ -140,10 +165,10 @@
     [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
 
 	//1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
-    //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
+    //2.设为2即表示:启动页将停留2s等待服务器返回广告数据,2s内等到广告数据,将正常显示广告,否则将不显示
     //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
     //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:3];
+    [XHLaunchAd setWaitDataDuration:2];
     
     //广告数据请求
     [Network getLaunchAdImageDataSuccess:^(NSDictionary * response) {
@@ -174,10 +199,10 @@
     [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
 
  	//1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
-    //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
+    //2.设为2即表示:启动页将停留2s等待服务器返回广告数据,2s内等到广告数据,将正常显示广告,否则将不显示
     //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
     //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:3];
+    [XHLaunchAd setWaitDataDuration:2];
     
     //广告数据请求
     [Network getLaunchAdImageDataSuccess:^(NSDictionary * response) {
@@ -289,10 +314,10 @@
     [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
 
     //1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
-    //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
+    //2.设为2即表示:启动页将停留2s等待服务器返回广告数据,2s内等到广告数据,将正常显示广告,否则将不显示
     //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
     //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:3];
+    [XHLaunchAd setWaitDataDuration:2];
     
     //广告数据请求
     [Network getLaunchAdVideoDataSuccess:^(NSDictionary * response) {
@@ -323,10 +348,10 @@
     [XHLaunchAd setLaunchSourceType:SourceTypeLaunchImage];
 
  	//1.因为数据请求是异步的,请在数据请求前,调用下面方法配置数据等待时间.
-    //2.设为3即表示:启动页将停留3s等待服务器返回广告数据,3s内等到广告数据,将正常显示广告,否则将不显示
+    //2.设为2即表示:启动页将停留2s等待服务器返回广告数据,2s内等到广告数据,将正常显示广告,否则将不显示
     //3.数据获取成功,配置广告数据后,自动结束等待,显示广告
     //注意:请求广告数据前,必须设置此属性,否则会先进入window的的根控制器
-    [XHLaunchAd setWaitDataDuration:3];
+    [XHLaunchAd setWaitDataDuration:2];
     
     //广告数据请求
     [Network getLaunchAdVideoDataSuccess:^(NSDictionary * response) {
@@ -419,26 +444,26 @@ typedef NS_ENUM(NSInteger,SkipType) {
 ### 2.点击事件
 ```objc
 /**
-广告点击事件代理方法
-*/
--(void)xhLaunchAd:(XHLaunchAd *)launchAd clickAndOpenModel:(id)openModel clickPoint:(CGPoint)clickPoint{
-
+ 广告点击事件回调(return YES移除广告,NO不移除广告)
+ */
+-(BOOL)xhLaunchAd:(XHLaunchAd *)launchAd clickAtOpenModel:(id)openModel clickPoint:(CGPoint)clickPoint{
+    
     NSLog(@"广告点击事件");
-
-    /** openModel即配置广告数据设置的点击广告时打开页面参数(configuration.openModel) */
-     
-    if(openModel==nil) return;
-
+    
+    //openModel即配置广告数据设置的点击广告时打开页面参数(configuration.openModel)
+    
+    if(openModel == nil) return NO;
+    
+    WebViewController *VC = [[WebViewController alloc] init];
     NSString *urlString = (NSString *)openModel;
-
-    //此处跳转页面
-    //WebViewController *VC = [[WebViewController alloc] init];
-    //VC.URLString = urlString;
-    ////此处不要直接取keyWindow
-    //UIViewController* rootVC = [[UIApplication sharedApplication].delegate window].rootViewController;
-    //[rootVC.myNavigationController pushViewController:VC animated:YES];
-
+    VC.URLString = urlString;
+    //此处不要直接取keyWindow
+    UIViewController* rootVC = [[UIApplication sharedApplication].delegate window].rootViewController;
+    [rootVC.myNavigationController pushViewController:VC animated:YES];
+    
+    return YES;//YES移除广告,NO不移除广告
 }
+
 
 ```
 ### 3.自定义跳过按钮
@@ -645,20 +670,6 @@ configuration.customSkipView = [self customSkipView];
 
 ```
 
-##  常见问题
-####    1.为什么设置了本地图片广告,却提示找不到图片资源?
-*   请将本地广告图片,直接放在工程目录,不要放在Assets里面,XHLaunchAd不是通过imageName:读取图片,而是是通过[NSBundle mainBundle] path....的方式读取本地图片的(此处涉及到内存优化)
-
-####    2.为什么我启动的时候会先进入根控制器后,再显示广告页面?
-*   请确认下,你在请求广告数据之前,是否有调用`[XHLaunchAd setWaitDataDuration:3];`方法设置数据等待时间
-
-####    3.为什么有时候启动广告倒计时出现跳秒现象或者出现卡顿现象?
-*   此问题是你APP启动时主线程阻塞造成的.
-*   XHLaunchAd采用GCD定时器,倒计时不受主线程阻塞影响,但更新秒数/UI是在主线程中进行的.主线程阻塞影响UI更新.
-*   请检查你程序启动时,有没有掉用同步方法或同步请求,(例如:环信SDK同步登录等).
-*   建议打开手机-设置-开发者-弱网环境 进行调试比较容易找到阻塞原因.
-
-
 
 ##  依赖
 ####    1.本库依赖于:FLAnimatedImage
@@ -674,7 +685,7 @@ configuration.customSkipView = [self customSkipView];
 *   3.导入 XHLaunchAd.h
 
 ###	3.Tips
-*   1.如果发现pod search XHLaunchAd 搜索出来的不是最新版本，需要在终端执行cd ~/desktop退回到desktop，然后执行pod setup命令更新本地spec缓存（需要几分钟），然后再搜索就可以了
+*   1.如果发现pod search XHLaunchAd 搜索出来的不是最新版本，需要在终端执行pod repo update命令更新本地spec缓存（需要几分钟），然后再搜索就可以了
 *   2.如果你发现你执行pod install后,导入的不是最新版本,请删除Podfile.lock文件,在执行一次 pod install
 *   3.如果在使用过程中遇到BUG，希望你能Issues我，谢谢（或者尝试下载最新的代码看看BUG修复没有）
 

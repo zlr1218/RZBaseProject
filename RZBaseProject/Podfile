@@ -2,11 +2,15 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
-platform :ios, '8.0'
+#source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://git.baijiashilian.com/open-ios/specs.git'
+
+platform :ios, '9.0'
 target 'RZBaseProject' do
 
 # 网络请求
-pod 'AFNetworking', '~> 3.0'
+pod 'AFNetworking'
+#pod 'AFNetworking', :subspecs => ['Serialization', 'Security', 'NSURLSession', 'Reachability']
 
 # 网络监控
 pod 'Reachability'
@@ -17,13 +21,10 @@ pod 'MJExtension'
 pod 'MJRefresh'
 
 # 图片加载
-pod 'SDWebImage', '~> 5.0'
-
-# 进度
-pod 'M13ProgressSuite'
+pod 'SDWebImage'
 
 #用于适配
-pod 'Masonry', '~> 0.6.4'
+pod 'Masonry'
 
 # YYKit
 #pod 'YYKit'
@@ -39,17 +40,15 @@ pod 'BGFMDB', '~> 2.0.9'
 
 # 蒙版
 pod 'MBProgressHUD'
-pod 'SVProgressHUD'
 
 # 键盘管理
 pod 'IQKeyboardManager'
 
 # 无限轮播
-pod 'SDCycleScrollView','>= 1.80'
+pod 'SDCycleScrollView','>= 1.82'
 
 # 切换滚动视图
 pod 'JXCategoryView'
-pod 'ZJScrollPageView'
 
 # 唯一设备标识
 pod 'FCUUID'
@@ -63,24 +62,11 @@ pod 'ReactiveObjC', '~> 3.0.0'
 # 圆角
 pod 'ZYCornerRadius', '~> 1.0.2'
 
-
-# 照片
-pod 'TZImagePickerController'
-
-
-# 分类https://github.com/shaojiankui/JKCategories
-#pod 'JKCategories'
-pod 'JKCategories/Foundation'
-#pod 'JKCategories/Foundation/NSDictionary'
-#pod 'JKCategories/Foundation/NSArray'
-#pod 'JKCategories/Foundation/NSString'
-#pod 'JKCategories/Foundation/NSNumber'
-#pod 'JKCategories/UIKit/UIView'
-#pod 'JKCategories/UIKit/UIWindow'
-
-
-# 列表视频
-pod 'ZFPlayer', '~> 3.0'
+# 播放器框架
+pod 'ZFPlayer', '~> 4.0'
+pod 'ZFPlayer/ControlView', '~> 4.0'
+pod 'ZFPlayer/AVPlayer', '~> 4.0'
+#pod 'ZFPlayer/ijkplayer', '~> 4.0'
 
 # 日志框架
 pod 'CocoaLumberjack'
@@ -93,6 +79,21 @@ pod 'LBXScan', '~> 2.3'
 
 # 广告页
 pod 'XHLaunchAd'
+
+# 不使用网络图片功能
+pod 'HXPhotoPicker', '~> 3.1.7'
+
+# 防崩溃框架
+pod 'JJException'
+
+# 封装Btn
+pod 'JMButton', '~> 0.5'
+
+# CC播放器
+#pod 'CCVodSDK'
+
+# 百家云播放器
+#pod 'BaijiaYun/BJVideoPlayerCore', '~>2.11.0'
 
 end
 

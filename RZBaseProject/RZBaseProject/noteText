@@ -1,4 +1,116 @@
 
+0.197326
+4.324608
+
+
+
+NSError codes in the Cocoa error domain.
+
+enum {
+NSFileNoSuchFileError = 4,  // 文件不存在
+NSFileLockingError = 255,  // 未能得到一个锁文件
+NSFileReadUnknownError = 256,   // 读取错误,原因不明
+NSFileReadNoPermissionError = 257, // 读取错误是因为权限问题
+NSFileReadInvalidFileNameError = 258, // 读取错误,因为一个无效的文件名
+NSFileReadCorruptFileError = 259,  // 读取错误,因为一个损坏的文件,错误的格式,或类似的原因
+NSFileReadNoSuchFileError = 260,  // 读取错误,因为没有这样的文件
+NSFileReadInapplicableStringEncodingError = 261,  // 读取错误,因为字符串编码并不适用。
+NSFileReadUnsupportedSchemeError = 262,  // 读取错误,因为指定的URL方案是不支持的
+NSFileReadTooLargeError = 263, //  指定读取错误,因为文件太大。
+NSFileReadUnknownStringEncodingError = 264, // 文件读取错误,因为字符串编码无法确定
+NSFileWriteUnknownError = 512,  // 写错误,原因不明
+NSFileWriteNoPermissionError = 513,  // 写错误,因为权限问题
+NSFileWriteInvalidFileNameError = 514,  // 写错误,因为一个无效的文件名
+NSFileWriteInapplicableStringEncodingError = 517,  // 写错误,因为字符串编码并不适用。
+NSFileWriteUnsupportedSchemeError = 518,  // 写错误,因为指定的URL方案是不支持的
+NSFileWriteOutOfSpaceError = 640,  // 写错误,因为缺少磁盘空间
+NSFileWriteVolumeReadOnlyError = 642 // 写错误,因为体积是只读的。
+NSKeyValueValidationError = 1024,  // 键值编码验证错误
+NSFormattingError = 2048,  // 格式错误(显示相关数据)
+NSUserCancelledError = 3072, // 用户取消了操作(例如,按下Command-period)。这段代码是错误不需要一个对话框显示为代价和可能的候选人。
+
+NSFileErrorMinimum = 0, // 标志着开始的一系列错误代码保留文件错误
+NSFileErrorMaximum = 1023, // 标志着结束的一系列错误代码保留文件错误
+NSValidationErrorMinimum = 1024,  // 标志着开始的一系列错误代码用于验证错误。
+NSValidationErrorMaximum = 2047,  // 标志的开始和结束的范围错误代码用于验证错误。
+NSFormattingErrorMinimum = 2048, // 标志着开始的一系列错误代码用于格式化错误。
+NSFormattingErrorMaximum = 2559,  // 标志着结束的范围错误代码用于格式化错误。
+
+NSPropertyListReadCorruptError = 3840,  // 错误的出处,同时解析属性列表。
+NSPropertyListReadUnknownVersionError = 3841,  // 版本号的属性列表无法确定。
+NSPropertyListReadStreamError = 3842,  // 一个流错误阅读时遇到的属性列表。
+NSPropertyListWriteStreamError = 3851,  // 一个流的错误在写作时所遇到的属性列表。
+NSPropertyListErrorMinimum = 3840,  // 标志着开始的一系列错误代码留给属性列表错误。
+NSPropertyListErrorMaximum = 4095,  // 标志着结束的范围错误代码留给属性列表错误。
+
+NSExecutableErrorMinimum = 3584,  // 标志着开始的一系列错误代码保留错误相关的可执行文件。
+NSExecutableNotLoadableError = 3584,  // 可执行的类型不是可加载在当前过程。
+NSExecutableArchitectureMismatchError = 3585,  // 可执行文件没有提供一个架构兼容当前进程。
+NSExecutableRuntimeMismatchError = 3586,  // 可执行目标C运行时信息不符合当前进程。
+NSExecutableLoadError = 3587,  // 无法加载，因为一些其他的原因
+NSExecutableLinkError = 3588,  // 可执行的失败由于连接问题。
+
+NSExecutableErrorMaximum = 3839, // 标志着结束的范围错误代码保留错误相关的可执行文件。
+
+}
+URL Loading System Error Codes
+
+These values are returned as the error code property of an NSError object with the domain “NSURLErrorDomain”.
+
+typedef enum
+{
+NSURLErrorUnknown = -1,   // "无效的URL地址"
+NSURLErrorCancelled = -999,  // "无效的URL地址"
+NSURLErrorBadURL = -1000,  // "无效的URL地址"
+NSURLErrorTimedOut = -1001,  // "网络不给力，请稍后再试"
+NSURLErrorUnsupportedURL = -1002,  // "不支持的URL地址"
+NSURLErrorCannotFindHost = -1003,  // "找不到服务器"
+NSURLErrorCannotConnectToHost = -1004,  // "连接不上服务器"
+NSURLErrorDataLengthExceedsMaximum = -1103,  // "请求数据长度超出最大限度"
+NSURLErrorNetworkConnectionLost = -1005,  // "网络连接异常"
+NSURLErrorDNSLookupFailed = -1006,  // "DNS查询失败"
+NSURLErrorHTTPTooManyRedirects = -1007,  // "HTTP请求重定向"
+NSURLErrorResourceUnavailable = -1008,  // "资源不可用"
+NSURLErrorNotConnectedToInternet = -1009,  // "无网络连接"
+NSURLErrorRedirectToNonExistentLocation = -1010,  // "重定向到不存在的位置"
+NSURLErrorBadServerResponse = -1011,  // "服务器响应异常"
+NSURLErrorUserCancelledAuthentication = -1012,  // "用户取消授权"
+NSURLErrorUserAuthenticationRequired = -1013,  // "需要用户授权"
+NSURLErrorZeroByteResource = -1014,  // "零字节资源"
+NSURLErrorCannotDecodeRawData = -1015,  // "无法解码原始数据"
+NSURLErrorCannotDecodeContentData = -1016,  // "无法解码内容数据"
+NSURLErrorCannotParseResponse = -1017,  // "无法解析响应"
+NSURLErrorInternationalRoamingOff = -1018, // "国际漫游关闭"
+NSURLErrorCallIsActive = -1019, // "被叫激活"
+NSURLErrorDataNotAllowed = -1020, // "数据不被允许"
+NSURLErrorRequestBodyStreamExhausted = -1021, // "请求体"
+NSURLErrorFileDoesNotExist = -1100,  // "文件不存在"
+NSURLErrorFileIsDirectory = -1101,  // "文件是个目录"
+NSURLErrorNoPermissionsToReadFile = -1102,  // "无读取文件权限"
+NSURLErrorSecureConnectionFailed = -1200,  // "安全连接失败"
+NSURLErrorServerCertificateHasBadDate = -1201,  // "服务器证书失效"
+NSURLErrorServerCertificateUntrusted = -1202, // "不被信任的服务器证书"
+NSURLErrorServerCertificateHasUnknownRoot = -1203,  // "未知Root的服务器证书"
+NSURLErrorServerCertificateNotYetValid = -1204,  // "服务器证书未生效"
+NSURLErrorClientCertificateRejected = -1205,  // "客户端证书被拒"
+NSURLErrorClientCertificateRequired = -1206,  // "需要客户端证书"
+NSURLErrorCannotLoadFromNetwork = -2000,  // "无法从网络获取"
+NSURLErrorCannotCreateFile = -3000,  // "无法创建文件"
+NSURLErrorCannotOpenFile = -3001,  // "无法打开文件"
+NSURLErrorCannotCloseFile = -3002,  // "无法关闭文件"
+NSURLErrorCannotWriteToFile = -3003,  // "无法写入文件"
+NSURLErrorCannotRemoveFile = -3004, // "无法删除文件"
+NSURLErrorCannotMoveFile = -3005,  // "无法移动文件"
+NSURLErrorDownloadDecodingFailedMidStream = -3006,  // "下载解码数据失败"
+NSURLErrorDownloadDecodingFailedToComplete = -3007  // "下载解码数据失败"
+}
+
+
+// dispatchTimer
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<#n#> * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+<#coding#>
+});
+
 // method
 - (<#type#>)<#name#> {
 <#code#>
@@ -7,7 +119,7 @@
 // pa ps pc
 @property (nonatomic, assign) <#type#> <#name#>;    /**< <#note#> */
 @property (nonatomic, strong) <#type#> *<#name#>;    /**< <#note#> */
-@property (nonatomic, copy) <#type#> *<#name#>;    /**< <#note#> */
+@property (nonatomic, assign) <#type#> <#name#>;    /**< <#note#> */
 
 // tableview创建
 
@@ -326,3 +438,415 @@ return Tcell;
 cell.selectionStyle = UITableViewCellSelectionStyleNone;
 return cell;
 */
+
+
+
+
+// 我的培训列表 单条数据
+{
+    planId = 31;
+    evaluationStatus = 0;
+    way = 2;
+    updaterId = 55850;
+    orgId = <null>;
+    personNum = <null>;
+    classHour = <null>;
+    classCategoryName = <null>;
+    updateTime = 2021-01-21 13:56:49;
+    creatorId = 55850;
+    classSubject = <null>;
+    pictureUrl = <null>;
+    endTime = 2021-01-23 23:59:59;
+    appKey = <null>;
+    ruleId = 2;
+    classStatus = 3;
+    classCategory = 5;
+    classType = <null>;
+    id = 156;
+    briefIntroduction = 12474114848943213512431354165;
+    isPass = 1;
+    className = 瑞仔培训01;
+    trainingUnit = 中安华邦;
+    principalId = 55877;
+    trainingObject = ;
+    trainingAddress = ;
+    principalName = 10;
+    startTime = 2021-01-21 00:00:00;
+    createTime = 2021-01-21 13:56:49;
+    creatorName = 路飞;
+    attendance = 50;
+}
+
+
+
+
+
+
+
+
+
+/*
+#pragma mark -
+#pragma mark - tableViewDelegate/tableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.listDatas.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    QAHomeCarouselModel *model = self.listDatas[indexPath.row];
+
+    return [self getCellStyleHeigt:[model.functionType integerValue] withArray:model.infos];
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    QAHomeCarouselModel *model = self.listDatas[indexPath.row];
+    return [self chooseCellStyle:[model.functionType integerValue] withTableView:tableView withIndex:indexPath.row];
+}
+
+
+#pragma mark - Other
+- (QABaseTableViewCell *)chooseCellStyle:(NSInteger )style withTableView:(UITableView *)tableView withIndex:(NSInteger )index
+{
+    WeakSelf(self);
+    QAHomeCarouselModel *model = self.listDatas[index];
+    switch (style) {
+        case QAHomeCellCarousel:
+        {
+            QACarouselTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QACarouselTableViewCell)];
+            if (!cell) {
+                cell = [[QACarouselTableViewCell alloc] initWithReuseIdentifier:ZAIdentifiers(QACarouselTableViewCell) accessType:0];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.carouselView.delegate = self;
+            cell.carouselView.imageArray = [self setCarouselIconArray];
+
+            return cell;
+        }
+            break;
+            
+            case QAHomeCellTransform:
+        {
+            QAHomeMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QAHomeMenuCell)];
+            if (!cell) {
+                cell = [[QAHomeMenuCell alloc]initWithReuseIdentifier:ZAIdentifiers(QAHomeMenuCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.menuArray = [self setMenuData:model.infos];
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself menuBlockEventWithModel:data];
+            };
+            return cell;
+        }
+            break;
+            
+            case QAHomeCellMessage:
+        {
+            QAHomeMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QAHomeMessageCell)];
+            if (!cell) {
+                cell = [[QAHomeMessageCell alloc]initWithReuseIdentifier:ZAIdentifiers(QAHomeMessageCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.model = [QAHomeCarouselDetailsModel new];
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself messageClick];
+            };
+            return cell;
+        }
+            break;
+ 
+            case QAHomeCellRecomment_course:
+        {
+            QACourseCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QACourseCell)];
+            if (!cell) {
+                cell = [[QACourseCell alloc]initWithReuseIdentifier:ZAIdentifiers(QACourseCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself courseBlock:data];
+            };
+            cell.bottomLine.hidden = YES;
+            cell.model = model;
+            [cell updateVoideUIWithIs:NO];
+            return cell;
+            
+//            QAHomeVideoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QAHomeVideoCell"];
+//            if (!cell) {
+//                cell = [[NSBundle mainBundle] loadNibNamed:@"QAHomeVideoCell" owner:self options:nil].lastObject;
+//            }
+//
+//            NSInteger idx = index%2 + index;
+//            QAHomeCarouselDetailsModel *modelLeft = model.infos[idx];
+//            cell.dataL = @{@"name": modelLeft.title,
+//                           @"icon": modelLeft.icon,
+//                           @"desc": modelLeft.subTitle};
+//            if (idx+1 < model.infos.count) {
+//                QAHomeCarouselDetailsModel *modelRight = model.infos[idx+1];
+//                cell.dataL = @{@"name": modelRight.title,
+//                               @"icon": modelRight.icon,
+//                               @"desc": modelRight.subTitle};
+//            }
+//
+//
+//            return cell;
+        }
+            break;
+            
+            case QAHomeCellNews:
+        {
+            QAHomeNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QAHomeNewsCell)];
+            if (!cell) {
+                cell = [[QAHomeNewsCell alloc]initWithReuseIdentifier:ZAIdentifiers(QAHomeNewsCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.model = model;
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself newsClick:data];
+            };
+            return cell;
+        }
+            break;
+            
+
+            case QAHomeCellVideo:
+        {
+            QACourseCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QACourseCell)];
+            if (!cell) {
+                cell = [[QACourseCell alloc]initWithReuseIdentifier:ZAIdentifiers(QACourseCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.model = model;
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself voideClick:data];
+            };
+            [cell updateVoideUIWithIs:YES];
+            return cell;
+        }
+            break;
+            
+            case QAHomeCellTeacher:
+        {
+            QATeacherCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QATeacherCell)];
+            if (!cell) {
+                cell = [[QATeacherCell alloc]initWithReuseIdentifier:ZAIdentifiers(QATeacherCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.model = model;
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself teacherClick:data];
+            };
+            return cell;
+        }
+            break;
+            
+            case QAHomeCellRadio:
+        {
+            QAHomeRadioCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QAHomeRadioCell)];
+            if (!cell) {
+                cell = [[QAHomeRadioCell alloc]initWithReuseIdentifier:ZAIdentifiers(QAHomeRadioCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.model = model;
+            cell.baseCellClickBlock = ^(id  _Nonnull data) {
+                [weakself audioClick:data];
+            };
+            return cell;
+        }
+            break;
+            
+            case QAHomeCellStar:
+        {
+            QAHomeStarCell *cell = [tableView dequeueReusableCellWithIdentifier:ZAIdentifiers(QAHomeStarCell)];
+            if (!cell) {
+                cell = [[QAHomeStarCell alloc]initWithReuseIdentifier:ZAIdentifiers(QAHomeStarCell) accessType:QACellAccessoryTypeNone];
+            }
+            cell.bottomLine.hidden = YES;
+            cell.model = model;
+            return cell;
+        }
+            break;
+        default:
+            return [QABaseTableViewCell new];
+            break;
+    }
+    
+}
+
+
+- (NSInteger )getCellStyleHeigt:(NSInteger )type withArray:(NSArray *)list
+{
+    switch (type) {
+        case QAHomeCellCarousel:
+            return 190*screenRate;;
+            break;
+            
+            case QAHomeCellTransform:
+            return list.count > 5 ? 180*screenRate : 100*screenRate;
+            break;
+            
+            case QAHomeCellMessage:
+            return 40*screenRate;
+            break;
+            
+            case QAHomeCellRecomment_course:
+            return 430*screenRate;
+            break;
+
+            case QAHomeCellNews:
+            return 350*screenRate+50*screenRate;
+            break;
+            
+            case QAHomeCellVideo:
+            return 380*screenRate;
+            break;
+            
+            case QAHomeCellTeacher:
+            return 350*screenRate;
+            break;
+            
+            case QAHomeCellRadio:
+            return 290*screenRate;
+            break;
+ 
+            case QAHomeCellStar:
+            return 360*screenRate;
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
+
+
+// 读取本地JSON文件
+- (NSDictionary *)readLocalFileWithName:(NSString *)name {
+    // 获取文件路径
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
+    // 将文件数据化
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    // 对数据进行JSON格式化并返回字典形式
+    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+}
+*/
+
+
+
+
+
+    if (model.tasktype == 1) {// 在线课程
+        
+        if (model.handleStatus == 1) {
+            // 显示开始时间、按钮置灰，显示未开始
+        } else if (model.handleStatus == 2) {
+            // 显示截止时间、按钮取消置灰，显示去学习
+        } else if (model.handleStatus == 3) {
+            // 显示截止时间、按钮置灰，显示已过期
+        }
+        
+        if ([model.status isEqualToString:@"1"]) {
+            self.statusLab.text = @"未开始";
+        } else if ([model.status isEqualToString:@"2"]) {
+            self.statusLab.text = @"已完成";
+        } else if ([model.status isEqualToString:@"3"]) {
+            self.statusLab.text = @"进行中";
+        } else {
+            self.statusLab.text = @"已过期";
+        }
+    } else if (model.tasktype == 2 || model.tasktype == 3) {// 在线考试、在线练习
+        if (model.tasktype == 2) {
+            [self.taskTypeBtn setTitle:@"在线考试" forState:UIControlStateNormal];
+        } else {
+            [self.taskTypeBtn setTitle:@"在线练习" forState:UIControlStateNormal];
+        }
+        
+        if (model.handleStatus == 1) {
+            // 显示开始时间、按钮置灰，显示未开始
+        } else if (model.handleStatus == 2) {
+            // 显示截止时间、按钮取消置灰，显示去考试、去练习
+        } else if (model.handleStatus == 3) {
+            // 显示截止时间、按钮置灰，显示已过期
+        }
+        
+        if ([model.status isEqualToString:@"1"]) {
+            self.statusLab.text = [NSString stringWithFormat:@"未开始 0.00/%@", model.taskHours];
+        } else if ([model.status isEqualToString:@"2"]) {
+            self.statusLab.text = [NSString stringWithFormat:@"已完成 %@/%@", model.taskHours, model.taskHours];
+        } else if ([model.status isEqualToString:@"3"]) {
+            self.statusLab.text = [NSString stringWithFormat:@"已学 %@/%@", hourText, model.taskHours];
+        } else {
+            self.statusLab.text = [NSString stringWithFormat:@"已过期 0.00/%@", model.taskHours];
+        }
+    } else {
+        // 推荐课程
+        self.goBtn.userInteractionEnabled = NO;
+        self.goBtn.alpha = 0.4;
+    }
+    
+    
+    
+    
+    #pragma mark - 电话检测
+
+//- (void)initCallObserver {
+//    if (@available(iOS 10.0, *)) {
+//        self.callObserver = [CXCallObserver new];
+//        [self.callObserver setDelegate:self queue:dispatch_get_main_queue()];
+//    } else {
+//
+//    }
+//}
+
+//- (void)callObserver:(CXCallObserver *)callObserver callChanged:(CXCall *)call  API_AVAILABLE(ios(10.0)){
+//
+//    RZLog(@"outgoing :%d  onHold :%d   hasConnected :%d   hasEnded :%d",call.outgoing,call.onHold,call.hasConnected,call.hasEnded);
+//    NSInteger outgoing = call.outgoing;
+//    NSInteger onHold = call.onHold;
+//    NSInteger hasConnected = call.hasConnected;
+//    NSInteger hasEnded = call.hasEnded;
+//
+//    /*
+//     拨打:  outgoing :1  onHold :0   hasConnected :0   hasEnded :0
+//     拒绝:  outgoing :0  onHold :0   hasConnected :0   hasEnded :1
+//     链接:  outgoing :1  onHold :0   hasConnected :1   hasEnded :0
+//     挂断:  outgoing :1  onHold :0   hasConnected :0   hasEnded :1
+//     对方未接听时挂断：  outgoing :1  onHold :0   hasConnected :0   hasEnded :1
+//
+//     新来电话:    outgoing :0  onHold :0   hasConnected :0   hasEnded :0
+//     保留并接听:  outgoing :1  onHold :1   hasConnected :1   hasEnded :0
+//     另一个挂掉:  outgoing :0  onHold :0   hasConnected :1   hasEnded :0
+//     保持链接:    outgoing :1  onHold :0   hasConnected :1   hasEnded :1
+//     对方挂掉:    outgoing :0  onHold :0   hasConnected :1   hasEnded :1
+//    */
+//    BOOL isOutCall = NO;
+//
+//    if (outgoing == 0 && hasEnded && onHold==0 && hasConnected ==0) {
+//        RZLog(@"----拒绝");
+//        isOutCall = YES;
+//
+//    }else if (outgoing && onHold==0 && hasConnected == 0 && hasEnded){
+//        RZLog(@"----挂断");
+//        isOutCall = YES;
+//
+//    }else if (hasConnected && outgoing == 0 && onHold == 0 && hasEnded == 0){
+//        RZLog(@"----另一个挂掉");
+//        isOutCall = YES;
+//
+//    }else if (hasConnected && outgoing == 0 && onHold == 0 && hasEnded){
+//        RZLog(@"----对方挂掉 ");
+//        isOutCall = YES;
+//    }
+//
+//    if (isOutCall) {
+//        [self.playerContianerView play];
+//    } else {
+//        [self.playerContianerView pause];
+//    }
+//}
+
+- (void)dealloc {
+//    if (self.callObserver) {
+//        [self.callObserver setDelegate:nil queue:dispatch_get_main_queue()];
+//        self.callObserver = nil;
+//    }
+}
