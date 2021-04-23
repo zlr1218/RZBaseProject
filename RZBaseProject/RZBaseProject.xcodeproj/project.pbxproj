@@ -1210,6 +1210,7 @@
 				B31505A71DBDFC1A00CA4005 /* Frameworks */,
 				B31505A81DBDFC1A00CA4005 /* Resources */,
 				D4693F71E4CE8C46AD5C2EDB /* [CP] Copy Pods Resources */,
+				74FBC508EBCCFFB788E0924C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1379,6 +1380,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		74FBC508EBCCFFB788E0924C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-frameworks.sh",
+				"${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework",
+				"${PODS_ROOT}/HDBaseUtils/HDBaseUtils/HDBaseUtils.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCVodSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDBaseUtils.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D4693F71E4CE8C46AD5C2EDB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1386,6 +1407,8 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-RZBaseProject/Pods-RZBaseProject-resources.sh",
+				"${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework/DWResource.bundle",
+				"${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework/vrlibraw.bundle",
 				"${PODS_ROOT}/HXPhotoPicker/HXPhotoPicker/Resources/HXPhotoPicker.bundle",
 				"${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
@@ -1393,6 +1416,8 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DWResource.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/vrlibraw.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HXPhotoPicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CodeScan.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",

@@ -97,12 +97,16 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework/DWResource.bundle"
+  install_resource "${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework/vrlibraw.bundle"
   install_resource "${PODS_ROOT}/HXPhotoPicker/HXPhotoPicker/Resources/HXPhotoPicker.bundle"
   install_resource "${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/ZFPlayer/ZFPlayer/Classes/ControlView/ZFPlayer.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework/DWResource.bundle"
+  install_resource "${PODS_ROOT}/CCVodSDK/include/CCVodSDK.framework/vrlibraw.bundle"
   install_resource "${PODS_ROOT}/HXPhotoPicker/HXPhotoPicker/Resources/HXPhotoPicker.bundle"
   install_resource "${PODS_ROOT}/LBXScan/LBXScan/UI/CodeScan.bundle"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"

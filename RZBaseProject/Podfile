@@ -2,9 +2,6 @@
 # Uncomment this line if you're using Swift
 # use_frameworks!
 
-#source 'https://github.com/CocoaPods/Specs.git'
-#source 'https://git.baijiashilian.com/open-ios/specs.git'
-
 platform :ios, '9.0'
 target 'RZBaseProject' do
 
@@ -90,10 +87,7 @@ pod 'JJException'
 pod 'JMButton', '~> 0.5'
 
 # CC播放器
-#pod 'CCVodSDK'
-
-# 百家云播放器
-#pod 'BaijiaYun/BJVideoPlayerCore', '~>2.11.0'
+pod 'CCVodSDK'
 
 end
 

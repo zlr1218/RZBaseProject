@@ -20,6 +20,8 @@ PODS:
   - BGFMDB/BG (2.0.13):
     - BGFMDB/FMDB
   - BGFMDB/FMDB (2.0.13)
+  - CCVodSDK (4.14.3):
+    - HDBaseUtils
   - CocoaLumberjack (3.6.2):
     - CocoaLumberjack/Core (= 3.6.2)
   - CocoaLumberjack/Core (3.6.2)
@@ -27,6 +29,7 @@ PODS:
     - UICKeyChainStore (~> 2.1.0)
   - FDFullscreenPopGesture (1.1)
   - FLAnimatedImage (1.0.12)
+  - HDBaseUtils (1.0.10)
   - HXPhotoPicker (3.1.8):
     - HXPhotoPicker/Default (= 3.1.8)
   - HXPhotoPicker/Default (3.1.8)
@@ -97,6 +100,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BGFMDB (~> 2.0.9)
+  - CCVodSDK
   - CocoaLumberjack
   - FCUUID
   - FDFullscreenPopGesture
@@ -130,10 +134,12 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - BGFMDB
+    - CCVodSDK
     - CocoaLumberjack
     - FCUUID
     - FDFullscreenPopGesture
     - FLAnimatedImage
+    - HDBaseUtils
     - HXPhotoPicker
     - IQKeyboardManager
     - JJException
@@ -164,10 +170,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BGFMDB: 48e6823027232402a678acc7f71484b1fc9171d0
+  CCVodSDK: c6e3f570fc8dbd510f726a08fb0cd2ad47a25ee1
   CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  HDBaseUtils: 15f8a19c3b23d0e57eb5cfab1655f0daa659aaa6
   HXPhotoPicker: feac2119e5b90cbd3d634ebae9fc9fa62be7bb74
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JJException: da7c64ccf29d9938a4075378a7e9a29db7383c37
@@ -195,6 +203,6 @@ SPEC CHECKSUMS:
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: d0dfea64283e5c4dab768c69c1b38accf7f037e8
+PODFILE CHECKSUM: af5c0c1915b6cd17f919ee8cba763992827448bb
 
 COCOAPODS: 1.10.1
