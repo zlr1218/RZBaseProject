@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 #import "RZTabBarVC.h"
 #import "SYSafeCategory.h"
-//#import <CCVodSDK/CCVodSDK.h>
+#import <CCVodSDK/CCVodSDK.h>
 
-@interface AppDelegate ()//<BJVRequestTokenDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -20,24 +20,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    // CC播放器
-    //设置全局AVAudioSession
-//    NSError *categoryError = nil;
-//    BOOL success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&categoryError];
-//    if (!success)
-//    {
-//        NSLog(@"Error setting audio session category: %@", categoryError);
-//    }
-//    NSError *activeError = nil;
-//    success = [[AVAudioSession sharedInstance] setActive:YES error:&activeError];
-//    if (!success)
-//    {
-//        NSLog(@"Error setting audio session active: %@", activeError);
-//    }
-    
-    //百家云
-//    [[BJVAppConfig sharedInstance] setPrivateDomainPrefix:BAIJIAYU_DOMAIN_NAME];
-//    [BJVideoPlayerCore setTokenDelegate:self];
+    // CC播放器 设置全局AVAudioSession
+    NSError *categoryError = nil;
+    BOOL success = [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&categoryError];
+    if (!success)
+    {
+        NSLog(@"Error setting audio session category: %@", categoryError);
+    }
+    NSError *activeError = nil;
+    success = [[AVAudioSession sharedInstance] setActive:YES error:&activeError];
+    if (!success)
+    {
+        NSLog(@"Error setting audio session active: %@", activeError);
+    }
     
     [self setupRootViewController];
     
@@ -74,9 +69,6 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-//    [self asyncConcurrent];
-//    [self asyncSerial];
 }
 
 

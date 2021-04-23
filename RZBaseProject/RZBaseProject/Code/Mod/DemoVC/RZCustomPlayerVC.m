@@ -9,6 +9,7 @@
 #import "RZCustomPlayerVC.h"
 #import "AppDelegate.h"
 #import "RZPlayerController.h"
+#import "RZCCManager.h"
 
 @interface RZCustomPlayerVC ()
 
@@ -28,16 +29,16 @@
     [self.view addSubview:bGView];
     bGView.backgroundColor = UIColor.orangeColor;
     
-//    RZCCManager *manager = [[RZCCManager alloc] init];
-//    manager.videoID = @"9AC7AF58161F084A9C33DC5901307461";
+    RZCCManager *manager = [[RZCCManager alloc] init];
+    manager.videoID = @"9AC7AF58161F084A9C33DC5901307461";
     
 //    RZBJVideoManager *manager = [[RZBJVideoManager alloc] init];
 //    [manager playForVideoID:@"69108458" videoToken:@"jjZHDGdzTd83Gu_x5aiohdTCNVgrU7VdAFfHras0uGKVrB-BbaD73Sou22apgAA0"];
 //    manager.shouldAutoPlay = NO;
     
-//    self.player = [RZPlayerController playerWithPlayerManager:manager containerView:bGView];
-//    _player.title = @"中安云教育";
-//    _player.placeImage = [UIImage imageNamed:@"shebaobg"];
+    self.player = [RZPlayerController playerWithPlayerManager:manager containerView:bGView];
+    _player.title = @"中安云教育";
+    _player.placeImage = [UIImage imageNamed:@"shebaobg"];
 }
 
 

@@ -16,6 +16,8 @@
 /// iPhoneX  iPhoneXS  iPhoneXS Max  iPhoneXR 机型判断
 #define iPhoneX ( [UIScreen mainScreen].bounds.size.height > 811.0 )
 
+static NSString *const kSystemVolumeDidChange = @"AVSystemController_SystemVolumeDidChangeNotification";
+
 
 @interface RZHorizontalControlView ()<ZFSliderViewDelegate>
 /// 底部工具栏
@@ -53,20 +55,15 @@
 /// 快进快退ImageView
 @property (nonatomic, strong) UIImageView *fastImageView;
 
+
+/// 音量
+@property (nonatomic, assign) float volume;
 @property (nonatomic, strong) UISlider *volumeViewSlider;
 @property (nonatomic, strong) ZFVolumeBrightnessView *volumeBrightnessView;
-
-/// 0...1.0
-/// Only affects audio volume for the device instance and not for the player.
-/// You can change device volume or player volume as needed,change the player volume you can conform the `ZFPlayerMediaPlayback` protocol.
-@property (nonatomic) float volume;
-
-/// The device muted.
-/// Only affects audio muting for the device instance and not for the player.
-/// You can change device mute or player mute as needed,change the player mute you can conform the `ZFPlayerMediaPlayback` protocol.
+/// 是否静音
 @property (nonatomic, getter=isMuted) BOOL muted;
 
-// 0...1.0, where 1.0 is maximum brightness. Only supported by main screen.
+/// 亮度
 @property (nonatomic) float brightness;
 
 @end
@@ -74,7 +71,7 @@
 @implementation RZHorizontalControlView
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSystemVolumeDidChange object:nil];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -94,6 +91,8 @@
         [self.bottomToolView addSubview:self.currentTimeLabel];
         [self.bottomToolView addSubview:self.slider];
         [self.bottomToolView addSubview:self.totalTimeLabel];
+        
+        // 添加快进/快退的控件
         [self addSubview:self.fastView];
         [self.fastView addSubview:self.fastImageView];
         [self.fastView addSubview:self.fastTimeLabel];
@@ -103,10 +102,9 @@
         [self makeSubViewsAction];
         [self resetControlView];
         
+        // 获取系统音量
+        [self addSubview:self.volumeBrightnessView];
         [self configureVolume];
-        
-        // 状态栏 状态改变
-        //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(layoutControllerViews) name:UIApplicationDidChangeStatusBarFrameNotification object:nil];
     }
     return self;
 }
@@ -200,14 +198,39 @@
     min_w = self.fastView.zf_width - 2 * min_x;
     min_h = 10;
     self.fastProgressView.frame = CGRectMake(min_x, min_y, min_w, min_h);
+    
+    min_x = 0;
+    min_y = iPhoneX ? 54 : 30;
+    min_w = 170;
+    min_h = 35;
+    self.volumeBrightnessView.frame = CGRectMake(min_x, min_y, min_w, min_h);
+    self.volumeBrightnessView.zf_centerX = self.zf_centerX;
+    
+    self.controlViewAppeared = YES;
+    [self autoFadeOutControlView];
 }
 
+/// 子控件的响应事件
 - (void)makeSubViewsAction {
     [self.backBtn addTarget:self action:@selector(backBtnClickAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.playOrPauseBtn addTarget:self action:@selector(playPauseButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(volumeChanged:) name:kSystemVolumeDidChange object:nil];
 }
 
-#pragma mark - action
+/// 获取系统音量
+- (void)configureVolume {
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+    self.volumeViewSlider = nil;
+    for (UIView *view in [volumeView subviews]){
+        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+            self.volumeViewSlider = (UISlider *)view;
+            break;
+        }
+    }
+}
+
+#pragma mark - 子控件的响应事件
 
 - (void)backBtnClickAction:(UIButton *)sender {
     NSNumber *resetOrientationTarget = [NSNumber numberWithInteger:UIInterfaceOrientationUnknown];
@@ -235,10 +258,20 @@
 
 - (BOOL)shouldResponseGestureWithPoint:(CGPoint)point withGestureType:(ZFPlayerGestureType)type touch:(nonnull UITouch *)touch {
     CGRect sliderRect = [self.bottomToolView convertRect:self.slider.frame toView:self];
+    /// 手势对底部控制View不起作用
     if (CGRectContainsPoint(sliderRect, point)) {
         return NO;
     }
     return YES;
+}
+
+/// 单击手势事件
+- (void)gestureSingleTapped:(ZFPlayerGestureControl *)gestureControl {
+    if (self.controlViewAppeared) {
+        [self hideControlViewWithAnimated:YES];
+    } else {
+        [self showControlViewWithAnimated:YES];
+    }
 }
 
 /// 双击手势事件
@@ -269,13 +302,13 @@
         if (velocity.x == 0) return;
         [self sliderValueChangingValue:self.sumTime/totalMovieDuration isForward:style];
     } else if (direction == ZFPanDirectionV) {
-//        if (location == ZFPanLocationLeft) { /// 调节亮度
-//            self.brightness -= (velocity.y) / 10000;
-//            [self.volumeBrightnessView updateProgress:self.brightness withVolumeBrightnessType:ZFVolumeBrightnessTypeumeBrightness];
-//        } else if (location == ZFPanLocationRight) { /// 调节声音
-//            self.volume -= (velocity.y) / 10000;
-//            [self.volumeBrightnessView updateProgress:self.volume withVolumeBrightnessType:ZFVolumeBrightnessTypeVolume];
-//        }
+        if (location == ZFPanLocationLeft) { /// 调节亮度
+            self.brightness -= (velocity.y) / 10000;
+            [self.volumeBrightnessView updateProgress:self.brightness withVolumeBrightnessType:ZFVolumeBrightnessTypeumeBrightness];
+        } else if (location == ZFPanLocationRight) { /// 调节声音
+            self.volume -= (velocity.y) / 10000;
+            [self.volumeBrightnessView updateProgress:self.volume withVolumeBrightnessType:ZFVolumeBrightnessTypeVolume];
+        }
     }
 }
 
@@ -296,6 +329,12 @@
     }
 }
 
+- (void)setBrightness:(float)brightness {
+    brightness = MIN(MAX(0, brightness), 1);
+    objc_setAssociatedObject(self, @selector(brightness), @(brightness), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [UIScreen mainScreen].brightness = brightness;
+}
+
 /// 音量改变的通知
 - (void)volumeChanged:(NSNotification *)notification {
     NSDictionary *userInfo = notification.userInfo;
@@ -304,6 +343,46 @@
         float volume = [ userInfo[@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
         [self.volumeBrightnessView updateProgress:volume withVolumeBrightnessType:ZFVolumeBrightnessTypeVolume];
     }
+}
+
+- (void)setVolume:(float)volume {
+    volume = MIN(MAX(0, volume), 1);
+    objc_setAssociatedObject(self, @selector(volume), @(volume), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.volumeViewSlider.value = volume;
+}
+
+- (void)sliderValueChangingValue:(CGFloat)value isForward:(BOOL)forward {
+    self.fastProgressView.value = value;
+    self.fastView.hidden = NO;
+    self.fastView.alpha = 1;
+    if (forward) {
+        self.fastImageView.image = [UIImage imageNamed:@"ZFPlayer_fast_forward"];
+    } else {
+        self.fastImageView.image = [UIImage imageNamed:@"ZFPlayer_fast_backward"];
+    }
+    NSString *draggedTime = [self handleTime:self.player.totalTime*value];
+    NSString *totalTime = [self handleTime:self.player.totalTime];
+    self.fastTimeLabel.text = [NSString stringWithFormat:@"%@ / %@",draggedTime,totalTime];
+    /// 更新滑杆
+    [self sliderValueChanged:value currentTimeString:draggedTime];
+    [self sliderValueChanged:value currentTimeString:draggedTime];
+
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideFastView) object:nil];
+    [self performSelector:@selector(hideFastView) withObject:nil afterDelay:0.1];
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        self.fastView.transform = CGAffineTransformMakeTranslation(forward?8:-8, 0);
+    }];
+}
+
+/// 隐藏快进视图
+- (void)hideFastView {
+    [UIView animateWithDuration:0.4 animations:^{
+        self.fastView.transform = CGAffineTransformIdentity;
+        self.fastView.alpha = 0;
+    } completion:^(BOOL finished) {
+        self.fastView.hidden = YES;
+    }];
 }
 
 #pragma mark -- ZFSliderViewDelegate
@@ -360,24 +439,23 @@
 }
 
 - (void)showControlView {
-    self.topToolView.zf_y        = 0;
-    self.bottomToolView.zf_y     = self.zf_height - self.bottomToolView.zf_height;
-//    self.player.statusBarHidden      = NO;
-    self.topToolView.alpha       = 1;
-    self.bottomToolView.alpha    = 1;
+    self.topToolView.zf_y            = 0;
+    self.bottomToolView.zf_y         = self.zf_height - self.bottomToolView.zf_height;
+    self.controlViewAppeared         = YES;
+    self.topToolView.alpha           = 1;
+    self.bottomToolView.alpha        = 1;
 }
 
 - (void)hideControlView {
     self.topToolView.zf_y            = -self.topToolView.zf_height;
     self.bottomToolView.zf_y         = self.zf_height;
-//    self.player.statusBarHidden      = YES;
+    self.controlViewAppeared         = NO;
     self.topToolView.alpha           = 0;
     self.bottomToolView.alpha        = 0;
 }
 
 /// 隐藏控制层
 - (void)hideControlViewWithAnimated:(BOOL)animated {
-    self.controlViewAppeared = NO;
     [UIView animateWithDuration:animated ? 0.25 : 0 animations:^{
         [self hideControlView];
     } completion:^(BOOL finished) {
@@ -386,7 +464,6 @@
 
 /// 显示控制层
 - (void)showControlViewWithAnimated:(BOOL)animated {
-    self.controlViewAppeared = YES;
     [UIView animateWithDuration:animated ? 0.25 : 0 animations:^{
         [self showControlView];
     } completion:^(BOOL finished) {
@@ -433,43 +510,6 @@
 
 #pragma mark - 私有方法
 
-/// Get system volume
-- (void)configureVolume {
-    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-    self.volumeViewSlider = nil;
-    for (UIView *view in [volumeView subviews]){
-        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
-            self.volumeViewSlider = (UISlider *)view;
-            break;
-        }
-    }
-}
-
-- (float)lastVolumeValue {
-    return [objc_getAssociatedObject(self, _cmd) floatValue];
-}
-
-- (void)setVolume:(float)volume {
-    volume = MIN(MAX(0, volume), 1);
-    objc_setAssociatedObject(self, @selector(volume), @(volume), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    self.volumeViewSlider.value = volume;
-}
-
-- (void)setMuted:(BOOL)muted {
-    if (muted) {
-        if (self.volumeViewSlider.value > 0) {
-            self.lastVolumeValue = self.volumeViewSlider.value;
-        }
-        self.volumeViewSlider.value = 0;
-    } else {
-        self.volumeViewSlider.value = self.lastVolumeValue;
-    }
-}
-
-- (void)setLastVolumeValue:(float)lastVolumeValue {
-    objc_setAssociatedObject(self, @selector(lastVolumeValue), @(lastVolumeValue), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 - (NSString *)handleTime:(float)time {
     int intSeconds = (int)time;
     if (intSeconds >= 3600) {
@@ -484,41 +524,6 @@
         NSString *mmss = [NSString stringWithFormat:@"%02d:%02d", m, s];
         return mmss;
     }
-}
-
-- (void)sliderValueChangingValue:(CGFloat)value isForward:(BOOL)forward {
-    
-    self.fastProgressView.value = value;
-    self.fastView.hidden = NO;
-    self.fastView.alpha = 1;
-    if (forward) {
-        self.fastImageView.image = [UIImage imageNamed:@"ZFPlayer_fast_forward"];
-    } else {
-        self.fastImageView.image = [UIImage imageNamed:@"ZFPlayer_fast_backward"];
-    }
-    NSString *draggedTime = [self handleTime:self.player.totalTime*value];
-    NSString *totalTime = [self handleTime:self.player.totalTime];
-    self.fastTimeLabel.text = [NSString stringWithFormat:@"%@ / %@",draggedTime,totalTime];
-    /// 更新滑杆
-    [self sliderValueChanged:value currentTimeString:draggedTime];
-    [self sliderValueChanged:value currentTimeString:draggedTime];
-
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideFastView) object:nil];
-    [self performSelector:@selector(hideFastView) withObject:nil afterDelay:0.1];
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        self.fastView.transform = CGAffineTransformMakeTranslation(forward?8:-8, 0);
-    }];
-}
-
-/// 隐藏快进视图
-- (void)hideFastView {
-    [UIView animateWithDuration:0.4 animations:^{
-        self.fastView.transform = CGAffineTransformIdentity;
-        self.fastView.alpha = 0;
-    } completion:^(BOOL finished) {
-        self.fastView.hidden = YES;
-    }];
 }
 
 #pragma mark - 懒加载
@@ -605,6 +610,12 @@
         _gestureControl = [[ZFPlayerGestureControl alloc] init];
         //_gestureControl.disablePanMovingDirection = ZFPlayerDisablePanMovingDirectionAll;
         kWeakSelf(self)
+        _gestureControl.singleTapped = ^(ZFPlayerGestureControl * _Nonnull control) {
+            kStrongSelf(self)
+            if ([self respondsToSelector:@selector(gestureSingleTapped:)]) {
+                [self gestureSingleTapped:control];
+            }
+        };
         
         _gestureControl.doubleTapped = ^(ZFPlayerGestureControl * _Nonnull control) {
             kStrongSelf(self)
@@ -692,6 +703,10 @@
         volume = [[AVAudioSession sharedInstance] outputVolume];
     }
     return volume;
+}
+
+- (float)brightness {
+    return [UIScreen mainScreen].brightness;
 }
 
 @end

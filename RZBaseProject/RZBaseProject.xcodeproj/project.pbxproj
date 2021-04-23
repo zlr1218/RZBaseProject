@@ -33,6 +33,7 @@
 		0CDCF239262FFD1C00062800 /* RZPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF231262FFD1600062800 /* RZPlayerController.m */; };
 		0CDCF23A262FFD1C00062800 /* RZVerticalControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF234262FFD1A00062800 /* RZVerticalControlView.m */; };
 		0CDCF241262FFE4100062800 /* RZCustomPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF240262FFE4100062800 /* RZCustomPlayerVC.m */; };
+		0CDCF4172632981000062800 /* RZCCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CDCF4152632981000062800 /* RZCCManager.m */; };
 		1804EFEA25511E100066A1E5 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1804EFE925511E100066A1E5 /* libsqlite3.tbd */; };
 		1804EFEC25511E180066A1E5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1804EFEB25511E180066A1E5 /* libsqlite3.0.tbd */; };
 		1804EFEF255128810066A1E5 /* RZMan.m in Sources */ = {isa = PBXBuildFile; fileRef = 1804EFEE255128810066A1E5 /* RZMan.m */; };
@@ -244,6 +245,8 @@
 		0CDCF236262FFD1C00062800 /* RZVerticalControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZVerticalControlView.h; sourceTree = "<group>"; };
 		0CDCF23F262FFE4100062800 /* RZCustomPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZCustomPlayerVC.h; sourceTree = "<group>"; };
 		0CDCF240262FFE4100062800 /* RZCustomPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RZCustomPlayerVC.m; sourceTree = "<group>"; };
+		0CDCF4152632981000062800 /* RZCCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZCCManager.m; sourceTree = "<group>"; };
+		0CDCF4162632981000062800 /* RZCCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZCCManager.h; sourceTree = "<group>"; };
 		1804EFE925511E100066A1E5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		1804EFEB25511E180066A1E5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		1804EFED255128810066A1E5 /* RZMan.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZMan.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 				0CDCF18B262E9DF300062800 /* RZPeople.m */,
 				0CDCF23F262FFE4100062800 /* RZCustomPlayerVC.h */,
 				0CDCF240262FFE4100062800 /* RZCustomPlayerVC.m */,
+				0CDCF4162632981000062800 /* RZCCManager.h */,
+				0CDCF4152632981000062800 /* RZCCManager.m */,
 			);
 			path = DemoVC;
 			sourceTree = "<group>";
@@ -1459,6 +1464,7 @@
 				0CC972D425F85F7D00986D6E /* UIView+RZAnswerAlert.m in Sources */,
 				B31505B21DBDFC1A00CA4005 /* AppDelegate.m in Sources */,
 				4CA60111228BDCA0006A39D2 /* NSString+RZSize.m in Sources */,
+				0CDCF4172632981000062800 /* RZCCManager.m in Sources */,
 				2A562B831FD68843007C0DBA /* NSObject+RZDog.m in Sources */,
 				0C0E87BD25C19FBE006586F8 /* ZLCollectionViewBackgroundViewLayoutAttributes.m in Sources */,
 				0C0E87B725C19FBE006586F8 /* ZLCollectionBaseDecorationView.m in Sources */,
