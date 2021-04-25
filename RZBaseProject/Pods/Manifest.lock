@@ -20,6 +20,7 @@ PODS:
   - BGFMDB/BG (2.0.13):
     - BGFMDB/FMDB
   - BGFMDB/FMDB (2.0.13)
+  - Bugly (2.5.90)
   - CCVodSDK (4.14.3):
     - HDBaseUtils
   - CocoaLumberjack (3.6.2):
@@ -100,6 +101,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BGFMDB (~> 2.0.9)
+  - Bugly
   - CCVodSDK
   - CocoaLumberjack
   - FCUUID
@@ -134,6 +136,7 @@ SPEC REPOS:
   trunk:
     - AFNetworking
     - BGFMDB
+    - Bugly
     - CCVodSDK
     - CocoaLumberjack
     - FCUUID
@@ -170,6 +173,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   BGFMDB: 48e6823027232402a678acc7f71484b1fc9171d0
+  Bugly: 88bc32c0acc6fef7b74d610f0319ee7560d6b9fe
   CCVodSDK: c6e3f570fc8dbd510f726a08fb0cd2ad47a25ee1
   CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
   FCUUID: bb054fc90cd7cd99320f9f6ff8e130fe607fba05
@@ -203,6 +207,6 @@ SPEC CHECKSUMS:
   ZFPlayer: f88787c815f7b0801279c42f131a89e2823e669e
   ZYCornerRadius: f0af817be7805b5c63d793042ca7a03f81e14069
 
-PODFILE CHECKSUM: af5c0c1915b6cd17f919ee8cba763992827448bb
+PODFILE CHECKSUM: 5f3cead441541ceb59282c21d2646a75ca6d1560
 
 COCOAPODS: 1.10.1

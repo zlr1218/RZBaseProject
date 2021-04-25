@@ -82,6 +82,7 @@ pod 'HXPhotoPicker', '~> 3.1.7'
 
 # 防崩溃框架
 pod 'JJException'
+pod 'Bugly'
 
 # 封装Btn
 pod 'JMButton', '~> 0.5'

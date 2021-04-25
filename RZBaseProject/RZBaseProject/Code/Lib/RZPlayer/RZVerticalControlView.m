@@ -6,7 +6,6 @@
 //
 
 #import "RZVerticalControlView.h"
-#import "UIView+ZFFrame.h"
 
 
 @interface RZVerticalControlView ()<ZFSliderViewDelegate>

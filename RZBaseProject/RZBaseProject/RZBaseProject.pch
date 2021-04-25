@@ -25,5 +25,6 @@
 #import "WSLWaterFlowLayout.h"
 #import <BGFMDB.h>
 //#import <BJVideoPlayerCore/BJVAppConfig.h>
+#import <Bugly/Bugly.h>
 
 #endif /* RZBaseProject_pch */

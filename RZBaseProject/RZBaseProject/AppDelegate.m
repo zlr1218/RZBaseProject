@@ -10,8 +10,9 @@
 #import "RZTabBarVC.h"
 #import "SYSafeCategory.h"
 #import <CCVodSDK/CCVodSDK.h>
+#import <JJException/JJException.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<JJExceptionHandle>
 
 @end
 
@@ -19,6 +20,19 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [JJException configExceptionCategory:JJExceptionGuardAllExceptZombie];
+    [JJException startGuardException];
+    [JJException registerExceptionHandle:self];
+    // NO:当异常时，默认程序不会中断; YES:异常时退出
+    //JJException.exceptionWhenTerminate = YES;
+    
+    BuglyConfig * config = [[BuglyConfig alloc] init];
+    config.debugMode = YES;
+    // 设置自定义日志上报的级别，默认不上报自定义日志
+    config.reportLogLevel = BuglyLogLevelWarn;
+    [Bugly startWithAppId:@"7e513e756e" config:config];
+//    [Bugly startWithAppId:@"7e513e756e"];
+    
     
     // CC播放器 设置全局AVAudioSession
     NSError *categoryError = nil;
@@ -59,6 +73,10 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 
+- (void)handleCrashException:(NSString *)exceptionMessage extraInfo:(NSDictionary *)info {
+    NSException *exception = [NSException exceptionWithName:@"异常" reason:exceptionMessage userInfo:nil];
+    [Bugly reportException:exception];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

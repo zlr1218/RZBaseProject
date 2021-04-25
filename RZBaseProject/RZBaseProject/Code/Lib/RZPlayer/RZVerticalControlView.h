@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "ZFSliderView.h"
 #import "ZFPlayerGestureControl.h"
+#import "UIView+ZFFrame.h"
 #import "RZMacros.h"
 #import "RZPlayBackDelegate.h"
 
