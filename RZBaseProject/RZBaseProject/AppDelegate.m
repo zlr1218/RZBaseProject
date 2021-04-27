@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "RZTabBarVC.h"
-#import "SYSafeCategory.h"
 #import <CCVodSDK/CCVodSDK.h>
 #import <JJException/JJException.h>
 
@@ -27,11 +26,11 @@
     //JJException.exceptionWhenTerminate = YES;
     
     BuglyConfig * config = [[BuglyConfig alloc] init];
-    config.debugMode = YES;
+    config.debugMode = NO;
     // 设置自定义日志上报的级别，默认不上报自定义日志
     config.reportLogLevel = BuglyLogLevelWarn;
     [Bugly startWithAppId:@"7e513e756e" config:config];
-//    [Bugly startWithAppId:@"7e513e756e"];
+    //[Bugly startWithAppId:@"7e513e756e"];
     
     
     // CC播放器 设置全局AVAudioSession
@@ -49,9 +48,7 @@
     }
     
     [self setupRootViewController];
-    
-    [SYSafeCategory callSafeCategory];
-    
+        
     return YES;
 }
 

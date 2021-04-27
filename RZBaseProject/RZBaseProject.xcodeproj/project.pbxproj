@@ -132,8 +132,6 @@
 		2A562B831FD68843007C0DBA /* NSObject+RZDog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562B821FD68843007C0DBA /* NSObject+RZDog.m */; };
 		2A562B8A1FD68875007C0DBA /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562B891FD68875007C0DBA /* Foundation+Log.m */; };
 		2A562BB81FD68939007C0DBA /* FDKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562B921FD68938007C0DBA /* FDKeychain.m */; };
-		2A562BBA1FD68939007C0DBA /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562B981FD68939007C0DBA /* JRSwizzle.m */; };
-		2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562B9A1FD68939007C0DBA /* SYSafeCategory.m */; };
 		2A562BBC1FD68939007C0DBA /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562B9D1FD68939007C0DBA /* UIView+Toast.m */; };
 		2A562BDB1FD68E1B007C0DBA /* RZAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562BD61FD68E1B007C0DBA /* RZAlertController.m */; };
 		2A562BDC1FD68E1B007C0DBA /* RZAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A562BD81FD68E1B007C0DBA /* RZAlertView.m */; };
@@ -375,10 +373,6 @@
 		2A562B891FD68875007C0DBA /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		2A562B911FD68938007C0DBA /* FDKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDKeychain.h; sourceTree = "<group>"; };
 		2A562B921FD68938007C0DBA /* FDKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDKeychain.m; sourceTree = "<group>"; };
-		2A562B971FD68939007C0DBA /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
-		2A562B981FD68939007C0DBA /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
-		2A562B991FD68939007C0DBA /* SYSafeCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYSafeCategory.h; sourceTree = "<group>"; };
-		2A562B9A1FD68939007C0DBA /* SYSafeCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYSafeCategory.m; sourceTree = "<group>"; };
 		2A562B9C1FD68939007C0DBA /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		2A562B9D1FD68939007C0DBA /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		2A562BCD1FD68BB9007C0DBA /* RZConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RZConstants.h; sourceTree = "<group>"; };
@@ -918,7 +912,6 @@
 			isa = PBXGroup;
 			children = (
 				2A562B901FD68938007C0DBA /* FDKeychain */,
-				2A562B961FD68939007C0DBA /* SySafeCategory */,
 				2A562B9B1FD68939007C0DBA /* Toast */,
 			);
 			path = Vender;
@@ -931,17 +924,6 @@
 				2A562B921FD68938007C0DBA /* FDKeychain.m */,
 			);
 			path = FDKeychain;
-			sourceTree = "<group>";
-		};
-		2A562B961FD68939007C0DBA /* SySafeCategory */ = {
-			isa = PBXGroup;
-			children = (
-				2A562B971FD68939007C0DBA /* JRSwizzle.h */,
-				2A562B981FD68939007C0DBA /* JRSwizzle.m */,
-				2A562B991FD68939007C0DBA /* SYSafeCategory.h */,
-				2A562B9A1FD68939007C0DBA /* SYSafeCategory.m */,
-			);
-			path = SySafeCategory;
 			sourceTree = "<group>";
 		};
 		2A562B9B1FD68939007C0DBA /* Toast */ = {
@@ -1500,7 +1482,6 @@
 				4CE5AF4B2137DBE400F11C6F /* RZPageVC.m in Sources */,
 				2A562BE11FD692A5007C0DBA /* NSDate+Extension.m in Sources */,
 				4C6591142244CA05001971C8 /* UIView+RZActivityView.m in Sources */,
-				2A562BBB1FD68939007C0DBA /* SYSafeCategory.m in Sources */,
 				0C0E87BC25C19FBE006586F8 /* ZLCollectionViewBaseFlowLayout.m in Sources */,
 				18416DE7255CD6730071B584 /* RZButton.m in Sources */,
 				4C42CA3B218AD1E9001FDC12 /* UIView+RZFrame.m in Sources */,
@@ -1536,7 +1517,6 @@
 				4C22C332212419360095E005 /* RZGCDVC.m in Sources */,
 				2A41F7BB1F29C59600239472 /* MF_Base64Additions.m in Sources */,
 				4C6591172248A0EC001971C8 /* RZTool.m in Sources */,
-				2A562BBA1FD68939007C0DBA /* JRSwizzle.m in Sources */,
 				0C11B7852616C07800AB2D87 /* RZTimerVC.m in Sources */,
 				0C0E87B925C19FBE006586F8 /* ZLCollectionViewLayoutAttributes.m in Sources */,
 				0C6189CC25A7102000149768 /* RZTable.swift in Sources */,
